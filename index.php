@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>TLDR</h1>
-    <a href="login-page.php">Login</a>
-    <a href="signup-page.php">Sign Up</a>
+    <a id="login-link" class="link" href="login-page.php">Login</a> <br>
+    <a id="signup-link" class="link" href="signup-page.php">Sign Up</a>
 </body>
 </html>
