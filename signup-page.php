@@ -11,7 +11,7 @@ require_once "inc/dbconn.inc.php";
     <meta name="description" content="">
     <title>Signup</title>
     <link rel="stylesheet" href="Style/login.css" />
-    <script src="sign-up.js" defer></script>
+    <script src="scripts/sign-up.js" defer></script>
 </head>
 
 <body>
@@ -21,10 +21,13 @@ require_once "inc/dbconn.inc.php";
         <input type="email" placeholder="E-mail" id="email" name="email"> <br>
 
         <label for="password">Password</label> <br>
-        <input type="text" placeholder="Password" id="password" name="password" minlength="8"> <br>
+        <input type="password" placeholder="Password" id="password" name="password" minlength="8"> <br>
 
         <label for="confirm-password">Confirm Password</label> <br>
-        <input type="text" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8">
+        <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8">
+
+        <input type="checkbox" onclick="togglePassword()" id="password-toggle" name="password-toggle">
+        <label for="password-toggle">Show Password</label> <br>
 
         <input type="submit" value="Sign up">
     </form>

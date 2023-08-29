@@ -1,7 +1,7 @@
 <?php
 
 define("DB_HOST", "localhost");
-define("DB_NAME", "pokemon");
+define("DB_NAME", "tldr");
 define("DB_USER", "dbadmin");
 define("DB_PASS", "");
 
