@@ -13,6 +13,7 @@ CREATE TABLE Users (
     firstName varchar(100),
     lastName varchar(100),
     dob date,
+    learner boolean DEFAULT 0,
     instructor boolean DEFAULT 0,
     supervisor boolean DEFAULT 0,
     licenseNo varchar(7)
@@ -42,3 +43,5 @@ CREATE TABLE DrivingTest (
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON tldr.Users to dbadmin@localhost;
+GRANT all privileges on tldr.Logbook to dbadmin@localhost;
+GRANT all privileges ON tldr.DrivingTest to dbadmin@localhost;
