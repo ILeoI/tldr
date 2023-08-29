@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <title>Signup</title>
     <link rel="stylesheet" href="Style/login.css" />
+    <script src="sign-up.js" defer></script>
 </head>
 
 <body>
