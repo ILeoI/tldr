@@ -16,16 +16,26 @@ CREATE TABLE Users (
     instructor boolean DEFAULT 0
 ) AUTO_INCREMENT = 1;
 
--- CREATE TABLE Logbook (
---     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
---     driver_id int not null,
---     drive_date date,
---     drive_time time
--- ) AUTO_INCREMENT = 1;
+CREATE TABLE SupervisingDrivers (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userID int NOT NULL,
+    licenseNo int NOT NULL
+) AUTO_INCREMENT = 1;
 
--- CREATE TABLE InstructorLogbook (
-
--- )
+CREATE TABLE Logbook (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userID int NOT NULL,
+    driveDate date,
+    startTime time,
+    endTime time,
+    duration int, 
+    fromLoc varchar(100),
+    toLoc varchar(100),
+    conditionRoad varchar(5),
+    conditionWeather varchar(5),
+    conditionTraffic varchar(5),
+    supervisingDriverID int NOT NULL
+) AUTO_INCREMENT = 1;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON tldr.Users to dbadmin@localhost;
