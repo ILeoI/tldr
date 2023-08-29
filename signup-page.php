@@ -1,3 +1,7 @@
+<?php
+require_once "inc/dbconn.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,11 +35,19 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-    $confirm_password = filter_input(INPUT_POST, "confirm-password", FILTER_SANITIZE_SPECIAL_CHARS);
 
-    
+    $hash_password = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO Users(email, password) VALUES('$email', '$hash_password');";
+
+    try {
+        mysqli_query($conn, $sql);
+        echo "works";
+    } catch (mysqli_sql_exception) {
+        echo "exists";
+    }
 }
 
 ?>

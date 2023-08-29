@@ -7,9 +7,8 @@ USE tldr;
 
 CREATE TABLE Users (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    username varchar(100),
-    password varchar(100),
     email varchar(100),
+    password varchar(100),
     firstName varchar(100),
     lastName varchar(100),
     dob date,
@@ -38,7 +37,7 @@ CREATE TABLE Logbook (
 CREATE TABLE DrivingTest (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     instructorID int NOT NULL,
-    driverID int NOT NULL,
+    driverID int NOT NULL
 ) AUTO_INCREMENT = 1;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
