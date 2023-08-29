@@ -24,7 +24,7 @@ require_once "inc/dbconn.inc.php";
         <input type="password" placeholder="Password" id="password" name="password" minlength="8"> <br>
 
         <label for="confirm-password">Confirm Password</label> <br>
-        <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8">
+        <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8"> <br>
 
         <input type="checkbox" onclick="togglePassword()" id="password-toggle" name="password-toggle">
         <label for="password-toggle">Show Password</label> <br>
@@ -47,9 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         mysqli_query($conn, $sql);
-        echo "works";
+        echo "acc created<br>";
+        echo "<a href=\"login-page.php\">Login</a>";
     } catch (mysqli_sql_exception) {
-        echo "exists";
+        echo "error/acc already exists";
     }
 }
 

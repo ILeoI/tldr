@@ -1,4 +1,4 @@
-// Show hide passwords
+// Show or hide passwords
 function togglePassword() {
     const password = document.getElementById("password");
     const confirmPassword = document.getElementById("confirm-password");

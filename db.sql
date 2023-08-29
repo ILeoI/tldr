@@ -7,8 +7,9 @@ USE tldr;
 
 CREATE TABLE Users (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    email varchar(100),
+    email varchar(100) UNIQUE,
     password varchar(100),
+    phoneNumber varchar(10),
     firstName varchar(100),
     lastName varchar(100),
     dob date,
