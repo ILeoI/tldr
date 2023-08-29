@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="TLDR Landing Page">
     <meta name="authors" content="WHIT1326">
+    <link rel="stylesheet" href="style/landing.css" />
     <title>TLDR</title>
 </head>
 <body>
