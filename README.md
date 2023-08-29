@@ -12,5 +12,5 @@ Jacob Cousins
 Forest Green - 048727
 Mint Green - CFFCFF
 Dim Grey - 69626D
-Smoky black - 141301
-Xanthous - F7B32B
+Smokey black - 141301
+Xanthous - yellow - F7B32B
