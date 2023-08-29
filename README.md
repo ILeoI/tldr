@@ -4,7 +4,7 @@ TLDR for COMP2030
 # Authored By
 Leo Whiteside, 
 Archie Nesbit,
-Leo Whiteside,
+Coby Murphy,
 Kris Alexander,
 Jacob Cousins
 
