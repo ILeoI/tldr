@@ -6,6 +6,7 @@
     <meta name="author" content="">
     <meta name="description" content="">
     <title>Signup</title>
+    <link rel="stylesheet" href="Styles/login.css" />
 </head>
 
 <body>

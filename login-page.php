@@ -5,6 +5,7 @@
     <meta name="author" content="">
     <meta name="description" content="">
     <title>Login</title>
+    <link rel="stylesheet" href="Styles/login.css" />
 </head>
 <body>
     <h1 class="page-title" id="login-page-header">Login Page</h1>

@@ -13,13 +13,10 @@ CREATE TABLE Users (
     firstName varchar(100),
     lastName varchar(100),
     dob date,
-    instructor boolean DEFAULT 0
-) AUTO_INCREMENT = 1;
-
-CREATE TABLE SupervisingDrivers (
-    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    userID int NOT NULL,
-    licenseNo int NOT NULL
+    learner boolean DEFAULT 0,
+    instructor boolean DEFAULT 0,
+    supervisor boolean DEFAULT 0,
+    licenseNo varchar(7)
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE Logbook (
@@ -34,8 +31,17 @@ CREATE TABLE Logbook (
     conditionRoad varchar(5),
     conditionWeather varchar(5),
     conditionTraffic varchar(5),
+    daytime boolean,
     supervisingDriverID int NOT NULL
+) AUTO_INCREMENT = 1;
+
+CREATE TABLE DrivingTest (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    instructorID int NOT NULL,
+    driverID int NOT NULL,
 ) AUTO_INCREMENT = 1;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges ON tldr.Users to dbadmin@localhost;
+GRANT all privileges on tldr.Logbook to dbadmin@localhost;
+GRANT all privileges ON tldr.DrivingTest to dbadmin@localhost;
