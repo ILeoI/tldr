@@ -18,13 +18,13 @@ require_once "inc/dbconn.inc.php";
     <h1 class="page-title" id="signup-page-header">Signup Page</h1>
     <form id="signup-form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
         <label for="email">E-mail</label> <br>
-        <input type="email" placeholder="E-mail" id="email" name="email"> <br>
+        <input type="email" placeholder="E-mail" id="email" name="email" required> <br>
 
         <label for="password">Password</label> <br>
-        <input type="password" placeholder="Password" id="password" name="password" minlength="8"> <br>
+        <input type="password" placeholder="Password" id="password" name="password" minlength="8" required> <br>
 
         <label for="confirm-password">Confirm Password</label> <br>
-        <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8"> <br>
+        <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8" required> <br>
        
         <input type="radio" id="user-type-learner" name="user-type" value="Learner">
         <label for="user-type-learner" id="learner-label">Learner</label>
