@@ -25,6 +25,13 @@ require_once "inc/dbconn.inc.php";
 
         <label for="confirm-password">Confirm Password</label> <br>
         <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8"> <br>
+       
+        <input type="radio" id="user-type-learner" name="user-type" value="Learner">
+        <label for="user-type-learner" id="learner-label">Learner</label>
+        <input type="radio" id="user-type-qsd" name="user-type" value="QSD">
+        <label for="user-type-qsd" id="learner-label">QSD</label>
+        <input type="radio" id="user-type-instructor" name="user-type" value="Instructor"> 
+        <label for="user-type-instructor" id="learner-label">Instructor</label> <br>
 
         <input type="checkbox" onclick="togglePassword()" id="password-toggle" name="password-toggle">
         <label for="password-toggle">Show Password</label> <br>
