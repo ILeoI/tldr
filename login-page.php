@@ -45,10 +45,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
-            echo "woo";
             header("location: home-page.php");
+        } else {
+            incorrectInfo();
         }
+    } else {
+        incorrectInfo();
     }
+}
+
+function incorrectInfo() {
+    echo "<p style=\"color: red;\">Incorrect account information!<br><a style=\"color: black; text-decoration: none\" href=\"forgot-password.php\">Forgot Password?</a></p>";
 }
 
 ?>
