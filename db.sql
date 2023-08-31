@@ -19,7 +19,7 @@ CREATE TABLE Users (
     licenseNo varchar(7)
 ) AUTO_INCREMENT = 1;
 
-CREATE TABLE Logbook (
+CREATE TABLE Drives (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     userID int NOT NULL,
     driveDate date,
@@ -35,13 +35,13 @@ CREATE TABLE Logbook (
     supervisingDriverID int NOT NULL
 ) AUTO_INCREMENT = 1;
 
-CREATE TABLE DrivingTest (
+CREATE TABLE LogbookCBTA (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     instructorID int NOT NULL,
     driverID int NOT NULL
 ) AUTO_INCREMENT = 1;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
-GRANT all privileges ON tldr.Users to dbadmin@localhost;
+GRANT all privileges on tldr.Users to dbadmin@localhost;
 GRANT all privileges on tldr.Logbook to dbadmin@localhost;
-GRANT all privileges ON tldr.DrivingTest to dbadmin@localhost;
+GRANT all privileges on tldr.DrivingTest to dbadmin@localhost;
