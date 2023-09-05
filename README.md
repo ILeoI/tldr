@@ -2,11 +2,10 @@
 TLDR for COMP2030
 
 # Authored By
-<<<<<<< HEAD
-Leo Whiteside, Archie Nesbit (NESB0028)<!--- PUT YOUR NAMES HERE !--->
-=======
-Leo Whiteside, <!--- PUT YOUR NAMES HERE !--->
-Kris Alexander
+Leo Whiteside, 
+Archie Nesbit,
+Coby Murphy,
+Kris Alexander,
 Jacob Cousins
 
 
