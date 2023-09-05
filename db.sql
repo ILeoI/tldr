@@ -32,13 +32,16 @@ CREATE TABLE Drives (
     conditionWeather varchar(5),
     conditionTraffic varchar(5),
     daytime boolean,
-    supervisingDriverID int NOT NULL
+    supervisingDriverID int NOT NULL,
+    verified boolean DEFAULT 0
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE LogbookCBTA (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     instructorID int NOT NULL,
-    driverID int NOT NULL
+    driverID int NOT NULL,
+    completeDate date,
+    
 ) AUTO_INCREMENT = 1;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
