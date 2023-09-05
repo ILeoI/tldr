@@ -46,5 +46,5 @@ CREATE TABLE LogbookCBTA (
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges on tldr.Users to dbadmin@localhost;
-GRANT all privileges on tldr.Logbook to dbadmin@localhost;
-GRANT all privileges on tldr.DrivingTest to dbadmin@localhost;
+GRANT all privileges on tldr.Drives to dbadmin@localhost;
+GRANT all privileges on tldr.LogbookCBTA to dbadmin@localhost;
