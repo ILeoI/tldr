@@ -41,7 +41,10 @@ CREATE TABLE LogbookCBTA (
     instructorID int NOT NULL,
     driverID int NOT NULL,
     completeDate date,
-    
+    unitNo int,
+    taskNo int,
+    assessmentNo int,
+    completed boolean DEFAULT 0
 ) AUTO_INCREMENT = 1;
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
