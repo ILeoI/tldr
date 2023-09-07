@@ -4,13 +4,6 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-        border: 50px solid #048727;
-        padding: 10px;
-       text-align: center;
-       width: 200px;
-background-color: #F7B32B;
-font-style: italic;
-color: #141301;
   }
 
   input[type="text"],
