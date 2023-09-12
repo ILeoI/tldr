@@ -25,7 +25,6 @@ CREATE TABLE Drives (
     driveDate date,
     startTime time,
     endTime time,
-    duration int, 
     fromLoc varchar(100),
     toLoc varchar(100),
     conditionRoad varchar(5),
