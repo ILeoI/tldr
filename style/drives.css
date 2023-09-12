@@ -4,6 +4,7 @@ h1 {
 
 body {
     background-color: #CFFCFF;
+    padding-top: 25px;
 }
 
 #add-drive-form {
@@ -12,6 +13,9 @@ body {
     min-width: 500px;
     width: 500px;
     background-color: white;
+    border-radius: 25px;    
+    box-shadow: 0px 0px 10px #888888;
+    padding: 15px;
 }
 
 #add-drive {
@@ -19,7 +23,6 @@ body {
 }
 
 .center {
-    border: 2px solid;
     margin: auto;
     width: 50%;
     padding: 10px;
@@ -32,7 +35,7 @@ ul {
 }
 
 li {
-    margin: 15px 0; 
+    margin: 20px 0; 
 }
 
 .submit {
@@ -49,12 +52,26 @@ label {
 }
 
 .text {
-    width: 250px;
+    width: 100%;
     border: solid;
     border-width: 1px;
     border-color: #d4dadc;
     display: block;
     padding: 5px;
 }
+
+.time {
+    display: flex;
+
+}
+
+
+.left {
+    margin-right: 10px;
+}
+
+
+
+
 
 

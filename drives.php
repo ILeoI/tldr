@@ -24,23 +24,31 @@ require_once "inc/dbconn.inc.php";
                 </li>
 
                 <li>
-                    <label for="start-time">Start Time</label><br>
-                    <input type="time" name="start-time" required>
+                    <div class="time">
+                        <div class="left"> 
+                            <label for="start-time">Start Time</label><br>
+                            <input type="time" name="start-time" required>
+                        </div>
+                        <div>
+                            <label for="end-time">End Time</label><br>
+                            <input type="time" name="end-time" required>
+                        </div>
+                    </div>
+                   
                 </li>
 
                 <li>
-                    <label for="end-time">End Time</label><br>
-                    <input type="time" name="end-time" required>
-                </li>
-
-                <li>
-                    <label for="start-location">Start Location</label><br>
-                    <input type="text" name="start-location" class="text" placeholder="Suburb" required>
-                </li>
-
-                <li>
-                    <label for="furthest-location">Furthest Location</label><br>
-                    <input type="text" name="furthest-location" class="text" placeholder="Suburb" required>
+                    <div class="time">
+                        <div class="left">
+                            <label for="start-location">Start Location</label><br>
+                            <input type="text" name="start-location" class="text" placeholder="Suburb" required>
+                        </div>
+                        <div>
+                            <label for="furthest-location">Furthest Location</label><br>
+                            <input type="text" name="furthest-location" class="text" placeholder="Suburb" required>
+                        </div>
+                    </div>
+                    
                 </li>
 
                 <li>
@@ -66,10 +74,10 @@ require_once "inc/dbconn.inc.php";
                 </li>
 
                 <li>
-                
-                    <input type="radio" name="time" value="1" required><label>Daytime</label>
-                    <input type="radio" name="time" value="0" required><label>Night-time</label>
-                    
+                    <div class="toggle">
+                        <input type="radio" name="time" value="1" required><label>Daytime</label>
+                        <input type="radio" name="time" value="0" required><label>Night-time</label>
+                    </div>
                 </li>
 
             </ul>
