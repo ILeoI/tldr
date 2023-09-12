@@ -1,5 +1,5 @@
 <?php
-    require_once "inc/session-start.inc.php";
+require_once "inc/session-start.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,23 +13,32 @@
 <body>
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $instructorID = $_SESSION["userID"];
+        $driverID = $_SESSION["learnerID"];
         $taskNo = $_GET["task"];
-        echo "Task: $taskNo";
-        echo "<br>";
         $sql = array();
         if ($taskNo == 1) {
-            $cabinDrill = [isChecked("cabin-drill-1"), isChecked("cabin-drill-2")];
-            $sql[] = "INSERT INTO LogbookCBTA(instructorID, driverID, completeDate, assessmentItemName, completed) VALUES(55, 55, now(), '', 1);";
-            echo "Cabin Drill: ";
-            print_r($cabinDrill);
-            echo "<br>";
+            if (isChecked("cabin-drill-1")) {
+                $sql[] = prepSQL($instructorID, $userID, "cabin-drill-1");
+            }
+
+            if (isChecked("cabin-drill-2")) {
+                $sql[] = prepSQL($instructorID, $userID, "cabin-drill-2");
+            }
+
             for ($i = 1; $i < 4; $i++) {
                 $controlName = getPost("control-$i-name");
-                $controlInput = [isChecked("control-$i-1"), isChecked("control-$i-2")];
-                echo "$controlName: ";
-                print_r($controlInput);
-                echo "<br>";
+                if (isChecked("control-$i-1")) {
+                    $sql[] = prepSQLWithValue($instructorID, $userID, "control-$i-1", $controlName);
+                }
+                if (isChecked("control-$i-2")) {
+                    $sql[] = prepSQLWithValue($instructorID, $userID, "control-$i-2", $controlName);
+                }
             }
+
+            echo "<pre>";
+            print_r($sql);
+            echo "</pre>";
         } else if ($taskNo == 2) {
             $start = [isChecked("start-engine1"), isChecked("start-engine2")];
             $end = [isChecked("stop-engine1"), isChecked("stop-engine2")];
@@ -115,5 +124,15 @@ function isChecked($name)
 function getPost($name)
 {
     return $_POST[$name];
+}
+
+function prepSQLWithValue($instructorID, $userID, $assessmentName, $assessmentValue)
+{
+    return "INSERT INTO LogbookCBTA(instructorID, driverID, completeDate, assessmentItemName, completed, assessmentValue) VALUES('$instructorID', '$userID', now(), '$assessmentName', '1', '$assessmentValue');";
+}
+
+function prepSQL($instructorID, $userID, $assessmentName)
+{
+    return "INSERT INTO LogbookCBTA(instructorID, driverID, completeDate, assessmentItemName, completed) VALUES('$instructorID', '$userID', now(), '$assessmentName', '1');";
 }
 ?>
