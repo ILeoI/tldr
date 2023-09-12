@@ -16,7 +16,7 @@ CREATE TABLE Users (
     learner boolean DEFAULT 0,
     instructor boolean DEFAULT 0,
     supervisor boolean DEFAULT 0,
-    licenseNo varchar(7)
+    licenseNo varchar(6)
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE Drives (

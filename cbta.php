@@ -65,7 +65,7 @@
         <input type="submit" value="Save">
     </form>
 
-    <form id="task2" name="task2" class="hidden">
+    <form id="task2" name="task2" class="hidden" action="add-cbta.php?task=2" method="POST">
         <label>Starting the engine:</label>
         <input type="checkbox" name="start-engine1">
         <input type="checkbox" name="start-engine2">
@@ -79,7 +79,7 @@
         <input type="submit" value="Save">
     </form>
 
-    <form id="task3" name="task3" class="hidden">
+    <form id="task3" name="task3" class="hidden" action="add-cbta.php?task=3" method="POST">
         <label>Move off from the kerb:</label>
         <input type="checkbox" name="move-off-kerb1">
         <input type="checkbox" name="move-off-kerb2">
@@ -88,7 +88,7 @@
         <input type="submit" value="Save">
     </form>
 
-    <form name="task4" id="task4" class="hidden">
+    <form name="task4" id="task4" class="hidden" action="add-cbta.php?task=4" method="POST">
         <label>Stop the vehicle <i>(include slowing)</i>:</label>
         <input type="checkbox" name="stop-vehicle1">
         <input type="checkbox" name="stop-vehicle2">
@@ -102,7 +102,7 @@
         <input type="submit" value="Save">
     </form>
 
-    <form name="task5" id="task5" class="hidden">
+    <form name="task5" id="task5" class="hidden" action="add-cbta.php?task=5" method="POST">
         <label>Stop and go <i>(using the park brake)</i>:</label>
         <input type="checkbox" name="park-brake1">
         <input type="checkbox" name="park-brake2">
@@ -111,7 +111,7 @@
         <input type="submit" value="Save">
     </form>
 
-    <form name="task6" id="task6" class="hidden">
+    <form name="task6" id="task6" class="hidden" action="add-cbta.php?task=6" method="POST">
         <label>(1) Change gears up and down <i>(100% accurate and a minimum of 5
                 demonstrations)</i></label>
         <br>
@@ -135,7 +135,7 @@
         <input type="submit" value="Save">
     </form>
 
-    <form name="task7" id="task7" class="hidden">
+    <form name="task7" id="task7" class="hidden" action="add-cbta.php?task=7" method="POST">
         <h4>Demonstration 1</h4>
         <label>(1) Steer in a forward direction <i>(minimum of 4 left and 4 right turns)</i></label>
         <ul>
@@ -191,7 +191,7 @@
         <input type="submit" value="Save">
     </form>
 
-    <form name="task8" id="task8" class="hidden">
+    <form name="task8" id="task8" class="hidden" action="add-cbta.php?task=8" method="POST">
 
     </form>
 </body>

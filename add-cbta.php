@@ -26,6 +26,13 @@
                 echo "<br>";
             }
         } else if ($taskNo == 2) {
+            $start = [isChecked("start-engine1"), isChecked("start-engine2")];
+            $end = [isChecked("stop-engine1"), isChecked("stop-engine2")];
+            echo "Start Engine: ";
+            print_r($start);
+            echo "<br>";
+            echo "End Engine: ";
+            print_r($end);
 
         } else if ($taskNo == 3) {
 
@@ -40,10 +47,11 @@
         } else if ($taskNo == 8) {
             
         }
-
+        
         echo "<pre>";
-        print_r($_POST);
+        print_r($_POST);    
         echo "</pre>";
+
     }
     ?>
 </body>
