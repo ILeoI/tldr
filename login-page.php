@@ -14,6 +14,7 @@ require_once "inc/dbconn.inc.php";
     <script src="scripts/login.js" defer></script>
 </head>
 
+
 <body>
     <div class="login">
         <h1 class="page-title" id="login-page-header">Login Page</h1>

@@ -1,13 +1,14 @@
 body {
-    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border:1px solid ;
+    border-color: #69626D;
+
   }
 
-  input[type="text"],
-  input[type = "email"]{
+.input-field{
     border: 1px solid;
     border-color: #69626D;
     padding: 10px;
@@ -16,3 +17,14 @@ body {
     box-sizing: border-box;
   }
 
+html{
+  border: solid 50px;
+  border-color: #CFFCFF ;
+}
+
+#footer{
+background-color: #CFFCFF;
+width: 150px;
+height: 150px;
+float: left;
+}
