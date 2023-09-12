@@ -58,11 +58,11 @@ CREATE TABLE PaymentDetails (
     cardExpiryMonth int,
     cardExpiryYear int,
     cardCVV int
-)
+);
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges on tldr.Users to dbadmin@localhost;
 GRANT all privileges on tldr.Drives to dbadmin@localhost;
 GRANT all privileges on tldr.LogbookCBTA to dbadmin@localhost;
-GRANT all privileges on tldr.Invoices to dbadmin@localhost;
+GRANT all privileges on tldr.InvoiceDetails to dbadmin@localhost;
 GRANT all privileges on tldr.PaymentDetails to dbadmin@localhost;

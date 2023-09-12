@@ -1,4 +1,5 @@
 <?php
+require_once "inc/dbconn.inc.php";
 require_once "inc/session-start.inc.php";
 ?>
 
@@ -14,29 +15,38 @@ require_once "inc/session-start.inc.php";
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $instructorID = $_SESSION["userID"];
-        $driverID = $_SESSION["learnerID"];
+        // $driverID = $_SESSION["learnerID"];
+        $driverID = 5;
         $taskNo = $_GET["task"];
         $sql = array();
         if ($taskNo == 1) {
             if (isChecked("cabin-drill-1")) {
-                $sql[] = prepSQL($instructorID, $userID, "cabin-drill-1");
+                $sql[] = prepSQL($instructorID, $driverID, "cabin-drill-1");
             }
 
             if (isChecked("cabin-drill-2")) {
-                $sql[] = prepSQL($instructorID, $userID, "cabin-drill-2");
+                $sql[] = prepSQL($instructorID, $driverID, "cabin-drill-2");
             }
 
             for ($i = 1; $i < 4; $i++) {
                 $controlName = getPost("control-$i-name");
                 if (isChecked("control-$i-1")) {
-                    $sql[] = prepSQLWithValue($instructorID, $userID, "control-$i-1", $controlName);
+                    $sql[] = prepSQLWithValue($instructorID, $driverID, "control-$i-1", $controlName);
                 }
                 if (isChecked("control-$i-2")) {
-                    $sql[] = prepSQLWithValue($instructorID, $userID, "control-$i-2", $controlName);
+                    $sql[] = prepSQLWithValue($instructorID, $driverID, "control-$i-2", $controlName);
                 }
             }
 
-            echo "<pre>";
+            foreach ($sql as $line) {
+                try {
+                    mysqli_query($conn, $line);
+                } catch (mysqli_sql_exception) {
+                    echo "nice try buddy";
+                }
+            }
+
+            echo "<pre>SQL";
             print_r($sql);
             echo "</pre>";
         } else if ($taskNo == 2) {
@@ -103,6 +113,7 @@ require_once "inc/session-start.inc.php";
         }
 
         echo "<pre>";
+        echo "POST";
         print_r($_POST);
         echo "</pre>";
     }
