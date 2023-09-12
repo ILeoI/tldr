@@ -1,3 +1,7 @@
+<?php
+    require_once "inc/session-start.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +16,13 @@
         $taskNo = $_GET["task"];
         echo "Task: $taskNo";
         echo "<br>";
+        $sql = array();
         if ($taskNo == 1) {
             $cabinDrill = [isChecked("cabin-drill-1"), isChecked("cabin-drill-2")];
+            $sql[] = "INSERT INTO LogbookCBTA(instructorID, driverID, completeDate, assessmentItemName, completed) VALUES(55, 55, now(), '', 1);";
             echo "Cabin Drill: ";
             print_r($cabinDrill);
             echo "<br>";
-            $controlInputs = [[]];
             for ($i = 1; $i < 4; $i++) {
                 $controlName = getPost("control-$i-name");
                 $controlInput = [isChecked("control-$i-1"), isChecked("control-$i-2")];
@@ -31,27 +36,66 @@
             echo "Start Engine: ";
             print_r($start);
             echo "<br>";
-            echo "End Engine: ";
+            echo "Stop Engine: ";
             print_r($end);
-
         } else if ($taskNo == 3) {
-
+            $kerb = [isChecked("move-off-kerb1"), isChecked("move-off-kerb2")];
+            echo "Kerb: ";
+            print_r($kerb);
         } else if ($taskNo == 4) {
-
+            $stop = [isChecked("stop-vehicle1"), isChecked("stop-vehicle2")];
+            $secure = [isChecked("stop-roll1"), isChecked("stop-roll2")];
+            echo "Stop vehicle: ";
+            print_r($stop);
+            echo "<br>";
+            echo "Secure vehicle: ";
+            print_r($secure);
         } else if ($taskNo == 5) {
-
+            $stopgo = [isChecked("park-brake1"), isChecked("park-brake2")];
+            echo "Stop & Go: ";
+            print_r($stopgo);
         } else if ($taskNo == 6) {
-
+            $changeGear = array();
+            for ($i = 1; $i < 6; $i++) {
+                $changeGear[] = isChecked("change-gear$i");
+            }
+            echo "Change Gears: ";
+            print_r($changeGear);
+            echo "<br>";
+            $selectGear = array();
+            for ($i = 1; $i < 6; $i++) {
+                $selectGear[] = isChecked("select-valid-gear$i");
+            }
+            echo "Select Gears: ";
+            print_r($selectGear);
         } else if ($taskNo == 7) {
+            for ($i = 1; $i < 3; $i++) {
+                $left = array();
+                $right = array();
+                for ($j = 1; $j < 5; $j++) {
+                    $left[] = isChecked("steer-forward-left$i$j");
+                    $right[] = isChecked("steer-forward-right$i$j");
+                }
 
+                echo "Left forward turns: ";
+                print_r($left);
+                echo "<br>";
+                echo "Right forward turns: ";
+                print_r($right);
+                echo "<br>";
+
+                $reverse = isChecked("steer-reverse-left$i");
+                echo "Left reverse turn: ";
+                echo "$reverse";
+                echo "<br>";
+                echo "<br>";
+            }
         } else if ($taskNo == 8) {
-            
         }
-        
-        echo "<pre>";
-        print_r($_POST);    
-        echo "</pre>";
 
+        echo "<pre>";
+        print_r($_POST);
+        echo "</pre>";
     }
     ?>
 </body>
@@ -59,16 +103,17 @@
 </html>
 
 <?php
-    function isChecked($name) 
-    {
-        if (isset($_POST[$name])) {
-            return 1;
-        } else {
-            return 0;
-        }
+function isChecked($name)
+{
+    if (isset($_POST[$name])) {
+        return 1;
+    } else {
+        return 0;
     }
+}
 
-    function getPost($name) {
-        return $_POST[$name];
-    }
+function getPost($name)
+{
+    return $_POST[$name];
+}
 ?>

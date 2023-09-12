@@ -41,13 +41,29 @@ CREATE TABLE LogbookCBTA (
     instructorID int NOT NULL,
     driverID int NOT NULL,
     completeDate date,
-    unitNo int,
-    taskNo int,
-    assessmentNo int,
-    completed boolean DEFAULT 0
+    assessmentItemName varchar(25),
+    completed boolean DEFAULT 0,
+    assessmentValue varchar(15) DEFAULT NULL
 ) AUTO_INCREMENT = 1;
+
+CREATE TABLE InvoiceDetails (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    learnerID int,
+    instructorID int,
+    paymentAmount int
+) AUTO_INCREMENT = 1;
+
+CREATE TABLE PaymentDetails (
+    userID int NOT NULL PRIMARY KEY,
+    cardNumber varchar(16),
+    cardExpiryMonth int,
+    cardExpiryYear int,
+    cardCVV int
+)
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges on tldr.Users to dbadmin@localhost;
 GRANT all privileges on tldr.Drives to dbadmin@localhost;
 GRANT all privileges on tldr.LogbookCBTA to dbadmin@localhost;
+GRANT all privileges on tldr.Invoices to dbadmin@localhost;
+GRANT all privileges on tldr.PaymentDetails to dbadmin@localhost;

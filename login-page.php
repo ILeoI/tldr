@@ -37,6 +37,7 @@ require_once "inc/dbconn.inc.php";
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    session_start();
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -45,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
+            $_SESSION["userID"] = $row["id"];
             header("location: home-page.php");
         } else {
             incorrectInfo();
