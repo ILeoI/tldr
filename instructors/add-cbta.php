@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION["learnerID"])) {
         $driverID = $_SESSION["learnerID"];
     } else {
-        header("location: cbta.php");
+        header("location: instructors/cbta.php");
     }
     $taskNo = $_GET["task"];
     $sql = array();
