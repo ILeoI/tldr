@@ -19,6 +19,13 @@ CREATE TABLE Users (
     licenseNo varchar(6)
 ) AUTO_INCREMENT = 1;
 
+CREATE TABLE InstructorLearners (
+    instructorID int NOT NULL,
+    learnerID int NOT NULL,
+
+    PRIMARY KEY(instructorID, learnerID)
+);
+
 CREATE TABLE Drives (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     userID int NOT NULL,
@@ -66,3 +73,4 @@ GRANT all privileges on tldr.Drives to dbadmin@localhost;
 GRANT all privileges on tldr.LogbookCBTA to dbadmin@localhost;
 GRANT all privileges on tldr.InvoiceDetails to dbadmin@localhost;
 GRANT all privileges on tldr.PaymentDetails to dbadmin@localhost;
+GRANT all privileges on tldr.InstructorLearners to dbadmin@localhost;
