@@ -1,6 +1,6 @@
 <?php
-require_once "inc/dbconn.inc.php";
-require_once "inc/session-start.inc.php";
+require_once "../inc/dbconn.inc.php";
+require_once "../inc/session-start.inc.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $instructorID = $_SESSION["userID"];

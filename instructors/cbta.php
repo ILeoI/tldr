@@ -1,6 +1,6 @@
 <?php
-require_once "inc/dbconn.inc.php";
-require_once "inc/session-start.inc.php";
+require_once "../inc/dbconn.inc.php";
+require_once "../inc/session-start.inc.php";
 
 ?>
 
@@ -10,8 +10,8 @@ require_once "inc/session-start.inc.php";
 <head>
     <meta charset="UTF-8">
     <title>TLDR: CBT&A</title>
-    <script src="scripts/cbta.js" defer></script>
-    <link rel="stylesheet" href="style/cbta.css" />
+    <script src="../scripts/cbta.js" defer></script>
+    <link rel="stylesheet" href="../style/cbta.css" />
 </head>
 
 <body>
@@ -64,7 +64,7 @@ require_once "inc/session-start.inc.php";
         <option value="8">Task 8</option>
     </select>
 
-    <form id="task1" name="task1" class="hidden" action="instructors/add-cbta.php?task=1" method="POST">
+    <form id="task1" name="task1" class="hidden" action="add-cbta.php?task=1" method="POST">
 
         <?php
         function isSelectedOption($value_result, $name, $i)
@@ -130,7 +130,7 @@ require_once "inc/session-start.inc.php";
         <input type="submit" value="Save">
     </form>
 
-    <form id="task2" name="task2" class="hidden" action="instructors/add-cbta.php?task=2" method="POST">
+    <form id="task2" name="task2" class="hidden" action="add-cbta.php?task=2" method="POST">
         <label>Starting the engine:</label>
         <input type="checkbox" name="start-engine1" <?php echo (in_array("start-engine1", $db_result) ? "checked disabled=\"disabled\"" : "") ?>>
         <input type="checkbox" name="start-engine2" <?php echo (in_array("start-engine2", $db_result) ? "checked disabled=\"disabled\"" : "") ?>>
@@ -144,7 +144,7 @@ require_once "inc/session-start.inc.php";
         <input type="submit" value="Save">
     </form>
 
-    <form id="task3" name="task3" class="hidden" action="instructors/add-cbta.php?task=3" method="POST">
+    <form id="task3" name="task3" class="hidden" action="add-cbta.php?task=3" method="POST">
         <label>Move off from the kerb:</label>
         <input type="checkbox" name="move-off-kerb1" <?php echo (in_array("move-off-kerb1", $db_result) ? "checked disabled=\"disabled\"" : "") ?>>
         <input type="checkbox" name="move-off-kerb2" <?php echo (in_array("move-off-kerb2", $db_result) ? "checked disabled=\"disabled\"" : "") ?>>
@@ -153,7 +153,7 @@ require_once "inc/session-start.inc.php";
         <input type="submit" value="Save">
     </form>
 
-    <form name="task4" id="task4" class="hidden" action="instructors/add-cbta.php?task=4" method="POST">
+    <form name="task4" id="task4" class="hidden" action="add-cbta.php?task=4" method="POST">
         <label>Stop the vehicle <i>(include slowing)</i>:</label>
         <input type="checkbox" name="stop-vehicle1" <?php echo (in_array("stop-vehicle1", $db_result) ? "checked disabled=\"disabled\"" : "") ?>>
         <input type="checkbox" name="stop-vehicle2" <?php echo (in_array("stop-vehicle2", $db_result) ? "checked disabled=\"disabled\"" : "") ?>>
@@ -167,7 +167,7 @@ require_once "inc/session-start.inc.php";
         <input type="submit" value="Save">
     </form>
 
-    <form name="task5" id="task5" class="hidden" action="instructors/add-cbta.php?task=5" method="POST">
+    <form name="task5" id="task5" class="hidden" action="add-cbta.php?task=5" method="POST">
         <label>Stop and go <i>(using the park brake)</i>:</label>
         <input type="checkbox" name="park-brake1" <?php echo (in_array("park-brake1", $db_result) ? "checked disabled=\"disabled\"" : "") ?>>
         <input type="checkbox" name="park-brake2" <?php echo (in_array("park-brake2", $db_result) ? "checked disabled=\"disabled\"" : "") ?>>
@@ -176,7 +176,7 @@ require_once "inc/session-start.inc.php";
         <input type="submit" value="Save">
     </form>
 
-    <form name="task6" id="task6" class="hidden" action="instructors/add-cbta.php?task=6" method="POST">
+    <form name="task6" id="task6" class="hidden" action="add-cbta.php?task=6" method="POST">
         <label>(1) Change gears up and down <i>(100% accurate and a minimum of 5
                 demonstrations)</i></label>
         <br>
@@ -200,7 +200,7 @@ require_once "inc/session-start.inc.php";
         <input type="submit" value="Save">
     </form>
 
-    <form name="task7" id="task7" class="hidden" action="instructors/add-cbta.php?task=7" method="POST">
+    <form name="task7" id="task7" class="hidden" action="add-cbta.php?task=7" method="POST">
         <h4>Demonstration 1</h4>
         <label>(1) Steer in a forward direction <i>(minimum of 4 left and 4 right turns)</i></label>
         <ul>
@@ -256,7 +256,7 @@ require_once "inc/session-start.inc.php";
         <input type="submit" value="Save">
     </form>
 
-    <form name="task8" id="task8" class="hidden" action="instructors/add-cbta.php?task=8" method="POST">
+    <form name="task8" id="task8" class="hidden" action="add-cbta.php?task=8" method="POST">
 
     </form>
 </body>
