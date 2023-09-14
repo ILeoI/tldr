@@ -42,11 +42,11 @@ require_once "../inc/session-start.inc.php";
     }
 
 
-    echo "<pre>db_result";
-    print_r($db_result);
-    echo "value_result";
-    print_r($value_result);
-    echo "</pre>";
+    // echo "<pre>db_result";
+    // print_r($db_result);
+    // echo "value_result";
+    // print_r($value_result);
+    // echo "</pre>";
 
     ?>
 
