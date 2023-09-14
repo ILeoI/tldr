@@ -8,11 +8,11 @@
       if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         if ($row["instructor"] == 1) {
-          require_once "instructor-home-page.php";
+          require_once "instructors/instructor-home-page.php";
         } else if ($row["learner"] == 1) {
           require_once "learners/learner-home-page.php";
         } else if ($row["supervisor"] == 1) {
-          require_once "supervisor-home-page.php";
+          require_once "qsds/supervisor-home-page.php";
         }
       }
     }
