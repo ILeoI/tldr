@@ -68,11 +68,6 @@
 
     $all_minutes["total"] = $all_minutes["day"] + $all_minutes["night"];
 
-    // echo "<pre>";
-    // print_r($all_minutes);
-    // echo $all_minutes["total"] / 4500;
-    // echo "</pre>";
-
     $cbta = 0;
 
     $sql = "SELECT count(*) FROM LogbookCBTA WHERE driverID = '$id' AND completed = '1';";
