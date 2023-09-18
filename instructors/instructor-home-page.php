@@ -22,13 +22,17 @@
             </button>
             <div class="dropdown-content">
                 <a href="drives.php">Drives Log</a>
-                <a href="cbta.php">CBTA</a>
+                <a href="instructors/cbta.php">CBTA</a>
+                <a href="instructors/your-students.php">Your Students</a>
                 <a href="your-account.php">Account</a>
             </div>
         </div>
         <label>Home Page</label>
     </h1>
     <?php
+    // Assuming $conn is the connection to your database
+
+    // Retrieve instructor's name
     $id = $_SESSION["userID"];
     $sql = "SELECT firstName, lastName FROM Users WHERE id = '$id';";
     if ($result = mysqli_query($conn, $sql)) {
@@ -37,43 +41,43 @@
             echo "<p>Welcome " . $row["firstName"] . " " . $row["lastName"] . ".</p>";
         }
     }
+
+    // Retrieve instructor's bookings
+    $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location
+            FROM bookings
+            JOIN Users ON bookings.learnerID = Users.id
+            WHERE bookings.instructorID = '$id';";
+
+    echo "<table>
+            <tr>
+                <caption>Your Bookings</caption>
+                <th>Name</th>
+                <th>Time</th>
+                <th>Location</th> 
+            </tr>";
+
+    if ($result = mysqli_query($conn, $sql)) {
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>
+                        <td>{$row['firstName']} {$row['lastName']}</td>
+                        <td>{$row['time']}</td>
+                        <td>{$row['location']}</td>
+                      </tr>";
+            }
+        } else {
+            echo "<tr><td colspan='3'>No bookings found.</td></tr>";
+        }
+    }
+
+    echo "</table>";
     ?>
 
-<table>
-  
-<tr>
-<caption>Your Bookings</caption>
-    <th>Name</th>
-    <th>Time</th>
-    <th>Location</th> 
-</tr>
-
-<tr> 
-    <td>Column 1</td>
-    <td>Column 2</td>
-    <td>Column 3</td>
-  </tr>
-  <tr> 
-    <td>Column 1</td>
-    <td>Column 2</td>
-    <td>Column 3</td>
-  </tr>
-  <tr>
-    <td>Column 1</td>
-    <td>Column 2</td>
-    <td>Column 3</td>
-  </tr>
-</table>
-
-<div class="button-container">
-  <a href="instructors/add-lesson.php">
-    <button class="add-lesson-button">Add Lesson</button>
-  </a>
-</div>
-
-
-
-    
+    <div class="button-container">
+        <a href="instructors/add-lesson.php">
+            <button class="add-lesson-button">Add Lesson</button>
+        </a>
+    </div>
 
 </body>
 
