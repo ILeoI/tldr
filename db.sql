@@ -32,6 +32,7 @@ CREATE TABLE Drives (
     driveDate date,
     startTime time,
     endTime time,
+    duration time GENERATED ALWAYS AS (TIMEDIFF(endTime, startTime)),
     fromLoc varchar(100),
     toLoc varchar(100),
     conditionRoad varchar(5),

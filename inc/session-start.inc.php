@@ -1,6 +1,6 @@
 <?php
     session_start();
     if(!isset($_SESSION["userID"])) {
-        header("location: login-page.php");
+        header("location: " . $_SERVER['DOCUMENT_ROOT'] . "/login-page.php");
     }
 ?>
