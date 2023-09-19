@@ -26,27 +26,27 @@
                 echo '<div class="account-info">
                         <table>
                             <tr>
-                                <th>Field</th>
-                                <th>Value</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                             <tr>
-                                <td>Email</td>
+                                <td>Email: </td>
                                 <td>' . $user['email'] . '</td>
                             </tr>
                             <tr>
-                                <td>Phone Number</td>
+                                <td>Phone Number: </td>
                                 <td>' . $user['phoneNumber'] . '</td>
                             </tr>
                             <tr>
-                                <td>License Number</td>
+                                <td>License Number: </td>
                                 <td>' . $user['licenseNo'] . '</td>
                             </tr>
                             <tr>
-                                <td>First Name</td>
+                                <td>First Name: </td>
                                 <td>' . $user['firstName'] . '</td>
                             </tr>
                             <tr>
-                                <td>Last Name</td>
+                                <td>Last Name: </td>
                                 <td>' . $user['lastName'] . '</td>
                             </tr>
                             <!-- Add more rows for other fields as needed -->
