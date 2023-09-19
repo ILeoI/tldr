@@ -39,7 +39,7 @@ require_once "inc/dbconn.inc.php";
         mysqli_close($conn);
 
         ?>
-        
+
     </div>
 
     <h1>Drive History</h1>
@@ -49,7 +49,7 @@ require_once "inc/dbconn.inc.php";
         <?php
         require_once "inc/dbconn.inc.php";
 
-        $sql = "SELECT *, FROM Drives;";
+        $sql = "SELECT * FROM Drives;";
 
         if ($result = mysqli_query($conn, $sql)) {
 
