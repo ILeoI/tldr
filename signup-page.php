@@ -2,11 +2,9 @@
 require_once "inc/dbconn.inc.php";
 ?>
 
-<div></div>
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="">
@@ -32,24 +30,24 @@ require_once "inc/dbconn.inc.php";
             <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8" required> <br>
         </div>
         <div class="input-field">
-            <label for="first-name">First Name</label><br>
+            <label for="first-name">First Name</label>
             <input type="text" id="first-name" name="first-name" required placeholder="First Name">
         </div>
         <div class="input-field">
-            <label for="last-name">Last Name</label><br>
+            <label for="last-name">Last Name</label>
             <input type="text" id="last-name" name="last-name" required placeholder="Last Name">
         </div>
         <div class="input-field">
-            <label for="dob">Date of birth</label><br>
+            <label for="dob">Date of birth</label>
             <input type="date" id="dob" name="dob" required>
         </div>
         <div class="input-field">
-            <label for="phone-number">Phone Number</label><br>
+            <label for="phone-number">Phone Number</label>
             <input type="text" id="phone-number" name="phone-number" minlength="10" required placeholder="Phone Number">
         </div>
 
         <div class="input-field">
-            <label for="license-number">License Number</label><br>
+            <label for="license-number">License Number</label>
             <input type="text" id="license-number" name="license-number" required placeholder="License Number">
         </div>
         <div class="input-field">

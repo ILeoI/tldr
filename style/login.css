@@ -1,33 +1,18 @@
 body {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border:5px solid ;
-    border-color: #69626D;
-    background-color: #CFFCFF;
   }
 
-.input-field{
+  input[type="text"],
+  input[type = "email"]{
+    border: 1px solid;
+    border-color: #69626D;
     padding: 10px;
     margin: 10px 0;
     width: 100%;
     box-sizing: border-box;
   }
-
-html{
-  border: solid 50px;
-  border-color: #CFFCFF ;
-  border-right: none;
-  border-left: none;
-  background-image:url(../Images/gov-sa-logo.png), url(../Images/sa-logo.png),url(../Images/car.png);
-  background-size: 190px, 145px, 600px;
-  background-repeat: no-repeat;
-  background-position:top 0px right 10px, top 0px right 205px, left 250px bottom 0px;
-}
-
-
-
-
 

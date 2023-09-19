@@ -80,34 +80,44 @@
 
     ?>
     <ul style="list-style: none; padding-left: 0px">
-        <li>
-            <!-- Logbook Drives Total Progress -->
+    <li>
+        <!-- Logbook Drives Total Progress -->
+        <div class="progress-container">
+            <div class="progress-label">Total Progress</div>
             <div class="progress-bar" style="
-            background: 
-                radial-gradient(closest-side, white 79%, transparent 80% 100%),
-                conic-gradient(green <?php echo round(($all_minutes["total"] / 4500) * 100, 2); ?>%, #d1fff1 0);">
+                background: 
+                    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+                    conic-gradient(green <?php echo round(($all_minutes["total"] / 4500) * 100, 2); ?>%, #d1fff1 0);">
                 <p><?php echo round(($all_minutes["total"] / 4500) * 100, 2); ?>%</p>
             </div>
-        </li>
-        <li>
-            <!-- Logbook Drives Night Progress -->
+        </div>
+    </li>
+    <li>
+        <!-- Logbook Drives Night Progress -->
+        <div class="progress-container">
+            <div class="progress-label">Night Progress</div>
             <div class="progress-bar" style="   
-            background: 
-                radial-gradient(closest-side, white 79%, transparent 80% 100%),
-                conic-gradient(#383836 <?php echo round(($all_minutes["night"] / 900) * 100, 2); ?>%, #d1fff1 0);">
+                background: 
+                    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+                    conic-gradient(#383836 <?php echo round(($all_minutes["night"] / 900) * 100, 2); ?>%, #d1fff1 0);">
                 <p><?php echo round(($all_minutes["night"] / 900) * 100, 2); ?>%</p>
             </div>
-        </li>
-        <li>
-            <!-- Logbook CBTA Progress -->
+        </div>
+    </li>
+    <li>
+        <!-- Logbook CBTA Progress -->
+        <div class="progress-container">
+            <div class="progress-label">CBTA Progress</div>
             <div class="progress-bar" style="
-            background: 
-                radial-gradient(closest-side, white 79%, transparent 80% 100%),
-                conic-gradient(#e6d150 <?php echo round(($cbta / 48) * 100, 2); ?>%, #d1fff1 0);">
+                background: 
+                    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+                    conic-gradient(#e6d150 <?php echo round(($cbta / 48) * 100, 2); ?>%, #d1fff1 0);">
                 <p><?php echo round(($cbta / 48) * 100, 2); ?>%</p>
             </div>
-        </li>
-    </ul>
+        </div>
+    </li>
+</ul>
+
 
 </body>
 

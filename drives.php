@@ -1,6 +1,5 @@
 <?php
 require_once "inc/dbconn.inc.php";
-require_once "inc/session-start.inc.php"
 ?>
 
 <!DOCTYPE html>
@@ -15,93 +14,116 @@ require_once "inc/session-start.inc.php"
 
 <body>
 
-    <h1>Verify Drive</h1>
+    <div class="center" id="add-drive-form">
+        <form id="add-drive" action="drives.php" method="POST">
+            <h1>Add Drive</h1>
+            <ul>
+                <li>
+                    <label for="date">Date</label><br>
+                    <input type="date" name="date" required>
+                </li>
 
-    <div class="center" id="verify-drive">
+                <li>
+                    <div class="time">
+                        <div class="left"> 
+                            <label for="start-time">Start Time</label><br>
+                            <input type="time" name="start-time" required>
+                        </div>
+                        <div>
+                            <label for="end-time">End Time</label><br>
+                            <input type="time" name="end-time" required>
+                        </div>
+                    </div>
+                   
+                </li>
 
-        <?php
+                <li>
+                    <div class="time">
+                        <div class="left">
+                            <label for="start-location">Start Location</label><br>
+                            <input type="text" name="start-location" class="text" placeholder="Suburb" required>
+                        </div>
+                        <div>
+                            <label for="furthest-location">Furthest Location</label><br>
+                            <input type="text" name="furthest-location" class="text" placeholder="Suburb" required>
+                        </div>
+                    </div>
+                    
+                </li>
 
-        $sql = "SELECT *, FROM Drives, WHERE verified=0;";
+                <li>
+                    <label>Road Type</label><br>
+                    <input type="radio" name="road-type" value="s" required><label>Sealed</label>
+                    <input type="radio" name="road-type" value="us" required><label>Unsealed</label><br>
+                    <input type="radio" name="road-traffic" value="qs" required><label>Quiet Street</label>
+                    <input type="radio" name="road-traffic" value="br" required><label>Busy Road</label>
+                    <input type="radio" name="road-traffic" value="mlr" required><label>Multi-laned Road</label>
+                </li>
 
-        if ($result = mysqli_query($conn, $sql)) {
+                <li>
+                    <label>Weather</label><br>
+                    <input type="radio" name="weather" value="dry" required><label for="dry">Dry</label>
+                    <input type="radio" name="weather" value="wet" required><label for="wet">Wet</label>
+                </li>
 
-            if (mysqli_num_rows($result) > 0) {
+                <li>
+                    <label>Traffic Density</label><br>
+                    <input type="radio" name="traffic-density" value="L" required><label>Light</label>
+                    <input type="radio" name="traffic-density" value="M" required><label>Medium</label>
+                    <input type="radio" name="traffic-density" value="H" required><label>Heavy</label>
+                </li>
 
+                <li>
+                    <div class="toggle">
+                        <input type="radio" name="time" value="1" required><label>Daytime</label>
+                        <input type="radio" name="time" value="0" required><label>Night-time</label>
+                    </div>
+                </li>
 
-                echo "<ul id=\"verify-drive\">";
-                while ($row = mysqli_fetch_assoc($result)) {
-                }
-                echo "</ul>";
+            </ul>
+            <input type="submit" class="submit" value="Submit">
 
-                mysqli_free_result($result);
-            }
-        }
-        mysqli_close($conn);
-
-        ?>
-
+        </form>
     </div>
 
-    <h1>Drive History</h1>
-
-    <div class="center" id="drive-history">
-
-        <?php
-        require_once "inc/dbconn.inc.php";
-
-        $sql = "SELECT * FROM Drives;";
-
-        if ($result = mysqli_query($conn, $sql)) {
-
-            if (mysqli_num_rows($result) > 0) {
-
-
-                echo "<ul id=\"history\">";
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $XX = $row["id"];
-                    echo "<li>" . $row["id"] . "</li>";
-                    echo "<li>" . $row["userID"] . "</li>";
-                    echo "<li>" . $row["driveDate"] . "</li>";
-                    echo "<li>" . $row["startTime"] . "</li>";
-                    echo "<li>" . $row["endTime"] . "</li>";
-                    echo "<li>" . $row["fromLoc"] . "</li>";
-                    echo "<li>" . $row["toLoc"] . "</li>";
-                    echo "<li>" . $row["conditionRoad"] . "</li>";
-                    echo "<li>" . $row["conditionWeather"] . "</li>";
-                    echo "<li>" . $row["conditionTraffic"] . "</li>";
-                    echo "<li>" . $row["daytime"] . "</li>";
-                    echo "<li>" . $row["supervisingDriverID"] . "</li>";
-                    echo "<li>" . $row["verified"] . "</li>";
-                }
-                echo "</ul>";
-
-                mysqli_free_result($result);
-            }
-        }
-        mysqli_close($conn);
-
-        // id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        // userID int NOT NULL,
-        // driveDate date,
-        // startTime time,
-        // endTime time,
-        // fromLoc varchar(100),
-        // toLoc varchar(100),
-        // conditionRoad varchar(5),
-        // conditionWeather varchar(5),
-        // conditionTraffic varchar(5),
-        // daytime boolean,
-        // supervisingDriverID int NOT NULL,
-        // verified boolean DEFAULT 0
-
-
-        ?>
-
-
-    </div>
-
-
+    
 </body>
 
 </html>
 
+<?php 
+
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    
+
+    print_r($_POST);
+
+    $learnerID = 1;
+    $driveDate = $_POST["date"];
+    $startTime = $_POST["start-time"];
+    $endTime = $_POST["end-time"];
+    $fromLoc = filter_input(INPUT_POST, "start-location", FILTER_SANITIZE_SPECIAL_CHARS);
+    $toLoc = filter_input(INPUT_POST, "furthest-location", FILTER_SANITIZE_SPECIAL_CHARS);
+    $road = $_POST["road-type"] . ' ' . $_POST["road-traffic"]; 
+    $conditionWeather = $_POST["weather"];
+    $conditionTraffic = $_POST["traffic-density"];
+    $daytime = $_POST["time"];
+    $supervisingDriverID = 555;
+    $verified = 1;
+    
+    $sql = "INSERT INTO Drives(userID, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, supervisingDriverID, verified) 
+            VALUES('$learnerID', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$road', '$conditionWeather', '$conditionTraffic', '$daytime', '$supervisingDriverID', '$verified');";
+
+    try {
+        mysqli_query($conn, $sql);
+        echo "Drive Added<br>";
+    } catch (mysqli_sql_exception) {
+        echo "nice try buddy";
+    }
+}
+
+?>
