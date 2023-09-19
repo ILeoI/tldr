@@ -76,6 +76,14 @@ CREATE TABLE PaymentDetails (
     cardCVV int
 );
 
+CREATE TABLE bookings (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+     instructorID int NOT NULL,
+    learnerID int NOT NULL,
+    time DATETIME NOT NULL,
+    location VARCHAR(255) NOT NULL
+);
+
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges on tldr.Users to dbadmin@localhost;
 GRANT all privileges on tldr.Drives to dbadmin@localhost;
