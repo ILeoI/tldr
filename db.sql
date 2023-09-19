@@ -26,6 +26,14 @@ CREATE TABLE InstructorLearners (
     PRIMARY KEY(instructorID, learnerID)
 );
 
+CREATE TABLE SupervisorLearners (
+    supervisorID int NOT NULL,
+    learnerID int NOT NULL,
+
+    PRIMARY KEY(supervisorID, learnerID)
+);
+
+
 CREATE TABLE Drives (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     userID int NOT NULL,
