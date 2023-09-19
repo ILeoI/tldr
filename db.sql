@@ -36,7 +36,7 @@ CREATE TABLE SupervisorLearners (
 
 CREATE TABLE Drives (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    userID int NOT NULL,
+    supervisorLicenseNumber varchar(6) NOT NULL,
     driveDate date,
     startTime time,
     endTime time,
@@ -47,7 +47,7 @@ CREATE TABLE Drives (
     conditionWeather varchar(5),
     conditionTraffic varchar(5),
     daytime boolean,
-    supervisingDriverID int NOT NULL,
+    learnerLicenseNo varchar(6) NOT NULL,
     verified boolean DEFAULT 0
 ) AUTO_INCREMENT = 1;
 
