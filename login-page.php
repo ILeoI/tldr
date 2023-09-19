@@ -1,7 +1,7 @@
 <?php
 require_once "inc/dbconn.inc.php";
 ?>
-
+<div></div>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,22 +15,24 @@ require_once "inc/dbconn.inc.php";
 </head>
 
 
+
+
 <body>
-    <div class="login">
-        <h1 class="page-title" id="login-page-header">Login Page</h1>
-        <form id="login-form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
-            <label for="email">E-mail</label> <br>
-            <input type="text" placeholder="E-mail" id="email" name="email"> <br>
+        <div class="login">
+            <h1 class="page-title" id="login-page-header">Login Page</h1>
+            <form id="login-form" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+                <label for="email">E-mail</label> <br>
+                <input type="text" placeholder="E-mail" id="email" name="email"> <br>
 
-            <label for="password">Password</label> <br>
-            <input type="password" placeholder="Password" id="password" name="password"> <br>
+                <label for="password">Password</label> <br>
+                <input type="password" placeholder="Password" id="password" name="password"> <br>
 
-            <input type="checkbox" onclick="togglePassword()" id="password-toggle" name="password-toggle">
-            <label for="password-toggle">Show Password</label> <br>
+                <input type="checkbox" onclick="togglePassword()" id="password-toggle" name="password-toggle">
+                <label for="password-toggle">Show Password</label> <br>
 
-            <input type="submit" value="Login">
-        </form>
-    </div>
+                <input type="submit" value="Login">
+            </form>
+        </div>
 </body>
 
 </html>
@@ -55,7 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-function incorrectInfo() {
+function incorrectInfo()
+{
     echo "<p style=\"color: red;\">Incorrect account information!<br><a style=\"color: black; text-decoration: none\" href=\"forgot-password.php\">Forgot Password?</a></p>";
 }
 

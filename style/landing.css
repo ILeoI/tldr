@@ -1,3 +1,14 @@
 h1 {
     color: blue;
 }
+
+html{
+    border: solid 50px;
+    border-color: #CFFCFF ;
+    border-right: none;
+    border-left: none;
+    background-image:url(../Images/gov-sa-logo.png), url(../Images/sa-logo.png);
+    background-size: 190px, 145px;
+    background-repeat: no-repeat;
+    background-position:top 0px right 10px, top 0px right 205px;
+  }
