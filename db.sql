@@ -91,6 +91,7 @@ GRANT all privileges on tldr.LogbookCBTA to dbadmin@localhost;
 GRANT all privileges on tldr.InvoiceDetails to dbadmin@localhost;
 GRANT all privileges on tldr.PaymentDetails to dbadmin@localhost;
 GRANT all privileges on tldr.InstructorLearners to dbadmin@localhost;
+GRANT all privileges on tldr.SupervisorLearners to dbadmin@localhost;
 
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) VALUES("student@tldr.com", "password", "Student", "Driver", "2023-06-15", 1, "LN0000");
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenseNo) VALUES("instructor@tldr.com", "password", "Instructor", "Driver", "1999-05-12", 1, "LM0001");
