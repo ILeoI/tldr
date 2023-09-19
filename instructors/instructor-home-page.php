@@ -23,7 +23,7 @@
                 <a href="drives.php">Drives Log</a>
                 <a href="instructors/cbta.php">CBTA</a>
                 <a href="instructors/students.php">Your Students</a>
-                <a href="your-account.php">Account</a>
+                <a href="instructors/my-account.php">Account</a>
             </div>
         </div>
         <label>Home Page</label>
