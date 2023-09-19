@@ -33,10 +33,9 @@ CREATE TABLE SupervisorLearners (
     PRIMARY KEY(supervisorID, learnerID)
 );
 
-
 CREATE TABLE Drives (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    userID int NOT NULL,
+    permitID int NOT NULL,
     driveDate date,
     startTime time,
     endTime time,

@@ -1,5 +1,6 @@
 <?php
 require_once "inc/dbconn.inc.php";
+require_once "inc/session-start.inc.php"
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,6 @@ require_once "inc/dbconn.inc.php";
     <div class="center" id="verify-drive">
 
         <?php
-        require_once "inc/dbconn.inc.php";
 
         $sql = "SELECT *, FROM Drives, WHERE verified=0;";
 
@@ -105,39 +105,3 @@ require_once "inc/dbconn.inc.php";
 
 </html>
 
-<?php
-
-
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-
-    print_r($_POST);
-
-    $learnerID = 1;
-    $driveDate = $_POST["date"];
-    $startTime = $_POST["start-time"];
-    $endTime = $_POST["end-time"];
-    $fromLoc = filter_input(INPUT_POST, "start-location", FILTER_SANITIZE_SPECIAL_CHARS);
-    $toLoc = filter_input(INPUT_POST, "furthest-location", FILTER_SANITIZE_SPECIAL_CHARS);
-    $road = $_POST["road-type"] . ' ' . $_POST["road-traffic"];
-    $conditionWeather = $_POST["weather"];
-    $conditionTraffic = $_POST["traffic-density"];
-    $daytime = $_POST["time"];
-    $supervisingDriverID = 555;
-    $verified = 1;
-
-    $sql = "INSERT INTO Drives(userID, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, supervisingDriverID, verified) 
-            VALUES('$learnerID', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$road', '$conditionWeather', '$conditionTraffic', '$daytime', '$supervisingDriverID', '$verified');";
-
-    try {
-        mysqli_query($conn, $sql);
-        echo "Drive Added<br>";
-    } catch (mysqli_sql_exception) {
-        echo "nice try buddy";
-    }
-}
-
-?>

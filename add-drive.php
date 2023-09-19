@@ -10,7 +10,7 @@
 <body>
 
 <div class="center" id="add-drive-form">
-        <form id="add-drive" action="drives.php" method="POST">
+        <form id="add-drive" action="add-drive.php" method="POST">
             <h1>Add Drive</h1>
             <ul>
 
@@ -88,3 +88,35 @@
     
 </body>
 </html>
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    print_r($_POST);
+
+    $learnerID = $_POST["permit-num"];;
+    $driveDate = $_POST["date"];
+    $startTime = $_POST["start-time"];
+    $endTime = $_POST["end-time"];
+    $fromLoc = filter_input(INPUT_POST, "start-location", FILTER_SANITIZE_SPECIAL_CHARS);
+    $toLoc = filter_input(INPUT_POST, "furthest-location", FILTER_SANITIZE_SPECIAL_CHARS);
+    $road = $_POST["road-type"] . ' ' . $_POST["road-traffic"];
+    $conditionWeather = $_POST["weather"];
+    $conditionTraffic = $_POST["traffic-density"];
+    $daytime = $_POST["time"];
+    $supervisingDriverID = 555;
+    $verified = 0;
+
+    $sql = "INSERT INTO Drives(permitID, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, supervisingDriverID, verified) 
+            VALUES('$learnerID', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$road', '$conditionWeather', '$conditionTraffic', '$daytime', '$supervisingDriverID', '$verified');";
+
+    try {
+        mysqli_query($conn, $sql);
+        echo "Drive Added";
+    } catch (mysqli_sql_exception) {
+        echo "nice try buddy";
+    }
+}
+
+?>
