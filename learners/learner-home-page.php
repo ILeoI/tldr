@@ -31,10 +31,12 @@
     </h1>
     <?php
     $id = $_SESSION["userID"];
-    $sql = "SELECT firstName, lastName FROM Users WHERE id = '$id';";
+    $licenseNo = "";
+    $sql = "SELECT firstName, lastName, licenseNo FROM Users WHERE id = '$id';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
+            $licenseNo = $row["licenseNo"];
             echo "<p>Welcome " . $row["firstName"] . " " . $row["lastName"] . ".</p>";
         }
     }
@@ -42,7 +44,7 @@
     $all_minutes = array();
 
     // Daytime
-    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE userID = '$id' AND daytime = '1';";
+    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenseNo = '$licenseNo' AND daytime = '1';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -55,7 +57,7 @@
     }
 
     // Nighttime
-    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE userID = '$id' AND daytime = '0';";
+    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenseNo = '$licenseNo' AND daytime = '0';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
