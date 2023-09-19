@@ -10,6 +10,7 @@ require_once "../inc/session-start.inc.php";
 <head>
     <meta charset="UTF-8">
     <title>TLDR: View CBT&A</title>
+    <link rel="stylesheet" href="../style/view-cbta.css" />
 </head>
 
 <?php
@@ -47,6 +48,7 @@ if ($result = mysqli_query($conn, $sql)) {
     }
 
     ?>
+    <div class="task1">
     <h4>Task 1</h4>
     <label for="cabin-drill">Cabin drill:</label>
     <input type="checkbox" name="cabin-drill-1" id="cabin-drill-1" <?php echo (in_array("cabin-drill-1", $db_result) ? "checked" : "") ?> disabled>
@@ -93,7 +95,9 @@ if ($result = mysqli_query($conn, $sql)) {
     <input type="checkbox" name="control-3-1" id="control-3-1" <?php echo (in_array("control-3-1", $db_result) ? "checked" : "") ?> disabled>
     <input type="checkbox" name="control-3-2" id="control-3-2" <?php echo (in_array("control-3-2", $db_result) ? "checked" : "") ?> disabled>
     <br>
+    </div>
 
+    <div class="task2">
     <h4>Task 2</h4>
     <label>Starting the engine:</label>
     <input type="checkbox" name="start-engine1" <?php echo (in_array("start-engine1", $db_result) ? "checked" : "") ?> disabled>
@@ -105,6 +109,9 @@ if ($result = mysqli_query($conn, $sql)) {
     <input type="checkbox" name="stop-engine2" <?php echo (in_array("stop-engine2", $db_result) ? "checked" : "") ?> disabled>
     <br>
 
+    </div>
+
+    <div class="task3"> 
     <h4>Task 3</h4>
 
     <label>Move off from the kerb:</label>
@@ -112,6 +119,9 @@ if ($result = mysqli_query($conn, $sql)) {
     <input type="checkbox" name="move-off-kerb2" <?php echo (in_array("move-off-kerb2", $db_result) ? "checked" : "") ?> disabled>
     <br>
 
+    </div>
+
+    <div class="task4">
     <h4>Task 4</h4>
     <label>Stop the vehicle <i>(include slowing)</i>:</label>
     <input type="checkbox" name="stop-vehicle1" <?php echo (in_array("stop-vehicle1", $db_result) ? "checked" : "") ?> disabled>
@@ -122,13 +132,18 @@ if ($result = mysqli_query($conn, $sql)) {
     <input type="checkbox" name="stop-roll1" <?php echo (in_array("stop-roll1", $db_result) ? "checked" : "") ?> disabled>
     <input type="checkbox" name="stop-roll2" <?php echo (in_array("stop-roll2", $db_result) ? "checked" : "") ?> disabled>
     <br>
+    </div>
 
+    \<div class="task5">
     <h4>Task 5</h4>
     <label>Stop and go <i>(using the park brake)</i>:</label>
     <input type="checkbox" name="park-brake1" <?php echo (in_array("park-brake1", $db_result) ? "checked" : "") ?> disabled>
     <input type="checkbox" name="park-brake2" <?php echo (in_array("park-brake2", $db_result) ? "checked" : "") ?> disabled>
     <br>
+    
+    </div>
 
+    <div class="task6">
     <h4>Task 6</h4>
     <label>(1) Change gears up and down <i>(100% accurate and a minimum of 5
             demonstrations)</i></label>
@@ -150,6 +165,9 @@ if ($result = mysqli_query($conn, $sql)) {
     <input type="checkbox" name="select-valid-gear5" <?php echo (in_array("select-valid-gear5", $db_result) ? "checked" : "") ?> disabled>
     <br>
 
+    </div>
+
+    <div class="task7">
     <h4>Task 7</h4>
     <h4>Demonstration 1</h4>
     <label>(1) Steer in a forward direction <i>(minimum of 4 left and 4 right turns)</i></label>
@@ -202,6 +220,7 @@ if ($result = mysqli_query($conn, $sql)) {
         </li>
     </ul>
     <br>
+    </div>
 </body>
 
 </html>
