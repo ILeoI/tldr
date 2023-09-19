@@ -78,7 +78,7 @@ CREATE TABLE PaymentDetails (
 
 CREATE TABLE bookings (
     id INT PRIMARY KEY AUTO_INCREMENT,
-     instructorID int NOT NULL,
+    instructorID int NOT NULL,
     learnerID int NOT NULL,
     time DATETIME NOT NULL,
     location VARCHAR(255) NOT NULL
@@ -98,3 +98,4 @@ INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, superv
 
 INSERT INTO InstructorLearners(instructorID, learnerID) VALUES(2, 1);
 INSERT INTO SupervisorLearners(supervisorID, learnerID) VALUES(3, 1);
+
