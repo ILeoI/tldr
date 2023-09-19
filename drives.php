@@ -14,76 +14,66 @@ require_once "inc/dbconn.inc.php";
 
 <body>
 
-    <div class="center" id="add-drive-form">
-        <form id="add-drive" action="drives.php" method="POST">
-            <h1>Add Drive</h1>
-            <ul>
-                <li>
-                    <label for="date">Date</label><br>
-                    <input type="date" name="date" required>
-                </li>
+    <h1>Verify Drive</h1>
 
-                <li>
-                    <div class="time">
-                        <div class="left"> 
-                            <label for="start-time">Start Time</label><br>
-                            <input type="time" name="start-time" required>
-                        </div>
-                        <div>
-                            <label for="end-time">End Time</label><br>
-                            <input type="time" name="end-time" required>
-                        </div>
-                    </div>
-                   
-                </li>
+    <div class="center" id="verify-drive">
 
-                <li>
-                    <div class="time">
-                        <div class="left">
-                            <label for="start-location">Start Location</label><br>
-                            <input type="text" name="start-location" class="text" placeholder="Suburb" required>
-                        </div>
-                        <div>
-                            <label for="furthest-location">Furthest Location</label><br>
-                            <input type="text" name="furthest-location" class="text" placeholder="Suburb" required>
-                        </div>
-                    </div>
-                    
-                </li>
+        <?php
+        $licenseNo = "";
 
-                <li>
-                    <label>Road Type</label><br>
-                    <input type="radio" name="road-type" value="s" required><label>Sealed</label>
-                    <input type="radio" name="road-type" value="us" required><label>Unsealed</label><br>
-                    <input type="radio" name="road-traffic" value="qs" required><label>Quiet Street</label>
-                    <input type="radio" name="road-traffic" value="br" required><label>Busy Road</label>
-                    <input type="radio" name="road-traffic" value="mlr" required><label>Multi-laned Road</label>
-                </li>
+        $sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                $licenseNo = $row["licenseNo"];
+            }
+        }
 
-                <li>
-                    <label>Weather</label><br>
-                    <input type="radio" name="weather" value="dry" required><label for="dry">Dry</label>
-                    <input type="radio" name="weather" value="wet" required><label for="wet">Wet</label>
-                </li>
 
-                <li>
-                    <label>Traffic Density</label><br>
-                    <input type="radio" name="traffic-density" value="L" required><label>Light</label>
-                    <input type="radio" name="traffic-density" value="M" required><label>Medium</label>
-                    <input type="radio" name="traffic-density" value="H" required><label>Heavy</label>
-                </li>
+        $sql = "SELECT * FROM Drives WHERE verified=0 AND learnerLicenseNo = '$licenseNo';";
 
-                <li>
-                    <div class="toggle">
-                        <input type="radio" name="time" value="1" required><label>Daytime</label>
-                        <input type="radio" name="time" value="0" required><label>Night-time</label>
-                    </div>
-                </li>
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                echo "<ul id=\"verify-drive\">";
+                while ($row = mysqli_fetch_assoc($result)) {
+                    print_r($row);
+                }
+                echo "</ul>";
 
-            </ul>
-            <input type="submit" class="submit" value="Submit">
+                mysqli_free_result($result);
+            }
+        }
 
-        </form>
+        ?>
+
+    </div>
+
+    <h1>Drive History</h1>
+
+    <div class="center" id="drive-history">
+
+        <?php
+
+        $sql = "SELECT * FROM Drives WHERE verified=1 AND learnerLicenseNo = '$licenseNo';";
+
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+
+                echo "<ul id=\"history\">";
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    print_r($row);
+
+                }
+                echo "</ul>";
+
+                mysqli_free_result($result);
+            }
+        }
+        mysqli_close($conn);
+        ?>
+
+
     </div>
 
     
