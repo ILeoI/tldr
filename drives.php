@@ -98,28 +98,25 @@ require_once "inc/dbconn.inc.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $road = $_POST["road-type"] . ' ' . $_POST["road-traffic"]; 
+    
 
     print_r($_POST);
 
-    $learnerID = 0;
+    $learnerID = 1;
     $driveDate = $_POST["date"];
     $startTime = $_POST["start-time"];
     $endTime = $_POST["end-time"];
-    $duration = 0; //create function to calculate drive time off start and finsih
     $fromLoc = filter_input(INPUT_POST, "start-location", FILTER_SANITIZE_SPECIAL_CHARS);
     $toLoc = filter_input(INPUT_POST, "furthest-location", FILTER_SANITIZE_SPECIAL_CHARS);
-    $conditionRoad = $road; 
+    $road = $_POST["road-type"] . ' ' . $_POST["road-traffic"]; 
     $conditionWeather = $_POST["weather"];
     $conditionTraffic = $_POST["traffic-density"];
     $daytime = $_POST["time"];
-    $supervisingDriverID = 0;
-    $verified = 0;
+    $supervisingDriverID = 555;
+    $verified = 1;
     
-    $sql = "INSERT INTO Drives(userID, driveDate, startTime, endTime, duration, fromLoc, toLoc, 
-                        conditonRoad, conditionWeather, conditionTraffic, daytime, supervisingDriverID, verified) 
-            VALUES('$learnerID', '$driveDate', '$startTime', '$endTime', '$duration', '$fromLoc', '$toLoc', 
-                   '$conditionRoad', '$conditionWeather', '$conditionTraffic', $daytime, '$supervisingDriverID', '$verified');";
+    $sql = "INSERT INTO Drives(userID, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, supervisingDriverID, verified) 
+            VALUES('$learnerID', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$road', '$conditionWeather', '$conditionTraffic', '$daytime', '$supervisingDriverID', '$verified');";
 
     try {
         mysqli_query($conn, $sql);

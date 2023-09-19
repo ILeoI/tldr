@@ -1,13 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="">
-    <meta name="description" content="">
-    <title>TLDR: Home Page</title>
-</head>
-<body>
-    <h1 class="page-title" id="home-page-header">Home Page</h1>
-    <p>Logged In</p>
-</body>
-</html>
+<?php
+    require_once "inc/session-start.inc.php";
+    require_once "inc/dbconn.inc.php";
+
+    $id = $_SESSION["userID"];
+    $sql = "SELECT learner, instructor, supervisor FROM Users WHERE id = '$id';";
+    if ($result = mysqli_query($conn, $sql)) {
+      if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        if ($row["instructor"] == 1) {
+          require_once "instructors/instructor-home-page.php";
+        } else if ($row["learner"] == 1) {
+          require_once "learners/learner-home-page.php";
+        } else if ($row["supervisor"] == 1) {
+          require_once "qsds/supervisor-home-page.php";
+        }
+      }
+    }
+?>
