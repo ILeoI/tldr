@@ -93,9 +93,9 @@ GRANT all privileges on tldr.PaymentDetails to dbadmin@localhost;
 GRANT all privileges on tldr.InstructorLearners to dbadmin@localhost;
 GRANT all privileges on tldr.SupervisorLearners to dbadmin@localhost;
 
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) VALUES("student@tldr.com", "password", "Student", "Driver", "2023-06-15", 1, "LN0000");
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenseNo) VALUES("instructor@tldr.com", "password", "Instructor", "Driver", "1999-05-12", 1, "LM0001");
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, supervisor, licenseNo) VALUES("qsd@tldr.com", "password", "Supervisor", "Driver", "1969-05-12", 1, "LM0003");
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) VALUES("student@tldr.com", "password", "0400000000", "Student", "Driver", "2023-06-15", 1, "LN0000");
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenseNo) VALUES("instructor@tldr.com", "password", "0400000001", "Instructor", "Driver", "1999-05-12", 1, "LM0001");
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, supervisor, licenseNo) VALUES("qsd@tldr.com", "password", "Supervisor", "0400000002", "Driver", "1969-05-12", 1, "LM0003");
 
 INSERT INTO InstructorLearners(instructorID, learnerID) VALUES(2, 1);
 INSERT INTO SupervisorLearners(supervisorID, learnerID) VALUES(3, 1);

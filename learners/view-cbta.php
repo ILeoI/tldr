@@ -9,7 +9,6 @@ require_once "../inc/session-start.inc.php";
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TLDR: View CBT&A</title>
 </head>
 
@@ -32,8 +31,8 @@ require_once "../inc/session-start.inc.php";
 
         ?>
         <label for="cabin-drill">Cabin drill:</label>
-        <input type="checkbox" name="cabin-drill-1" id="cabin-drill-1" <?php echo (in_array("cabin-drill-1", $db_result) ? "checked disabled" : "") ?>>
-        <input type="checkbox" name="cabin-drill-2" id="cabin-drill-2" <?php echo (in_array("cabin-drill-2", $db_result) ? "checked disabled" : "") ?>>
+        <input type="checkbox" name="cabin-drill-1" id="cabin-drill-1" <?php echo (in_array("cabin-drill-1", $db_result) ? "checked" : "") ?> disabled>
+        <input type="checkbox" name="cabin-drill-2" id="cabin-drill-2" <?php echo (in_array("cabin-drill-2", $db_result) ? "checked" : "") ?> disabled>
         <br>
         <label>Controls <i>(selected from the respective groups)</i></label><br>
 
