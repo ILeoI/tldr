@@ -18,12 +18,11 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
-
             </button>
             <div class="dropdown-content">
                 <a href="drives.php">Drives Log</a>
                 <a href="instructors/cbta.php">CBTA</a>
-                <a href="instructors/your-students.php">Your Students</a>
+                <a href="instructors/students.php">Your Students</a>
                 <a href="your-account.php">Account</a>
             </div>
         </div>
@@ -41,37 +40,41 @@
             echo "<p>Welcome " . $row["firstName"] . " " . $row["lastName"] . ".</p>";
         }
     }
-
-    // Retrieve instructor's bookings
-    $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location
-            FROM bookings
-            JOIN Users ON bookings.learnerID = Users.id
-            WHERE bookings.instructorID = '$id';";
-
-    echo "<table>
-            <tr>
-                <caption>Your Bookings</caption>
-                <th>Name</th>
-                <th>Time</th>
-                <th>Location</th> 
-            </tr>";
-
-    if ($result = mysqli_query($conn, $sql)) {
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>
-                        <td>{$row['firstName']} {$row['lastName']}</td>
-                        <td>{$row['time']}</td>
-                        <td>{$row['location']}</td>
-                      </tr>";
-            }
-        } else {
-            echo "<tr><td colspan='3'>No bookings found.</td></tr>";
-        }
-    }
-
-    echo "</table>";
     ?>
+
+    <div class="table-container">
+        <?php
+        // Retrieve instructor's bookings
+        $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location
+                FROM bookings
+                JOIN Users ON bookings.learnerID = Users.id
+                WHERE bookings.instructorID = '$id';";
+
+        echo "<table>
+                <tr>
+                    <caption>Your Bookings</caption>
+                    <th>Name</th>
+                    <th>Time</th>
+                    <th>Location</th> 
+                </tr>";
+
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>
+                            <td>{$row['firstName']} {$row['lastName']}</td>
+                            <td>{$row['time']}</td>
+                            <td>{$row['location']}</td>
+                          </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>No bookings found.</td></tr>";
+            }
+        }
+
+        echo "</table>";
+        ?>
+    </div>
 
     <div class="button-container">
         <a href="instructors/add-lesson.php">
