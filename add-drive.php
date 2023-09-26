@@ -5,15 +5,17 @@ require_once "inc/session-start.inc.php"
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="Author" content="Coby Murphy">
     <link rel="stylesheet" href="./style/drives.css" />
     <title>Add-Drives</title>
 </head>
+
 <body>
 
-<div class="center" id="add-drive-form">
+    <div class="center" id="add-drive-form">
         <form id="add-drive" action="add-drive.php" method="POST">
             <h1>Add Drive</h1>
             <ul>
@@ -29,7 +31,7 @@ require_once "inc/session-start.inc.php"
 
                 <li>
                     <div class="time">
-                        <div class="left"> 
+                        <div class="left">
                             <label for="start-time">Start Time</label><br>
                             <input type="time" name="start-time" required>
                         </div>
@@ -38,8 +40,8 @@ require_once "inc/session-start.inc.php"
                             <input type="time" name="end-time" required>
                         </div>
                     </div>
-                   
-                </li> 
+
+                </li>
 
                 <li>
                     <div class="time">
@@ -52,7 +54,7 @@ require_once "inc/session-start.inc.php"
                             <input type="text" name="furthest-location" class="text" placeholder="Suburb" required>
                         </div>
                     </div>
-                    
+
                 </li>
 
                 <li>
@@ -89,9 +91,21 @@ require_once "inc/session-start.inc.php"
 
         </form>
     </div>
-    
+
 </body>
+
 </html>
+<?php
+$supervisingDriverID = "";
+
+$sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
+if ($result = mysqli_query($conn, $sql)) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $supervisingDriverID = $row["licenseNo"];
+    }
+}
+?>
 
 <?php
 
@@ -99,7 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     print_r($_POST);
 
-    $learnerID = $_POST["permit-num"];;
     $driveDate = $_POST["date"];
     $startTime = $_POST["start-time"];
     $endTime = $_POST["end-time"];
@@ -109,11 +122,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conditionWeather = $_POST["weather"];
     $conditionTraffic = $_POST["traffic-density"];
     $daytime = $_POST["time"];
-    $supervisingDriverID = 555;
+    $learnerID = $_POST["learnerLicenseNo"];;
     $verified = 0;
 
-    $sql = "INSERT INTO Drives(permitID, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, supervisingDriverID, verified) 
-            VALUES('$learnerID', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$road', '$conditionWeather', '$conditionTraffic', '$daytime', '$supervisingDriverID', '$verified');";
+    $sql = "INSERT INTO Drives(supervisorLicenseNumber, learnerLicenseNo, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, learnerLicenseNo, verified) 
+            VALUES('$supervisingDriverID', '$learnerID', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$road', '$conditionWeather', '$conditionTraffic', '$daytime', '$learnerLicenseNo''$verified');";
 
     try {
         mysqli_query($conn, $sql);

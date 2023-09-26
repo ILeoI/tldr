@@ -16,6 +16,7 @@ CREATE TABLE Users (
     learner boolean DEFAULT 0,
     instructor boolean DEFAULT 0,
     supervisor boolean DEFAULT 0,
+    government boolean DEFAULT 0,
     licenseNo varchar(6)
 ) AUTO_INCREMENT = 1;
 
@@ -80,7 +81,7 @@ CREATE TABLE PaymentDetails (
 
 CREATE TABLE bookings (
     id INT PRIMARY KEY AUTO_INCREMENT,
-     instructorID int NOT NULL,
+    instructorID int NOT NULL,
     learnerID int NOT NULL,
     time DATETIME NOT NULL,
     location VARCHAR(255) NOT NULL
@@ -95,3 +96,16 @@ GRANT all privileges on tldr.InvoiceDetails to dbadmin@localhost;
 GRANT all privileges on tldr.PaymentDetails to dbadmin@localhost;
 GRANT all privileges on tldr.InstructorLearners to dbadmin@localhost;
 GRANT all privileges on tldr.Bookings to dbadmin@localhost;
+
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
+VALUES("student@tldr.com", "password", "0400000000", "Student", "Driver", "2023-06-15", 1, "LN0000");
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenseNo) 
+VALUES("instructor@tldr.com", "password", "0400000001", "Instructor", "Driver", "1999-05-12", 1, "LN0001");
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, supervisor, licenseNo) 
+VALUES("qsd@tldr.com", "password", "0400000002", "Supervisor", "Driver", "1969-05-12", 1, "LN0003");
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, government, licenseNo) 
+VALUES("government@tldr.com", "password", "0400000003", "Government", "Driver", "1969-05-12", 1, "LN0004");
+
+
+INSERT INTO InstructorLearners(instructorID, learnerID) VALUES(2, 1);
+INSERT INTO SupervisorLearners(supervisorID, learnerID) VALUES(3, 1);
