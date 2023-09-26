@@ -2,6 +2,8 @@
 require_once "inc/dbconn.inc.php";
 ?>
 
+<div></div>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,23 +33,28 @@ require_once "inc/dbconn.inc.php";
         </div>
         <div class="input-field">
             <label for="first-name">First Name</label>
+            <br>
             <input type="text" id="first-name" name="first-name" required placeholder="First Name">
         </div>
         <div class="input-field">
             <label for="last-name">Last Name</label>
+            <br>
             <input type="text" id="last-name" name="last-name" required placeholder="Last Name">
         </div>
         <div class="input-field">
             <label for="dob">Date of birth</label>
+            <br>
             <input type="date" id="dob" name="dob" required>
         </div>
         <div class="input-field">
             <label for="phone-number">Phone Number</label>
+            <br>
             <input type="text" id="phone-number" name="phone-number" minlength="10" required placeholder="Phone Number">
         </div>
 
         <div class="input-field">
             <label for="license-number">License Number</label>
+            <br>
             <input type="text" id="license-number" name="license-number" required placeholder="License Number">
         </div>
         <div class="input-field">
@@ -92,6 +99,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         mysqli_query($conn, $sql);
         echo "acc created<br>";
+        $sql = "SELECT id FROM Users WHERE email = '$email';";
+        if($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                $id = mysqli_fetch_assoc($result)["id"];
+                $sql = "INSERT INTO PaymentDetails(userID) VALUES('$id');";
+                mysqli_query($conn, $sql);
+            }
+        }
+        
         echo "<a href=\"login-page.php\">Login</a>";
     } catch (mysqli_sql_exception) {
         echo "<p style=\"color: red;\">This account already exists!<br><a href=\"forgot-password.php\" style=\"color: black; text-decoration: none;\">Forgot Password?</a></p>";

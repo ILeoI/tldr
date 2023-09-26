@@ -18,7 +18,7 @@
             if ($result = mysqli_query($conn, $sql)) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<li>" . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenseNo"] . "</li>";
+                        echo "<li>" . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenseNo"] . " <a href=\"view-student.php?viewing=" . $row["id"] ."\">View</a></li>";
                     }
                 }
             }

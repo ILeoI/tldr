@@ -1,6 +1,6 @@
 <?php
 require_once "inc/dbconn.inc.php";
-require_once "inc/session-start.inc.php"
+require_once "inc/session-start.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -10,10 +10,14 @@ require_once "inc/session-start.inc.php"
     <meta charset="UTF-8">
     <meta name="Author" content="Coby Murphy">
     <link rel="stylesheet" href="./style/drives.css" />
+    <link rel="stylesheet" href="./style/menu-style.css" />
     <title>Add-Drives</title>
 </head>
 
 <body>
+    <?php 
+    require_once "instructors/instructor-menu.php";
+    ?>
 
     <div class="center" id="add-drive-form">
         <form id="add-drive" action="add-drive.php" method="POST">
@@ -26,18 +30,18 @@ require_once "inc/session-start.inc.php"
                 </li>
                 <li>
                     <label for="date">Date</label><br>
-                    <input type="date" name="date" required>
+                    <input type="date" name="date">
                 </li>
 
                 <li>
                     <div class="time">
                         <div class="left">
                             <label for="start-time">Start Time</label><br>
-                            <input type="time" name="start-time" required>
+                            <input type="time" name="start-time">
                         </div>
                         <div>
                             <label for="end-time">End Time</label><br>
-                            <input type="time" name="end-time" required>
+                            <input type="time" name="end-time">
                         </div>
                     </div>
 
@@ -47,11 +51,11 @@ require_once "inc/session-start.inc.php"
                     <div class="time">
                         <div class="left">
                             <label for="start-location">Start Location</label><br>
-                            <input type="text" name="start-location" class="text" placeholder="Suburb" required>
+                            <input type="text" name="start-location" class="text" placeholder="Suburb">
                         </div>
                         <div>
                             <label for="furthest-location">Furthest Location</label><br>
-                            <input type="text" name="furthest-location" class="text" placeholder="Suburb" required>
+                            <input type="text" name="furthest-location" class="text" placeholder="Suburb">
                         </div>
                     </div>
 
@@ -59,17 +63,17 @@ require_once "inc/session-start.inc.php"
 
                 <li>
                     <label>Road Type</label><br>
-                    <input type="radio" name="road-type" value="s" required><label>Sealed</label>
-                    <input type="radio" name="road-type" value="us" required><label>Unsealed</label><br>
-                    <input type="radio" name="road-traffic" value="qs" required><label>Quiet Street</label>
-                    <input type="radio" name="road-traffic" value="br" required><label>Busy Road</label>
-                    <input type="radio" name="road-traffic" value="mlr" required><label>Multi-laned Road</label>
+                    <input type="radio" name="road-type" value="s"><label>Sealed</label>
+                    <input type="radio" name="road-type" value="us"><label>Unsealed</label><br>
+                    <input type="radio" name="road-traffic" value="qs"><label>Quiet Street</label>
+                    <input type="radio" name="road-traffic" value="br"><label>Busy Road</label>
+                    <input type="radio" name="road-traffic" value="mlr"><label>Multi-laned Road</label>
                 </li>
 
                 <li>
                     <label>Weather</label><br>
-                    <input type="radio" name="weather" value="dry" required><label for="dry">Dry</label>
-                    <input type="radio" name="weather" value="wet" required><label for="wet">Wet</label>
+                    <input type="radio" name="weather" value="dry"><label for="dry">Dry</label>
+                    <input type="radio" name="weather" value="wet"><label for="wet">Wet</label>
                 </li>
 
                 <li>
@@ -102,12 +106,9 @@ $sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
 if ($result = mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        $supervisingDriverID = $row["licenseNo"];
+        $supervisorLicenseNo = $row["licenseNo"];
     }
 }
-?>
-
-<?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -122,11 +123,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conditionWeather = $_POST["weather"];
     $conditionTraffic = $_POST["traffic-density"];
     $daytime = $_POST["time"];
-    $learnerID = $_POST["learnerLicenseNo"];;
+    $learnerLicenseNo = $_POST["permit-num"];;
     $verified = 0;
 
-    $sql = "INSERT INTO Drives(supervisorLicenseNumber, learnerLicenseNo, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, learnerLicenseNo, verified) 
-            VALUES('$supervisingDriverID', '$learnerID', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$road', '$conditionWeather', '$conditionTraffic', '$daytime', '$learnerLicenseNo''$verified');";
+    $sql = "INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, learnerLicenseNo) 
+            VALUES('$supervisorLicenseNo', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$road', '$conditionWeather', '$conditionTraffic', '$daytime', '$learnerLicenseNo');";
+
+
 
     try {
         mysqli_query($conn, $sql);

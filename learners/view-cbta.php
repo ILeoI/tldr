@@ -48,6 +48,11 @@ if ($result = mysqli_query($conn, $sql)) {
     }
 
     ?>
+
+    <div class="whitebox">
+        <h1></h1>
+    </div>
+
     <div class="task1">
     <h4>Task 1</h4>
     <label for="cabin-drill">Cabin drill:</label>
@@ -169,7 +174,7 @@ if ($result = mysqli_query($conn, $sql)) {
 
     <div class="task7">
     <h4>Task 7</h4>
-    <h4>Demonstration 1</h4>
+    <h5>Demonstration 1</h5>
     <label>(1) Steer in a forward direction <i>(minimum of 4 left and 4 right turns)</i></label>
     <ul>
         <li>
@@ -194,7 +199,7 @@ if ($result = mysqli_query($conn, $sql)) {
             <input type="checkbox" name="steer-reverse-left1" <?php echo (in_array("steer-reverse-left1", $db_result) ? "checked" : "") ?> disabled>
         </li>
     </ul>
-    <h4>Demonstration 2</h4>
+    <h5>Demonstration 2</h5>
     <label>(1) Steer in a forward direction <i>(minimum of 4 left and 4 right turns)</i></label>
     <ul>
         <li>

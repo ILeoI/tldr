@@ -5,6 +5,8 @@ h1 {
 body {
     background-color: #CFFCFF;
     padding-top: 25px;
+    margin: 0;
+    padding: 0;
 }
 
 #add-drive-form {
@@ -22,14 +24,23 @@ body {
     margin: 10px;
 }
 
-#verify-drive {
+#container.center {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+#verify-drive-container {
     border-bottom: 20px;
 }
 
 .center {
     margin: auto;
     width: 50%;
-    padding: 10px;
+}
+
+#container {
+    padding: 40px;
+    max-width: 100%;
 }
 
 ul {
@@ -76,17 +87,25 @@ label {
 table, th, td {
     border: 1px solid #048727;
     border-collapse: collapse;
-  }
+}
 
-  th, td {
+th, td {
     padding: 10px;
-  }
-
-
-table, caption {
-    text-decoration: solid;
-    font-size: 14px;
 }
 
 
+table {
+    text-decoration: solid;
+    font-size: 14px;
+    width: 1000px;
+}
 
+
+#h1-history {
+    margin-top: 20px;
+}
+
+#submit-verify {
+    float: right;
+    cursor: pointer;
+}
