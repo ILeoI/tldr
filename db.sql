@@ -73,7 +73,9 @@ CREATE TABLE PaymentDetails (
     cardNumber varchar(16),
     cardExpiryMonth int,
     cardExpiryYear int,
-    cardCVV int
+    cardCVV int,
+    accountNumber int,
+    bsb int
 );
 
 CREATE TABLE bookings (
@@ -83,6 +85,7 @@ CREATE TABLE bookings (
     time DATETIME NOT NULL,
     location VARCHAR(255) NOT NULL
 );
+
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges on tldr.Users to dbadmin@localhost;
