@@ -27,7 +27,7 @@ require_once "inc/session-start.inc.php"
             $licenseNo = "";
 
             $sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
-            
+
             if ($result = mysqli_query($conn, $sql)) {
                 if (mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_assoc($result);
@@ -97,17 +97,7 @@ require_once "inc/session-start.inc.php"
 
             $sql = "SELECT * FROM Drives WHERE verified=1 AND learnerLicenseNo = '$licenseNo';";
 
-            if ($result = mysqli_query($conn, $sql)) {
-                if (mysqli_num_rows($result) > 0) {
 
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        print_r($row);
-                    }
-
-
-                    mysqli_free_result($result);
-                }
-            }
 
             echo "<table>
             <tr>
