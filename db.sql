@@ -109,3 +109,7 @@ VALUES("government@tldr.com", "password", "0400000003", "Government", "Driver", 
 
 INSERT INTO InstructorLearners(instructorID, learnerID) VALUES(2, 1);
 INSERT INTO SupervisorLearners(supervisorID, learnerID) VALUES(3, 1);
+
+INSERT INTO PaymentDetails(userID) VALUES(1);
+INSERT INTO PaymentDetails(userID) VALUES(2);
+INSERT INTO PaymentDetails(userID) VALUES(3);
