@@ -2,8 +2,12 @@
 require_once "inc/dbconn.inc.php";
 ?>
 
+<div></div>
+
 <!DOCTYPE html>
 <html lang="en">
+
+
 
 <head>
     <meta charset="UTF-8">
@@ -13,6 +17,7 @@ require_once "inc/dbconn.inc.php";
     <link rel="stylesheet" href="style/login.css" />
     <script src="scripts/login.js" defer></script>
 </head>
+
 
 <body>
     <div class="login">
