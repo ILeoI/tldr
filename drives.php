@@ -16,29 +16,31 @@ require_once "inc/session-start.inc.php"
 
 <body>
 
+    <?php
+    // require_once "learners/learners-menu.php";
+    ?>
 
-    <div class="center" id="drives-container">
+
+    <div class="center" id="container">
 
         <h1>Verify Drive</h1>
 
+        <?php
 
-        <div id="verify-drive-container">
-            <?php
+        $licenseNo = "";
 
-            $licenseNo = "";
+        $sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
 
-            $sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
-
-            if ($result = mysqli_query($conn, $sql)) {
-                if (mysqli_num_rows($result) > 0) {
-                    $row = mysqli_fetch_assoc($result);
-                    $licenseNo = $row["licenseNo"];
-                }
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                $licenseNo = $row["licenseNo"];
             }
+        }
 
-            echo "<form action='verify-drives.php' method='post'>";
+        echo "<form action='verify-drives.php' method='post'>";
 
-            echo "<table>
+        echo "<table>
                 <tr>
                     <th>Supervising Driver</th>
                     <th>Date</th>
@@ -55,12 +57,12 @@ require_once "inc/session-start.inc.php"
                     <th>Verify</th>
                 </tr>";
 
-            $sql = "SELECT * FROM Drives WHERE verified=0 AND learnerLicenseNo = '$licenseNo';";
+        $sql = "SELECT * FROM Drives WHERE verified=0 AND learnerLicenseNo = '$licenseNo';";
 
-            if ($result = mysqli_query($conn, $sql)) {
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr>
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>
                             <td>{$row['supervisorLicenseNumber']}</td>
                             <td>{$row['driveDate']}</td>
                             <td>{$row['startTime']}</td>
@@ -75,32 +77,26 @@ require_once "inc/session-start.inc.php"
                             <td>{$row['learnerLicenseNo']}</td>
                             <td><input type='checkbox' name='{$row["id"]}'/></td>
                           </tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='13'>All drives Verified</td></tr>";
                 }
-               
+            } else {
+                echo "<tr><td colspan='13'>All drives Verified</td></tr>";
             }
+        }
 
-            echo "</table>";
-            echo "<input type='submit'/>";
-            echo "</form>";
+        echo "</table>";
+        echo "<input type='submit' id='submit-verify'/>";
+        echo "</form>";
 
-            ?>
-
-        </div>
-
-        <div id="drive-history">
-
-            <h1>Drive History</h1>
-
-            <?php
-
-            $sql = "SELECT * FROM Drives WHERE verified=1 AND learnerLicenseNo = '$licenseNo';";
+        ?>
 
 
+        <h1 id="h1-history">Drive History</h1>
 
-            echo "<table>
+        <?php
+
+        $sql = "SELECT * FROM Drives WHERE verified=1 AND learnerLicenseNo = '$licenseNo';";
+
+        echo "<table>
             <tr>
                 <th>Supervising Driver</th>
                 <th>Date</th>
@@ -117,10 +113,10 @@ require_once "inc/session-start.inc.php"
                 <th>Verified</th>
             </tr>";
 
-            if ($result = mysqli_query($conn, $sql)) {
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr>
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>
                         <td>{$row['supervisorLicenseNumber']}</td>
                         <td>{$row['driveDate']}</td>
                         <td>{$row['startTime']}</td>
@@ -135,17 +131,17 @@ require_once "inc/session-start.inc.php"
                         <td>{$row['learnerLicenseNo']}</td>
                         <td>{$row['verified']}</td>
                       </tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='13'>No Drives Completed</td></tr>";
                 }
+            } else {
+                echo "<tr><td colspan='13'>No Drives Completed</td></tr>";
             }
+        }
 
-            echo "</table>";
-            mysqli_close($conn);
-            ?>
+        echo "</table>";
+        mysqli_close($conn);
+        ?>
 
-        </div>
+
     </div>
 </body>
 
