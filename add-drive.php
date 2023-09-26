@@ -105,9 +105,6 @@ if ($result = mysqli_query($conn, $sql)) {
         $supervisingDriverID = $row["licenseNo"];
     }
 }
-?>
-
-<?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

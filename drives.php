@@ -14,14 +14,24 @@ require_once "inc/dbconn.inc.php";
 
 <body>
 
-    
+
     <div class="center" id="verify-drive">
-        
+
         <h1>Verify Drive</h1>
 
 
         <div class="verify-container">
             <?php
+
+            $licenseNo = "";
+
+            $sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
+            if ($result = mysqli_query($conn, $sql)) {
+                if (mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $licenseNo = $row["licenseNo"];
+                }
+            }
             // Retrieve unverified drives
             //$sql = "SELECT * FROM Drives WHERE verified =0;";
 
@@ -40,8 +50,8 @@ require_once "inc/dbconn.inc.php";
                     <th>Day Time</th>
                     <th>Permit Number</th>
                     <th>Verified</th>
-                </tr>";        
-                
+                </tr>";
+
             $sql = "SELECT * FROM Drives WHERE verified=0 AND learnerLicenseNo = '$licenseNo';";
 
 
@@ -77,7 +87,7 @@ require_once "inc/dbconn.inc.php";
         </div>
     </div>
 
-    
+
 
     <div class="center" id="drive-history">
 
@@ -93,7 +103,7 @@ require_once "inc/dbconn.inc.php";
                 while ($row = mysqli_fetch_assoc($result)) {
                     print_r($row);
                 }
-        
+
 
                 mysqli_free_result($result);
             }
