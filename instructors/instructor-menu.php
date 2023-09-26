@@ -6,7 +6,7 @@
                 <div class="bar"></div>
             </button>
             <div class="dropdown-content">
-                <a href="drives.php">Drives Log</a>
+                <a href="add-drive.php">Add Drive</a>
                 <a href="instructors/cbta.php">CBTA</a>
                 <a href="instructors/students.php">Your Students</a>
                 <a href="instructors/my-account.php">Account</a>
