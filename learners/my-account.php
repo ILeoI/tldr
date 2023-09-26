@@ -49,16 +49,20 @@
                                 <td>Last Name: </td>
                                 <td>' . $user['lastName'] . '</td>
                             </tr>
-                            <!-- Add more rows for other fields as needed -->
+                            <>
                         </table>
                     </div>';
-            } else {
-                echo 'No user found.';
             }
         } else {
             echo 'Error fetching user data: ' . mysqli_error($conn);
         }
     ?>
+
+<div class="button-container">
+        <a href="change-password.php">
+            <button class="add-lesson-button">Change Password</button>
+        </a>
+    </div>
 </body>
 
 </html>

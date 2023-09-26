@@ -49,11 +49,14 @@
                                 <td>Last Name: </td>
                                 <td>' . $user['lastName'] . '</td>
                             </tr>
-                            <!-- Add more rows for other fields as needed -->
+                            <tr>
+                            <td>Payment Information: </td>
+                            <td>' .$user['bsb']. ' <br>
+                            '.$user['accountNumber'].'  </td>
+                                
+                                </tr>
                         </table>
                     </div>';
-            } else {
-                echo 'No user found.';
             }
         } else {
             echo 'Error fetching user data: ' . mysqli_error($conn);
