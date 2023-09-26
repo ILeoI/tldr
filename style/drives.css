@@ -5,6 +5,8 @@ h1 {
 body {
     background-color: #CFFCFF;
     padding-top: 25px;
+    margin: 0;
+    padding: 0;
 }
 
 #add-drive-form {
@@ -22,6 +24,11 @@ body {
     margin: 10px;
 }
 
+#container.center {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
 #verify-drive-container {
     border-bottom: 20px;
 }
@@ -29,6 +36,11 @@ body {
 .center {
     margin: auto;
     width: 50%;
+}
+
+#container {
+    padding: 40px;
+    max-width: 100%;
 }
 
 ul {
@@ -85,7 +97,15 @@ th, td {
 table {
     text-decoration: solid;
     font-size: 14px;
+    width: 1000px;
 }
 
 
+#h1-history {
+    margin-top: 20px;
+}
 
+#submit-verify {
+    float: right;
+    cursor: pointer;
+}
