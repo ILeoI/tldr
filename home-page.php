@@ -3,7 +3,7 @@
     require_once "inc/dbconn.inc.php";
 
     $id = $_SESSION["userID"];
-    $sql = "SELECT learner, instructor, supervisor FROM Users WHERE id = '$id';";
+    $sql = "SELECT learner, instructor, supervisor, government FROM Users WHERE id = '$id';";
     if ($result = mysqli_query($conn, $sql)) {
       if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -13,6 +13,8 @@
           require_once "learners/learner-home-page.php";
         } else if ($row["supervisor"] == 1) {
           require_once "qsds/supervisor-home-page.php";
+        } else if ($row["government"] == 1) {
+          require_once "government/government-home-page.php";
         }
       }
     }
