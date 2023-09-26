@@ -14,67 +14,68 @@ require_once "inc/dbconn.inc.php";
 
 <body>
 
-    <h1>Verify Drive</h1>
 
     <div class="center" id="verify-drive">
 
-        <?php
-        $licenseNo = "";
-
-        $sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
-        if ($result = mysqli_query($conn, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_assoc($result);
-                $licenseNo = $row["licenseNo"];
-            }
-        }
+        <h1>Verify Drive</h1>
 
 
-        $sql = "SELECT * FROM Drives WHERE verified=0 AND learnerLicenseNo = '$licenseNo';";
-
-        if ($result = mysqli_query($conn, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                $row = mysqli_fetch_assoc($result);
-            }
-        }
-        ?>
         <div class="verify-container">
             <?php
+
+            $licenseNo = "";
+
+            $sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
+            if ($result = mysqli_query($conn, $sql)) {
+                if (mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $licenseNo = $row["licenseNo"];
+                }
+            }
             // Retrieve unverified drives
-            $sql = "SELECT *
-                FROM Drives
-                WHERE verified =0;";
+            //$sql = "SELECT * FROM Drives WHERE verified =0;";
 
             echo "<table>
                 <tr>
-                    <caption>Verify Drives</caption>
                     <th>Supervising Driver</th>
-                    <th>Date/th>
+                    <th>Date</th>
                     <th>Start Time</th> 
                     <th>End Time</th>
                     <th>Duration</th>
                     <th>Start Location</th>
                     <th>End Location</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-
+                    <th>Road Condition</th>
+                    <th>Weather Condition</th>
+                    <th>Traffic Condition</th>
+                    <th>Day Time</th>
+                    <th>Permit Number</th>
+                    <th>Verified</th>
                 </tr>";
+
+            $sql = "SELECT * FROM Drives WHERE verified=0 AND learnerLicenseNo = '$licenseNo';";
+
 
             if ($result = mysqli_query($conn, $sql)) {
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>
-                            <td>{$row['firstName']} {$row['lastName']}</td>
-                            <td>{$row['time']}</td>
-                            <td>{$row['location']}</td>
+                            <td>{$row['supervisorLicenseNumber']}</td>
+                            <td>{$row['driveDate']}</td>
+                            <td>{$row['startTime']}</td>
+                            <td>{$row['endTime']}</td>
+                            <td>{$row['duration']}</td>
+                            <td>{$row['fromLoc']}</td>
+                            <td>{$row['toLoc']}</td>
+                            <td>{$row['conditionRoad']}</td>
+                            <td>{$row['conditionWeather']}</td>
+                            <td>{$row['conditionTraffic']}</td>
+                            <td>{$row['daytime']}</td>
+                            <td>{$row['learnerLicenseNo']}</td>
+                            <td>{$row['verified']}</td>
                           </tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='3'>No bookings found.</td></tr>";
+                    echo "<tr><td colspan='13'>All drives Verified</td></tr>";
                 }
             }
 
@@ -84,72 +85,77 @@ require_once "inc/dbconn.inc.php";
             ?>
 
         </div>
+    </div>
+
+
+
+    <div class="center" id="drive-history">
 
         <h1>Drive History</h1>
 
-        <div class="center" id="drive-history">
+        <?php
 
-            <?php
+        $sql = "SELECT * FROM Drives WHERE verified=1 AND learnerLicenseNo = '$licenseNo';";
 
-            $sql = "SELECT * FROM Drives WHERE verified=1 AND learnerLicenseNo = '$licenseNo';";
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
 
-            if ($result = mysqli_query($conn, $sql)) {
-                if (mysqli_num_rows($result) > 0) {
-
-                    echo "<ul id=\"history\">";
-
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        print_r($row);
-                    }
-                    echo "</ul>";
-
-                    mysqli_free_result($result);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    print_r($row);
                 }
+
+
+                mysqli_free_result($result);
             }
-            mysqli_close($conn);
-            ?>
+        }
 
+        echo "<table>
+            <tr>
+                <th>Supervising Driver</th>
+                <th>Date</th>
+                <th>Start Time</th> 
+                <th>End Time</th>
+                <th>Duration</th>
+                <th>Start Location</th>
+                <th>End Location</th>
+                <th>Road Condition</th>
+                <th>Weather Condition</th>
+                <th>Traffic Condition</th>
+                <th>Day Time</th>
+                <th>Permit Number</th>
+                <th>Verified</th>
+            </tr>";
 
-        </div>
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>
+                        <td>{$row['supervisorLicenseNumber']}</td>
+                        <td>{$row['driveDate']}</td>
+                        <td>{$row['startTime']}</td>
+                        <td>{$row['endTime']}</td>
+                        <td>{$row['duration']}</td>
+                        <td>{$row['fromLoc']}</td>
+                        <td>{$row['toLoc']}</td>
+                        <td>{$row['conditionRoad']}</td>
+                        <td>{$row['conditionWeather']}</td>
+                        <td>{$row['conditionTraffic']}</td>
+                        <td>{$row['daytime']}</td>
+                        <td>{$row['learnerLicenseNo']}</td>
+                        <td>{$row['verified']}</td>
+                      </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='13'>No Drives Completed</td></tr>";
+            }
+        }
 
+        echo "</table>";
+        mysqli_close($conn);
+        ?>
+
+    </div>
 
 </body>
 
 </html>
-
-<?php
-
-
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-
-    print_r($_POST);
-
-    $learnerID = 1;
-    $driveDate = $_POST["date"];
-    $startTime = $_POST["start-time"];
-    $endTime = $_POST["end-time"];
-    $fromLoc = filter_input(INPUT_POST, "start-location", FILTER_SANITIZE_SPECIAL_CHARS);
-    $toLoc = filter_input(INPUT_POST, "furthest-location", FILTER_SANITIZE_SPECIAL_CHARS);
-    $road = $_POST["road-type"] . ' ' . $_POST["road-traffic"];
-    $conditionWeather = $_POST["weather"];
-    $conditionTraffic = $_POST["traffic-density"];
-    $daytime = $_POST["time"];
-    $supervisingDriverID = 555;
-    $verified = 1;
-
-    $sql = "INSERT INTO Drives(userID, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, supervisingDriverID, verified) 
-            VALUES('$learnerID', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$road', '$conditionWeather', '$conditionTraffic', '$daytime', '$supervisingDriverID', '$verified');";
-
-    try {
-        mysqli_query($conn, $sql);
-        echo "Drive Added<br>";
-    } catch (mysqli_sql_exception) {
-        echo "nice try buddy";
-    }
-}
-
-?>

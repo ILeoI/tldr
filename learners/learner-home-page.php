@@ -21,7 +21,7 @@
 
             </button>
             <div class="dropdown-content">
-                <a href="drives.php">Drives Log</a>
+                <a href="drives.php">View Drives</a>
                 <a href="learners/view-cbta.php">CBTA</a>
                 <a href="learners/my-account.php">Account</a>
                 
