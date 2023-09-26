@@ -113,6 +113,6 @@ INSERT INTO SupervisorLearners(supervisorID, learnerID) VALUES(3, 1);
 INSERT INTO PaymentDetails(userID, bsb, accountNumber) VALUES (2, 012345, 87654321);
 INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(1, 111122223333444, 10, 26, 012);
 
-INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(2, 1, "2023-10-29 12:40:00", "1 Name Street, Suburb");
-INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(2, 1, "2023-17-29 12:40:00", "1 Name Street, Suburb");
-INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(2, 1, "2023-24-29 12:40:00", "1 Name Street, Suburb");
+INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(2, 1, "2023-10-01 12:40:00", "1 Name Street, Suburb");
+INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(2, 1, "2023-10-08 12:40:00", "1 Name Street, Suburb");
+INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(2, 1, "2023-10-15 12:40:00", "1 Name Street, Suburb");
