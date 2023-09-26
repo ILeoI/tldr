@@ -99,6 +99,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         mysqli_query($conn, $sql);
         echo "acc created<br>";
+        $sql = "SELECT id FROM Users WHERE email = '$email';";
+        if($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                $id = mysqli_fetch_assoc($result)["id"];
+                $sql = "INSERT INTO PaymentDetails(userID) VALUES('$id');";
+                mysqli_query($conn, $sql);
+            }
+        }
+        
         echo "<a href=\"login-page.php\">Login</a>";
     } catch (mysqli_sql_exception) {
         echo "<p style=\"color: red;\">This account already exists!<br><a href=\"forgot-password.php\" style=\"color: black; text-decoration: none;\">Forgot Password?</a></p>";
