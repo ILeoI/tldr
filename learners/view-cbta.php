@@ -48,6 +48,11 @@ if ($result = mysqli_query($conn, $sql)) {
     }
 
     ?>
+
+    <div class="whitebox">
+        <h1></h1>
+    </div>
+
     <div class="task1">
     <h4>Task 1</h4>
     <label for="cabin-drill">Cabin drill:</label>

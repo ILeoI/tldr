@@ -1,5 +1,6 @@
 
 html{
+  z-index: 1;
     border: solid 50px;
     border-color:  #F7B32B;
     border-right: none;
@@ -7,7 +8,18 @@ html{
 
   }
 
+  body{
+    z-index: 0;
+  }
+
   h4{
-    display: flex;
+    z-index: 3;
     background-color: #F7B32B;
+  }
+
+  .whitebox{
+    /* z-index: 4;
+    height: 1px;
+    width: 50px;
+    background-color: #555; */
   }
