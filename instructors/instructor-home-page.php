@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: Home Page</title>
     <link rel="stylesheet" href="style/home-page.css" />
+    <link rel="stylesheet" href="style/menu-style.css" />
     <script src="scripts/home.js" defer></script>
 </head>
 
