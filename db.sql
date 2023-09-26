@@ -75,8 +75,8 @@ CREATE TABLE PaymentDetails (
     cardExpiryMonth int,
     cardExpiryYear int,
     cardCVV int,
-    accountNumber int,
-    bsb int
+    accountNumber int DEFAULT NULL,
+    bsb int DEFAULT NULL
 );
 
 CREATE TABLE bookings (
