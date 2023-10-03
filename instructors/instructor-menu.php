@@ -9,6 +9,7 @@
             <a href="home-page.php">Home</a>
             <a href="add-drive.php">Add Drive</a>
             <a href="instructors/students.php">Your Students</a>
+            <a href="instructors/create-account.php">Create An Account</a>
             <a href="instructors/my-account.php">Account</a>
         </div>
     </div>

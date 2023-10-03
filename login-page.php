@@ -50,7 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row["password"]) || 1) {
+        print_r($row);
+        if ($row["hasTempPassword"] == "1") {
+            $_SESSION["userID"] = $row["id"];
+            header("location: complete-account.php");
+        } else if (password_verify($password, $row["password"]) || 1) {
             $_SESSION["userID"] = $row["id"];
             header("location: home-page.php");
         } else {
@@ -61,7 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-function incorrectInfo() {
+function incorrectInfo()
+{
     echo "<p style=\"color: red;\">Incorrect account information!<br><a style=\"color: black; text-decoration: none\" href=\"forgot-password.php\">Forgot Password?</a></p>";
 }
 

@@ -17,7 +17,8 @@ CREATE TABLE Users (
     instructor boolean DEFAULT 0,
     supervisor boolean DEFAULT 0,
     government boolean DEFAULT 0,
-    licenseNo varchar(6)
+    licenseNo varchar(6),
+    hasTempPassword boolean DEFAULT 0
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE InstructorLearners (
