@@ -12,6 +12,7 @@ require_once "../inc/session-start.inc.php";
     <title>TLDR: View CBT&A</title>
     <link rel="stylesheet" href="../style/view-cbta.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/menu.js" defer></script>
 </head>
 
 <?php

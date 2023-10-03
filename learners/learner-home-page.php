@@ -15,6 +15,7 @@ require_once "../inc/dbconn.inc.php";
     <link rel="stylesheet" href="../style/home-page.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/home.js" defer></script>
+    <script src="../scripts/menu.js" defer></script>
 </head>
 
 <body>

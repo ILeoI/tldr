@@ -10,6 +10,7 @@ require_once "../inc/session-start.inc.php";
     <meta charset="UTF-8">
     <title>TLDR: View lessons</title>
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/menu.js" defer></script>
 </head>
 
 <body>

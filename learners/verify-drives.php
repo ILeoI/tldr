@@ -12,7 +12,8 @@ require_once "../inc/session-start.inc.php"
     <meta name="Author" content="Coby Murphy">
     <link rel="stylesheet" href="../style/drives.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
-    <title>Drives</title>
+    <script src="../scripts/menu.js" defer></script>
+    <title>TLDR: Your Drives</title>
 </head>
 
 <body>
