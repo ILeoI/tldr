@@ -14,7 +14,8 @@ require_once "../inc/dbconn.inc.php";
     <title>TLDR: Home Page</title>
     <link rel="stylesheet" href="../style/home-page.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
-    <script src="scripts/home.js" defer></script>
+    <script src="../scripts/home.js" defer></script>
+    <script src="../scripts/menu.js" defer></script>
 </head>
 
 <body>

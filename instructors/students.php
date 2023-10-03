@@ -8,14 +8,14 @@ require_once "../inc/session-start.inc.php";
 
 <head>
     <meta charset="UTF-8">
-    <title>TLDR: Student</title>
+    <title>TLDR: Your Students</title>
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/menu.js" defer></script>
 </head>
 
 <body>
     <?php require_once "instructor-menu.php"; ?>
-    <h1>Your Students</h1>
-
+    <br>
     <form action="add-student.php" method="post">
         <label for="student-ln-input">Add a student here: </label>
         <input type="text" name="student-ln-input" id="student-ln-input" placeholder="License Number" required>

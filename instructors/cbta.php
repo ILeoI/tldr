@@ -9,10 +9,11 @@ require_once "../inc/session-start.inc.php";
 
 <head>
     <meta charset="UTF-8">
-    <title>TLDR: CBT&A</title>
+    <title>TLDR: Editing CBT&A</title>
     <script src="../scripts/cbta.js" defer></script>
     <link rel="stylesheet" href="../style/cbta.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/menu.js" defer></script>
 </head>
 
 <body>

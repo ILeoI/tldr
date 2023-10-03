@@ -40,14 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/menu.js" defer></script>
     <title>TLDR: Change Password</title>
 </head>
 
 <body>
 
     <?php require_once "instructor-menu.php"; ?>
-    <h1>My Account</h1>
-
+    <br>
+    
     <?php
     if (isset($error)) {
         echo '<div class="error">' . $error . '</div>';

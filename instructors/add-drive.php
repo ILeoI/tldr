@@ -11,7 +11,8 @@ require_once "../inc/session-start.inc.php";
     <meta name="Author" content="Coby Murphy">
     <link rel="stylesheet" href="../style/drives.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
-    <title>Add-Drives</title>
+    <script src="../scripts/menu.js" defer></script>
+    <title>TLDR: Add Drives</title>
 </head>
 
 <body>
@@ -23,7 +24,6 @@ require_once "../inc/session-start.inc.php";
         <form id="add-drive" action="add-drive.php" method="POST">
             <h1>Add Drive</h1>
             <ul>
-
                 <li>
                     <label for="permit-num">Learner Permit</label><br>
                     <input type="text" name="permit-num" pattern="([A-Za-z]{2})+([0-9]{4})" required>

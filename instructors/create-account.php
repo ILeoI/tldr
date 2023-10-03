@@ -10,7 +10,8 @@ require_once "../inc/session-start.inc.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/menu-style.css" />
-    <title>TLDR: Create Account</title>
+    <script src="../scripts/menu.js" defer></script>
+    <title>TLDR: Create An Account For Someone</title>
 </head>
 
 <body>
@@ -18,7 +19,7 @@ require_once "../inc/session-start.inc.php";
     require_once "instructor-menu.php";
     ?>
     <div>
-        <h1>Create An Account For Someone</h1>
+        <br>
         <form action="create-account.php" method="post">
             <label for="email-input">Email:</label>
             <input type="text" name="email-input" id="email-input">

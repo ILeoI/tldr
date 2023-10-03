@@ -10,8 +10,9 @@ require_once "../inc/session-start.inc.php";
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/menu-style.css" />
-  <title>TLDR: Add a booking</title>
+  <link rel="stylesheet" href="../style/menu-style.css" />
+  <script src="../scripts/menu.js" defer></script>
+  <title>TLDR: Add A Lesson</title>
 </head>
 
 <body>
@@ -34,8 +35,8 @@ require_once "../inc/session-start.inc.php";
   }
   mysqli_free_result($result);
   ?>
-  <h1>Add a booking</h1>
-  <form action="lessons.php" method="post">
+  <br>
+  <form action="add-lesson.php" method="post">
     <label for="student">Select Student:</label>
     <select id="student" name="student" required>
       <?php
@@ -58,5 +59,22 @@ require_once "../inc/session-start.inc.php";
 </html>
 
 <?php
-  mysqli_close($conn);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $studentID = $_POST["student"];
+  $time = $_POST["time"];
+  $location = $_POST["location"];
+  $instructorID = $_SESSION["userID"];
+
+  // Insert into bookings table
+  $sql = "INSERT INTO bookings (instructorID, learnerID, time, location) VALUES ('$instructorID', '$studentID', '$time', '$location');";
+
+  if (mysqli_query($conn, $sql)) {
+    header("location: ../home-page.php"); // Redirect to instructor's homepage
+    exit();
+  } else {
+    header("location: add-lesson.php?feedback=0"); // Redirect with error message
+  }
+}
+
+mysqli_close($conn);
 ?>
