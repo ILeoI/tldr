@@ -11,9 +11,11 @@ require_once "../inc/session-start.inc.php";
     <meta charset="UTF-8">
     <title>TLDR: View CBT&A</title>
     <link rel="stylesheet" href="../style/view-cbta.css" />
+    <link rel="stylesheet" href="../style/menu-style.css" />
 </head>
 
 <?php
+    require_once "learner-menu.php";
 
 $db_result = array();
 $value_result = array();

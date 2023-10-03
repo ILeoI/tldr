@@ -1,3 +1,8 @@
+<?php
+require_once "../inc/session-start.inc.php";
+require_once "../inc/dbconn.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,8 +12,8 @@
     <meta name="description" content="HomePage">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: Home Page</title>
-    <link rel="stylesheet" href="style/home-page.css" />
-    <link rel="stylesheet" href="style/menu-style.css" />
+    <link rel="stylesheet" href="../style/home-page.css" />
+    <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="scripts/home.js" defer></script>
 </head>
 

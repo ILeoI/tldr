@@ -28,10 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: My Account</title>
     <link rel="stylesheet" href="style/my-account.css" />
+    <link rel="stylesheet" href="../style/menu-style.css" />
 </head>
 
 <body>
-    <h1 class="page-title">My Account</h1>
+    <?php require_once "learner-menu.php";?>
+
+    <h1 class="heading">My Account</h1>
 
     <?php
     $id = $_SESSION["userID"];

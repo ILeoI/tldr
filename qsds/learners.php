@@ -9,9 +9,13 @@ require_once "../inc/session-start.inc.php";
 <head>
     <meta charset="UTF-8">
     <title>TLDR: Your Learners</title>
+    <link rel="stylesheet" href="style/menu-style.css" />
 </head>
 
 <body>
+    <?php
+        require_once "supervisor-menu.php"
+    ?>
     <h1>Your Learners</h1>
 
     <form action="add-learner.php" method="post">

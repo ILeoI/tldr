@@ -6,7 +6,7 @@ $sql = "SELECT hasTempPassword FROM Users WHERE id = {$_SESSION["userID"]};";
 if ($result = mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        if ($row["hasTempPassword"] == 1) {
+        if ($row["hasTempPassword"] != 1) {
             header("location: home-page.php");
         }
     }

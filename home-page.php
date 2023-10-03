@@ -8,13 +8,13 @@
       if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         if ($row["instructor"] == 1) {
-          require_once "instructors/instructor-home-page.php";
+          header("location: instructors/instructor-home-page.php");
         } else if ($row["learner"] == 1) {
-          require_once "learners/learner-home-page.php";
+          header("location: learners/learner-home-page.php");
         } else if ($row["supervisor"] == 1) {
-          require_once "qsds/supervisor-home-page.php";
+          header("location: qsds/supervisor-home-page.php");
         } else if ($row["government"] == 1) {
-          require_once "government/government-home-page.php";
+          header("location: government/government-home-page.php");
         }
       }
     }

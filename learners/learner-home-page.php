@@ -1,3 +1,8 @@
+<?php
+require_once "../inc/session-start.inc.php";
+require_once "../inc/dbconn.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,29 +12,15 @@
     <meta name="description" content="HomePage">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: Home Page</title>
-    <link rel="stylesheet" href="style/home-page.css" />
-    <script src="scripts/home.js" defer></script>
+    <link rel="stylesheet" href="../style/home-page.css" />
+    <link rel="stylesheet" href="../style/menu-style.css"/>
+    <script src="../scripts/home.js" defer></script>
 </head>
 
 <body>
-    <h1 class="page-title" id="home-page-header">
-        <div class="dropdown">
-            <button class="dropbtn">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-
-            </button>
-            <div class="dropdown-content">
-                <a href="drives.php">View Drives</a>
-                <a href="learners/view-cbta.php">CBTA</a>
-                <a href="learners/my-account.php">Account</a>
-                
-            </div>
-        </div>
-        <label>Home Page</label>
-    </h1>
     <?php
+    require_once "learner-menu.php";
+
     $id = $_SESSION["userID"];
     $licenseNo = "";
     $sql = "SELECT firstName, lastName, licenseNo FROM Users WHERE id = '$id';";
@@ -83,43 +74,43 @@
 
     ?>
     <ul style="list-style: none; padding-left: 0px">
-    <li>
-        <!-- Logbook Drives Total Progress -->
-        <div class="progress-container">
-            <div class="progress-label">Total Progress</div>
-            <div class="progress-bar" style="
+        <li>
+            <!-- Logbook Drives Total Progress -->
+            <div class="progress-container">
+                <div class="progress-label">Total Progress</div>
+                <div class="progress-bar" style="
                 background: 
                     radial-gradient(closest-side, white 79%, transparent 80% 100%),
                     conic-gradient(green <?php echo round(($all_minutes["total"] / 4500) * 100, 2); ?>%, #d1fff1 0);">
-                <p><?php echo round(($all_minutes["total"] / 4500) * 100, 2); ?>%</p>
+                    <p><?php echo round(($all_minutes["total"] / 4500) * 100, 2); ?>%</p>
+                </div>
             </div>
-        </div>
-    </li>
-    <li>
-        <!-- Logbook Drives Night Progress -->
-        <div class="progress-container">
-            <div class="progress-label">Night Progress</div>
-            <div class="progress-bar" style="   
+        </li>
+        <li>
+            <!-- Logbook Drives Night Progress -->
+            <div class="progress-container">
+                <div class="progress-label">Night Progress</div>
+                <div class="progress-bar" style="   
                 background: 
                     radial-gradient(closest-side, white 79%, transparent 80% 100%),
                     conic-gradient(#383836 <?php echo round(($all_minutes["night"] / 900) * 100, 2); ?>%, #d1fff1 0);">
-                <p><?php echo round(($all_minutes["night"] / 900) * 100, 2); ?>%</p>
+                    <p><?php echo round(($all_minutes["night"] / 900) * 100, 2); ?>%</p>
+                </div>
             </div>
-        </div>
-    </li>
-    <li>
-        <!-- Logbook CBTA Progress -->
-        <div class="progress-container">
-            <div class="progress-label">CBTA Progress</div>
-            <div class="progress-bar" style="
+        </li>
+        <li>
+            <!-- Logbook CBTA Progress -->
+            <div class="progress-container">
+                <div class="progress-label">CBTA Progress</div>
+                <div class="progress-bar" style="
                 background: 
                     radial-gradient(closest-side, white 79%, transparent 80% 100%),
                     conic-gradient(#e6d150 <?php echo round(($cbta / 48) * 100, 2); ?>%, #d1fff1 0);">
-                <p><?php echo round(($cbta / 48) * 100, 2); ?>%</p>
+                    <p><?php echo round(($cbta / 48) * 100, 2); ?>%</p>
+                </div>
             </div>
-        </div>
-    </li>
-</ul>
+        </li>
+    </ul>
 
 
 </body>
