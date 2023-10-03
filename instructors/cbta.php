@@ -28,6 +28,7 @@ require_once "../inc/session-start.inc.php";
                 $_SESSION["learnerID"] = $_GET["learnerID"];
             }
         }
+        mysqli_free_result($result);
     }
 
     $db_result = array();
@@ -43,17 +44,9 @@ require_once "../inc/session-start.inc.php";
             }
         }
     }
-
-
-    // echo "<pre>db_result";
-    // print_r($db_result);
-    // echo "value_result";
-    // print_r($value_result);
-    // echo "</pre>";
+    mysqli_free_result($result);
 
     ?>
-
-
 
     <label>Task:</label>
     <select name="task-selector" id="task-selector" onchange="changeTasks()">
@@ -265,3 +258,7 @@ require_once "../inc/session-start.inc.php";
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>

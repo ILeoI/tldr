@@ -38,6 +38,7 @@ require_once "../inc/session-start.inc.php"
                 $licenseNo = $row["licenseNo"];
             }
         }
+        mysqli_free_result($result);
 
         echo "<form action='verify-drives.php' method='post'>";
 
@@ -83,6 +84,8 @@ require_once "../inc/session-start.inc.php"
                 echo "<tr><td colspan='13'>All drives Verified</td></tr>";
             }
         }
+        mysqli_free_result($result);
+
 
         echo "</table>";
         echo "<input type='submit' id='submit-verify'/>";
@@ -137,6 +140,7 @@ require_once "../inc/session-start.inc.php"
                 echo "<tr><td colspan='13'>No Drives Completed</td></tr>";
             }
         }
+        mysqli_free_result($result);
 
         echo "</table>";
         mysqli_close($conn);

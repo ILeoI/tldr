@@ -15,7 +15,7 @@ require_once "../inc/session-start.inc.php";
 </head>
 
 <body>
-    <?php 
+    <?php
     require_once "instructor-menu.php";
     ?>
 
@@ -110,6 +110,8 @@ if ($result = mysqli_query($conn, $sql)) {
     }
 }
 
+mysqli_free_result($result);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     print_r($_POST);
@@ -138,5 +140,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "nice try buddy";
     }
 }
-
+mysqli_close($conn);
 ?>

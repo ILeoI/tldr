@@ -107,7 +107,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 mysqli_query($conn, $sql);
             }
         }
-        
+        mysqli_free_result($result);
+        mysqli_close($conn);
         echo "<a href=\"login-page.php\">Login</a>";
     } catch (mysqli_sql_exception) {
         echo "<p style=\"color: red;\">This account already exists!<br><a href=\"forgot-password.php\" style=\"color: black; text-decoration: none;\">Forgot Password?</a></p>";

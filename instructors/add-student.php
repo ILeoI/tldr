@@ -12,6 +12,7 @@
                 $row = mysqli_fetch_assoc($result);
                 $learnerID = $row["id"];
                 $sql = "SELECT * FROM InstructorLearners WHERE learnerID = '$learnerID';";
+                mysqli_free_result(($result));
                 if ($result = mysqli_query($conn, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
                         header("location: students.php?feedback=1");
@@ -25,8 +26,10 @@
                         }
                     }
                 }
+                mysqli_free_result($result);
             } else {
                 header("location: students.php?feedback=2");
             }
         }
     }
+    mysqli_close($conn);

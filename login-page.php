@@ -63,6 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         incorrectInfo();
     }
+    mysqli_free_result($result);
+    mysqli_close($conn);
 }
 
 function incorrectInfo()

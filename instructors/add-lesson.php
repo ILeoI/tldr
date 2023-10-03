@@ -32,6 +32,7 @@ require_once "../inc/session-start.inc.php";
       $students[] = $row;
     }
   }
+  mysqli_free_result($result);
   ?>
   <h1>Add a booking</h1>
   <form action="lessons.php" method="post">
@@ -55,3 +56,7 @@ require_once "../inc/session-start.inc.php";
 </body>
 
 </html>
+
+<?php
+  mysqli_close($conn);
+?>

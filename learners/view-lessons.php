@@ -40,6 +40,7 @@ require_once "../inc/session-start.inc.php";
                     }
                 }
             }
+            mysqli_free_result($result);
             ?>
         </table>
     </div>
@@ -69,9 +70,14 @@ require_once "../inc/session-start.inc.php";
                     }
                 }
             }
+            mysqli_free_result($result);
             ?>
         </table>
     </div>
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>

@@ -32,6 +32,7 @@ require_once "../inc/dbconn.inc.php";
             echo "<p>Welcome " . $row["firstName"] . " " . $row["lastName"] . ".</p>";
         }
     }
+    mysqli_free_result($result);
     ?>
 
     <div class="table-container">
@@ -64,6 +65,7 @@ require_once "../inc/dbconn.inc.php";
             }
         }
 
+        mysqli_free_result($result);
         echo "</table>";
         ?>
     </div>
@@ -77,3 +79,7 @@ require_once "../inc/dbconn.inc.php";
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>

@@ -92,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo 'Error fetching user data: ' . mysqli_error($conn);
     }
+    mysqli_free_result($result);
     ?>
 
     <div class="button-container">
@@ -118,3 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>

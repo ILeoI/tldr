@@ -1,5 +1,5 @@
 <?php
-require_once "../inc/dbconn.inc.php"; 
+require_once "../inc/dbconn.inc.php";
 require_once "../inc/session-start.inc.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <?php require_once "learner-menu.php";?>
+    <?php require_once "learner-menu.php"; ?>
 
     <h1 class="heading">My Account</h1>
 
@@ -104,6 +104,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo 'Error fetching user data: ' . mysqli_error($conn);
     }
+    mysqli_free_result($result);
+
     ?>
 
     <div class="button-container">
@@ -122,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
-<script>
+    <script>
         document.getElementById('edit-payment-button').addEventListener('click', function() {
             document.getElementById('edit-payment-form').style.display = 'block';
         });
@@ -130,3 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>

@@ -54,6 +54,8 @@ require_once "../inc/session-start.inc.php";
             echo "</ul>";
         }
     }
+    mysqli_free_result($result);
+    mysqli_close($conn);
     ?>
 </body>
 

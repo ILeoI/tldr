@@ -1,37 +1,38 @@
 <?php
-    require_once "../inc/dbconn.inc.php";
-    require_once "../inc/session-start.inc.php";
+require_once "../inc/dbconn.inc.php";
+require_once "../inc/session-start.inc.php";
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $currentPassword = $_POST["currentPassword"];
-        $newPassword = $_POST["newPassword"];
-        $confirmPassword = $_POST["confirmPassword"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $currentPassword = $_POST["currentPassword"];
+    $newPassword = $_POST["newPassword"];
+    $confirmPassword = $_POST["confirmPassword"];
 
-        $userID = $_SESSION["userID"];
+    $userID = $_SESSION["userID"];
 
-        if (empty($currentPassword) || empty($newPassword) || empty($confirmPassword)) {
-            $error = "Please fill in all fields.";
-        } elseif ($newPassword != $confirmPassword) {
-            $error = "New password and confirm password do not match.";
+    if (empty($currentPassword) || empty($newPassword) || empty($confirmPassword)) {
+        $error = "Please fill in all fields.";
+    } elseif ($newPassword != $confirmPassword) {
+        $error = "New password and confirm password do not match.";
+    } else {
+        $sql = "SELECT password FROM Users WHERE id = '$userID';";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $hashedPassword = $row["password"];
+        mysqli_free_result($result);
+
+        if (password_verify($currentPassword, $hashedPassword)) {
+            $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            $updateSql = "UPDATE Users SET password = '$hashedNewPassword' WHERE id = '$userID';";
+            mysqli_query($conn, $updateSql);
+            $success = "Password updated successfully!";
+
+            header("Location: my-account.php");
+            exit();
         } else {
-            $sql = "SELECT password FROM Users WHERE id = '$userID';";
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
-            $hashedPassword = $row["password"];
-
-            if (password_verify($currentPassword, $hashedPassword)) {
-                $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-                $updateSql = "UPDATE Users SET password = '$hashedNewPassword' WHERE id = '$userID';";
-                mysqli_query($conn, $updateSql);
-                $success = "Password updated successfully!";
-
-                header("Location: my-account.php");
-                exit();
-            } else {
-                $error = "Current password is incorrect.";
-            }
+            $error = "Current password is incorrect.";
         }
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,11 +49,11 @@
     <h1>My Account</h1>
 
     <?php
-        if (isset($error)) {
-            echo '<div class="error">' . $error . '</div>';
-        } elseif (isset($success)) {
-            echo '<div class="success">' . $success . '</div>';
-        }
+    if (isset($error)) {
+        echo '<div class="error">' . $error . '</div>';
+    } elseif (isset($success)) {
+        echo '<div class="success">' . $success . '</div>';
+    }
     ?>
 
     <div class="change-password-form">
@@ -72,3 +73,7 @@
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>

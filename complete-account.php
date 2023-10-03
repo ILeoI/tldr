@@ -10,6 +10,7 @@ if ($result = mysqli_query($conn, $sql)) {
             header("location: home-page.php");
         }
     }
+    mysqli_free_result($result);
 }
 ?>
 
@@ -86,6 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-
+mysqli_close($conn);
 
 ?>

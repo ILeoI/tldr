@@ -13,7 +13,7 @@ require_once "../inc/dbconn.inc.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: Home Page</title>
     <link rel="stylesheet" href="../style/home-page.css" />
-    <link rel="stylesheet" href="../style/menu-style.css"/>
+    <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/home.js" defer></script>
 </head>
 
@@ -31,6 +31,7 @@ require_once "../inc/dbconn.inc.php";
             echo "<p>Welcome " . $row["firstName"] . " " . $row["lastName"] . ".</p>";
         }
     }
+    mysqli_free_result($result);
 
     $all_minutes = array();
 
@@ -46,6 +47,7 @@ require_once "../inc/dbconn.inc.php";
             }
         }
     }
+    mysqli_free_result($result);
 
     // Nighttime
     $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenseNo = '$licenseNo' AND daytime = '0';";
@@ -59,6 +61,7 @@ require_once "../inc/dbconn.inc.php";
             }
         }
     }
+    mysqli_free_result($result);
 
     $all_minutes["total"] = $all_minutes["day"] + $all_minutes["night"];
 
@@ -71,6 +74,7 @@ require_once "../inc/dbconn.inc.php";
             $cbta = $row["count(*)"];
         }
     }
+    mysqli_free_result($result);
 
     ?>
     <ul style="list-style: none; padding-left: 0px">
@@ -116,3 +120,7 @@ require_once "../inc/dbconn.inc.php";
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>

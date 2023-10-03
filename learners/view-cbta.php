@@ -30,6 +30,7 @@ if ($result = mysqli_query($conn, $sql)) {
         }
     }
 }
+mysqli_free_result($result);
 
 ?>
 
@@ -141,7 +142,7 @@ if ($result = mysqli_query($conn, $sql)) {
     <br>
     </div>
 
-    \<div class="task5">
+    <div class="task5">
     <h4>Task 5</h4>
     <label>Stop and go <i>(using the park brake)</i>:</label>
     <input type="checkbox" name="park-brake1" <?php echo (in_array("park-brake1", $db_result) ? "checked" : "") ?> disabled>
@@ -231,3 +232,7 @@ if ($result = mysqli_query($conn, $sql)) {
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);
+?>
