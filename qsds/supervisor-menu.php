@@ -6,10 +6,10 @@
             <div class="bar"></div>
         </button>
         <div class="dropdown-content">
-            <a href="qsds/supervisor-home-page.php" >Home</a>
+            <a href="supervisor-home-page.php" >Home</a>
             <a href="add-drive.php">Add Drive</a>
-            <a href="qsds/learners.php">Your Learners</a>
-            <a href="qsds/my-account.php">Account</a>
+            <a href="learners.php">Your Learners</a>
+            <a href="my-account.php">Account</a>
         </div>
     </div>
     <label>Home Page</label>

@@ -9,7 +9,7 @@ require_once "../inc/session-start.inc.php";
 <head>
     <meta charset="UTF-8">
     <title>TLDR: Your Learners</title>
-    <link rel="stylesheet" href="style/menu-style.css" />
+    <link rel="stylesheet" href="../style/menu-style.css" />
 </head>
 
 <body>
