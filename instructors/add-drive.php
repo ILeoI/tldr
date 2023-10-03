@@ -1,6 +1,6 @@
 <?php
-require_once "inc/dbconn.inc.php";
-require_once "inc/session-start.inc.php";
+require_once "../inc/dbconn.inc.php";
+require_once "../inc/session-start.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -9,14 +9,14 @@ require_once "inc/session-start.inc.php";
 <head>
     <meta charset="UTF-8">
     <meta name="Author" content="Coby Murphy">
-    <link rel="stylesheet" href="./style/drives.css" />
-    <link rel="stylesheet" href="./style/menu-style.css" />
+    <link rel="stylesheet" href="../style/drives.css" />
+    <link rel="stylesheet" href="../style/menu-style.css" />
     <title>Add-Drives</title>
 </head>
 
 <body>
     <?php 
-    require_once "instructors/instructor-menu.php";
+    require_once "instructor-menu.php";
     ?>
 
     <div class="center" id="add-drive-form">

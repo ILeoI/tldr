@@ -12,9 +12,12 @@ require_once "../inc/session-start.inc.php";
     <title>TLDR: CBT&A</title>
     <script src="../scripts/cbta.js" defer></script>
     <link rel="stylesheet" href="../style/cbta.css" />
+    <link rel="stylesheet" href="../style/menu-style.css" />
 </head>
 
 <body>
+<?php require_once "instructor-menu.php"; ?>
+
     <?php
     if (isset($_GET["learnerID"])) {
         $sql = "SELECT * FROM users WHERE id = '" . $_GET["learnerID"] . "';";

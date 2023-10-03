@@ -1,5 +1,5 @@
 <?php
-require_once "../inc/dbconn.inc.php"; 
+require_once "../inc/dbconn.inc.php";
 require_once "../inc/session-start.inc.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,11 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="description" content="My Account Page">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: My Account</title>
-    <link rel="stylesheet" href="style/my-account.css" />
+    <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/my-account.css" />
 </head>
 
 <body>
-    <h1 class="page-title">My Account</h1>
+    <?php require_once "instructor-menu.php"; ?>
+    <h1 class="title">My Account</h1>
 
     <?php
     $id = $_SESSION["userID"];
@@ -98,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </a>
     </div>
 
-    
+
     <div id="edit-payment-form" style="display: none;">
         <form method="post">
             BSB: <input type="text" name="bsb" value="<?php echo $bsb; ?>"><br>
@@ -107,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
-    
+
     <script>
         document.getElementById('edit-payment-button').addEventListener('click', function() {
             document.getElementById('edit-payment-form').style.display = 'block';

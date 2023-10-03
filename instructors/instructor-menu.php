@@ -6,11 +6,11 @@
             <div class="bar"></div>
         </button>
         <div class="dropdown-content">
-            <a href="home-page.php">Home</a>
+            <a href="instructor-home-page.php">Home</a>
             <a href="add-drive.php">Add Drive</a>
-            <a href="instructors/students.php">Your Students</a>
-            <a href="instructors/create-account.php">Create An Account</a>
-            <a href="instructors/my-account.php">Account</a>
+            <a href="students.php">Your Students</a>
+            <a href="create-account.php">Create An Account</a>
+            <a href="my-account.php">Account</a>
         </div>
     </div>
     <label>Home Page</label>

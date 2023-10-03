@@ -69,7 +69,7 @@ require_once "../inc/dbconn.inc.php";
     </div>
 
     <div class="button-container">
-        <a href="instructors/add-lesson.php">
+        <a href="add-lesson.php">
             <button class="add-lesson-button">Add Lesson</button>
         </a>
     </div>
