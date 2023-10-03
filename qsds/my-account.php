@@ -15,12 +15,13 @@ require_once "../inc/session-start.inc.php";
     <title>TLDR: My Account</title>
     <link rel="stylesheet" href="../style/my-account.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/menu.js" defer></script>
 </head>
 
 <body>
     <?php require_once "supervisor-menu.php"; ?>
 
-    <h1 class="heading">My Account</h1>
+    <br>
 
     <?php
     $id = $_SESSION["userID"];
@@ -59,10 +60,7 @@ require_once "../inc/session-start.inc.php";
                             <td>Last Name: </td>
                             <td>' . $user['lastName'] . '</td>
                         </tr>
-                        <tr>
-                        <td> 
-                        <button id="edit-payment-button" class="add-lesson-button">Edit Payment</button> </td>
-                        </tr>
+                        
                     </table>
                 </div>';
         }

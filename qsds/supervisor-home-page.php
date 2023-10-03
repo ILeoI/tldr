@@ -9,7 +9,7 @@ require_once "../inc/dbconn.inc.php";
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style/menu-style.css" />
-
+    <script src="../scripts/menu.js" defer></script>
     <title>TLDR: QSD Home Page</title>
 
 </head>

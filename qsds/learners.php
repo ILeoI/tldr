@@ -10,14 +10,15 @@ require_once "../inc/session-start.inc.php";
     <meta charset="UTF-8">
     <title>TLDR: Your Learners</title>
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/menu.js" defer></script>
 </head>
 
 <body>
     <?php
         require_once "supervisor-menu.php"
     ?>
-    <h1>Your Learners</h1>
-
+    <br>
+    
     <form action="add-learner.php" method="post">
         <label for="learner-ln-input">Add a learner here: </label>
         <input type="text" name="learner-ln-input" id="learner-ln-input" placeholder="License Number" required>

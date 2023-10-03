@@ -12,5 +12,5 @@
             <a href="my-account.php">Account</a>
         </div>
     </div>
-    <label>Home Page</label>
+    <label id="page-title">Home Page</label>
 </h1>
