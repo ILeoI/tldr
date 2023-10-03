@@ -38,10 +38,14 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="../style/menu-style.css" />
+    <title>TLDR: Change Password</title>
 </head>
 
 <body>
-    <h1 class="page-title">My Account</h1>
+
+    <?php require_once "instructor-menu.php"; ?>
+    <h1>My Account</h1>
 
     <?php
         if (isset($error)) {
