@@ -22,7 +22,7 @@
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<li>" . $row["firstName"] . " " . $row["lastName"] . ", <a href='view-instructor.php?instructorID={$row["id"]}'>View</a></li>";
+                    echo "<li>" . $row["firstName"] . " " . $row["lastName"] . ", <a href='view-instructor.php?viewing={$row["id"]}'>View</a></li>";
                 }
             }
         }
