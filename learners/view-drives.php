@@ -41,7 +41,7 @@ require_once "../inc/session-start.inc.php"
         }
         mysqli_free_result($result);
 
-        echo "<form action='verify-drives.php' method='post'>";
+        echo "<form action='verify-drive.php' method='post'>";
 
         echo "<table>
                 <tr>

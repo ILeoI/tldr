@@ -11,6 +11,6 @@ foreach (array_keys($_POST) as $id) {
     }
 }
 
-header("location: drives.php");
+header("location: view-drives.php");
 
 ?>
