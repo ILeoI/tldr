@@ -34,25 +34,24 @@ require_once "../inc/session-start.inc.php";
             echo "<p>Invalid license number</p>";
         } else if ($feedback == "3") {
             echo "<p>Student added successfully</p>";
+        } else if ($feedback == "4")
+        {
+            echo "<p>Entered License Number is not a student</p>";
         }
     }
 
 
     // generates a list of the instructors students with a link to view their CBT&A.
     $instructorID = $_SESSION["userID"];
-    $sql = "SELECT * FROM InstructorLearners WHERE instructorID = '$instructorID';";
+    $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenseNo 
+            FROM Users 
+            JOIN InstructorLearners ON Users.id = InstructorLearners.learnerID 
+            WHERE InstructorLearners.instructorID = '$instructorID';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             echo "<ul>";
             while ($row = mysqli_fetch_assoc($result)) {
-                $learnerID = $row["learnerID"];
-                $sql = "SELECT firstName, lastName, licenseNo FROM Users WHERE id = '$learnerID';";
-                if ($result = mysqli_query($conn, $sql)) {
-                    if (mysqli_num_rows($result) > 0) {
-                        $row = mysqli_fetch_assoc($result);
-                        echo "<li><label>" . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenseNo"] . " </label><a href=\"cbta.php?learnerID=" . $learnerID . "\">View CBT&A</a></li>";
-                    }
-                }
+                echo "<li><label>" . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenseNo"] . " </label><a href=\"cbta.php?learnerID=" . $row["id"] . "\">View CBT&A</a></li>";
             }
             echo "</ul>";
         }
