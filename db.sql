@@ -98,12 +98,25 @@ GRANT all privileges on tldr.PaymentDetails to dbadmin@localhost;
 GRANT all privileges on tldr.InstructorLearners to dbadmin@localhost;
 GRANT all privileges on tldr.Bookings to dbadmin@localhost;
 
+-- Students
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
 VALUES("student@tldr.com", "password", "0400000000", "Student", "Driver", "2023-06-15", 1, "LN0000");
+
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
+VALUES("student2@tldr.com", "password", "0400000004", "Student2", "Driver2", "2013-09-12", 1, "LN0005");
+
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
+VALUES("student3@tldr.com", "password", "0400000005", "Student3", "Driver3", "2014-08-17", 1, "LN0006");
+
+-- Instructor
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenseNo) 
 VALUES("instructor@tldr.com", "password", "0400000001", "Instructor", "Driver", "1999-05-12", 1, "LN0001");
+
+-- QSD
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, supervisor, licenseNo) 
 VALUES("qsd@tldr.com", "password", "0400000002", "Supervisor", "Driver", "1969-05-12", 1, "LN0003");
+
+-- Government
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, government, licenseNo) 
 VALUES("government@tldr.com", "password", "0400000003", "Government", "Driver", "1969-05-12", 1, "LN0004");
 
@@ -117,3 +130,17 @@ INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, 
 INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(2, 1, "2023-10-01 12:40:00", "1 Name Street, Suburb");
 INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(2, 1, "2023-10-08 12:40:00", "1 Name Street, Suburb");
 INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(2, 1, "2023-10-15 12:40:00", "1 Name Street, Suburb");
+
+
+
+-- Insert Drives for students
+INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
+VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "s br", "dry", "l", 1, "LN0000")
+
+INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
+VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "s br", "dry", "l", 1, "LN0000")
+
+INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
+VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "s br", "dry", "l", 1, "LN0000")
+
+
