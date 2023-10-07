@@ -23,8 +23,8 @@ require_once "inc/session-start.inc.php";
         <li>Status: PAID</li>
         <li>Time of Lesson: 14:00</li>
         <li>Date of Lesson: 29/11/2023</li>
-        <li>Time liaid: 15:00</li>
-        <li>Date liaid: 29/11/2023</li>
+        <li>Time Paid: 15:00</li>
+        <li>Date Paid: 29/11/2023</li>
         <p>Amount To Be Paid</p>
         <li>$42.00</li>
     </ul>
