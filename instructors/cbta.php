@@ -17,9 +17,14 @@ require_once "../inc/session-start.inc.php";
 </head>
 
 <body>
-<?php require_once "instructor-menu.php"; ?>
+    <?php require_once "instructor-menu.php"; ?>
 
     <?php
+
+    // This script loads all values that have been marked off into an array.
+    // When the HTML is loaded it checks to see that if the name is in the array,
+    // if it is, then it adds disabled to it, which disallows changes.
+
     if (isset($_GET["learnerID"])) {
         $sql = "SELECT * FROM users WHERE id = '" . $_GET["learnerID"] . "';";
         if ($result = mysqli_query($conn, $sql)) {
@@ -30,6 +35,9 @@ require_once "../inc/session-start.inc.php";
             }
         }
         mysqli_free_result($result);
+    } else {
+        header("location: students.php");
+        exit();
     }
 
     $db_result = array();

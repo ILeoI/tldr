@@ -23,6 +23,7 @@ require_once "../inc/session-start.inc.php";
     </form>
 
     <?php
+    // Displays feedback if feedback is set
     if (isset($_GET["feedback"])) {
         $feedback = $_GET["feedback"];
         if ($feedback == "0") {
@@ -36,6 +37,8 @@ require_once "../inc/session-start.inc.php";
         }
     }
 
+
+    // generates a list of the instructors students with a link to view their CBT&A.
     $instructorID = $_SESSION["userID"];
     $sql = "SELECT * FROM InstructorLearners WHERE instructorID = '$instructorID';";
     if ($result = mysqli_query($conn, $sql)) {

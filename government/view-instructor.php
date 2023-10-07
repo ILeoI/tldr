@@ -15,9 +15,10 @@ require_once "../inc/session-start.inc.php";
 </head>
 
 <body>
+    <!-- Load the government menu -->
     <?php require_once "government-menu.php"; ?>
 
-    <!-- Get instructors name -->
+    <!-- Get instructors information -->
     <?php
     $viewingID = "0";
     if (isset($_GET["viewing"])) {
@@ -27,10 +28,8 @@ require_once "../inc/session-start.inc.php";
     }
 
     $sql = "SELECT firstName, lastName FROM Users WHERE id = '$viewingID';";
-    if ($result = mysqli_query($conn, $sql))
-    {
-        if (mysqli_num_rows($result) > 0)
-        {
+    if ($result = mysqli_query($conn, $sql)) {
+        if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             mysqli_free_result($result);
         }
@@ -42,9 +41,7 @@ require_once "../inc/session-start.inc.php";
     <!-- Get list of instructor's students -->
     <h2>Students:</h2>
     <ul>
-
         <?php
-
         $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenseNo 
                 FROM Users 
                 JOIN InstructorLearners ON Users.id = InstructorLearners.learnerID 

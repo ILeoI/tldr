@@ -2,6 +2,8 @@
 require_once "../inc/dbconn.inc.php";
 require_once "../inc/session-start.inc.php";
 
+// Attempts to update the payment method if come from POST
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bsb = $_POST["bsb"];
     $accountNumber = $_POST["accountNumber"];

@@ -15,6 +15,7 @@ require_once "../inc/session-start.inc.php";
 </head>
 
 <body>
+    <!-- Load the government menu -->
     <?php require_once "government-menu.php"; ?>
     <br>
     <ul>

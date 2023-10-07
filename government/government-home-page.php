@@ -1,3 +1,8 @@
+<?php
+require_once "../inc/dbconn.inc.php";
+require_once "../inc/session-start.inc.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +15,8 @@
 </head>
 
 <body>
+    
+    <!-- Load the government menu -->
     <?php require_once "government-menu.php"; ?>
     <p>
         Welcome to the TLDR system

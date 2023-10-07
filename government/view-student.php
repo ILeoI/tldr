@@ -2,6 +2,7 @@
 require_once "../inc/dbconn.inc.php";
 require_once "../inc/session-start.inc.php";
 
+// preload all the information about the user and their instructor
 $viewingID = "0";
 if (isset($_GET["viewing"])) {
     $viewingID = $_GET["viewing"];
@@ -38,12 +39,13 @@ mysqli_close($conn);
 </head>
 
 <body>
+    <!-- Load the government menu -->
     <?php require_once "government-menu.php"; ?>
 
     <h1>Viewing Student: <?php echo $viewingUser["firstName"] . " " . $viewingUser["lastName"]; ?></h1>
     <h2>Instructor: <?php echo $instructorUser["firstName"] . " " . $instructorUser["lastName"]; ?></h2>
     <h2>View Drives</h2>
-    
+
     <h2>View CBT&A</h2>
     <h2>View Account</h2>
 </body>

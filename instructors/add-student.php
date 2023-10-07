@@ -2,6 +2,10 @@
     require_once "../inc/dbconn.inc.php";
     require_once "../inc/session-start.inc.php";
 
+    // This script takes the license number of a student,
+    // checks if they are already assigned/doesn't exists
+    // then adds the relation in the database.
+    // Provides appropriate feed back via GET to students.php
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $licenseNumber = $_POST["student-ln-input"];

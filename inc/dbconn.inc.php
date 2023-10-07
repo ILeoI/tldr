@@ -1,5 +1,7 @@
 <?php
 
+// Creates a connection to the database
+
 define("DB_HOST", "localhost");
 define("DB_NAME", "tldr");
 define("DB_USER", "dbadmin");

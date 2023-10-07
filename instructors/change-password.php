@@ -2,6 +2,10 @@
 require_once "../inc/dbconn.inc.php";
 require_once "../inc/session-start.inc.php";
 
+// Attempts to reset password
+// If fail, report back an error
+// If succeed, report it
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $currentPassword = $_POST["currentPassword"];
     $newPassword = $_POST["newPassword"];

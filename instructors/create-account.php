@@ -42,6 +42,8 @@ require_once "../inc/session-start.inc.php";
 
 <?php
 
+// creates an account on behalf of another
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email-input"];
     $tempPassword = $_POST["temp-password"];

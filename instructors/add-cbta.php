@@ -2,6 +2,10 @@
 require_once "../inc/dbconn.inc.php";
 require_once "../inc/session-start.inc.php";
 
+// This script goes through every item in the post for the specified task,
+// then adds the generated sql statement to an array to be run in a loop
+// which adds an entry to the database
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $instructorID = $_SESSION["userID"];
     if (isset($_SESSION["learnerID"])) {
