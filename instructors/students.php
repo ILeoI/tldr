@@ -34,8 +34,7 @@ require_once "../inc/session-start.inc.php";
             echo "<p>Invalid license number</p>";
         } else if ($feedback == "3") {
             echo "<p>Student added successfully</p>";
-        } else if ($feedback == "4")
-        {
+        } else if ($feedback == "4") {
             echo "<p>Entered License Number is not a student</p>";
         }
     }
