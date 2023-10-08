@@ -1,5 +1,6 @@
 <?php
 require_once "../inc/db-session-include.php";
+requireUserType($conn, "instructor");
 
 // This script takes the license number of a student,
 // checks if they are already assigned/doesn't exists

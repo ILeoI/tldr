@@ -1,5 +1,6 @@
 <?php
 require_once "../inc/db-session-include.php";
+requireUserType($conn, "instructor");
 
 // Attempts to reset password
 // If fail, report back an error

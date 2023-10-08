@@ -1,5 +1,6 @@
 <?php
 require_once "../inc/db-session-include.php";
+requireUserType($conn, "instructor");
 
 // Attempts to update the payment method if come from POST
 

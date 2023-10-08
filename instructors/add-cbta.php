@@ -1,5 +1,6 @@
 <?php
 require_once "../inc/db-session-include.php";
+requireUserType($conn, "instructor");
 
 // This script goes through every item in the post for the specified task,
 // then adds the generated sql statement to an array to be run in a loop
