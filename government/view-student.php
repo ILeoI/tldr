@@ -1,5 +1,6 @@
 <?php
 require_once "../inc/db-session-include.php";
+requireUserType($conn, "government");
 
 // preload all the information about the user and their instructor
 $viewingID = "0";
