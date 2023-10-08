@@ -1,6 +1,5 @@
 <?php
-    require_once "inc/session-start.inc.php";
-    require_once "inc/dbconn.inc.php";
+    require_once "inc/db-session-include.php";
 
     $id = $_SESSION["userID"];
     $sql = "SELECT learner, instructor, supervisor, government FROM Users WHERE id = '$id';";

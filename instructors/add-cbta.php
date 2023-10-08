@@ -1,6 +1,5 @@
 <?php
-require_once "../inc/dbconn.inc.php";
-require_once "../inc/session-start.inc.php";
+require_once "../inc/db-session-include.php";
 
 // This script goes through every item in the post for the specified task,
 // then adds the generated sql statement to an array to be run in a loop

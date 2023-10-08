@@ -1,6 +1,5 @@
 <?php
-require_once "../inc/dbconn.inc.php";
-require_once "../inc/session-start.inc.php";
+require_once "../inc/db-session-include.php";
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +38,7 @@ require_once "../inc/session-start.inc.php";
     ?>
 
     <!-- Get list of instructor's students -->
-    <h2>Students:</h2>
+    <h2>Current Students:</h2>
     <ul>
         <?php
         $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenseNo 
@@ -58,21 +57,60 @@ require_once "../inc/session-start.inc.php";
 
     </ul>
 
-    <!-- Get their bookings and invoices -->
-    <h2>Bookings</h2>
+    <!-- Get their future bookings and invoices by comparing the booking date with now()-->
+    <h2>Future Bookings</h2>
     <div class="table-container">
         <?php
         // Retrieve instructor's bookings
         $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location
                 FROM bookings
                 JOIN Users ON bookings.learnerID = Users.id
-                WHERE bookings.instructorID = '$viewingID';";
+                WHERE bookings.instructorID = '$viewingID' AND bookings.time >= now();";
 
         echo "<table>
                 <tr>
                     <caption>Their Bookings</caption>
                     <th>Name</th>
-                    <th>Time</th>
+                    <th>Date & Time</th>
+                    <th>Location</th> 
+                    <th>Invoice</th>
+                </tr>";
+
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>
+                            <td>{$row['firstName']} {$row['lastName']}</td>
+                            <td>{$row['time']}</td>
+                            <td>{$row['location']}</td>
+                            <td><a href='../view-invoice.php?invoiceID=id'>View</a></td>
+                          </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>No bookings found.</td></tr>";
+            }
+        }
+
+        mysqli_free_result($result);
+        echo "</table>";
+        ?>
+    </div>
+
+    <!-- Get their past bookings and invoices -->
+    <h2>Past Bookings</h2>
+    <div class="table-container">
+        <?php
+        // Retrieve instructor's bookings
+        $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location
+                FROM bookings
+                JOIN Users ON bookings.learnerID = Users.id
+                WHERE bookings.instructorID = '$viewingID' AND bookings.time < now();";
+
+        echo "<table>
+                <tr>
+                    <caption>Their Bookings</caption>
+                    <th>Name</th>
+                    <th>Date & Time</th>
                     <th>Location</th> 
                     <th>Invoice</th>
                 </tr>";

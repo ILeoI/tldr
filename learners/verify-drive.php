@@ -1,6 +1,5 @@
 <?php
-require_once "../inc/dbconn.inc.php";
-require_once "../inc/session-start.inc.php";
+require_once "../inc/db-session-include.php";
 
 foreach (array_keys($_POST) as $id) {
     $sql = "UPDATE Drives SET verified = '1' WHERE id = '$id';";

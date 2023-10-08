@@ -1,6 +1,5 @@
 <?php
-require_once "../inc/dbconn.inc.php";
-require_once "../inc/session-start.inc.php";
+require_once "../inc/db-session-include.php";
 
 // Attempts to reset password
 // If fail, report back an error

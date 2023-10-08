@@ -1,6 +1,5 @@
 <?php
-require_once "../inc/session-start.inc.php";
-require_once "../inc/dbconn.inc.php";
+require_once "../inc/db-session-include.php";
 ?>
 
 <!DOCTYPE html>

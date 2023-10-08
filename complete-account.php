@@ -1,6 +1,5 @@
 <?php
-require_once "inc/dbconn.inc.php";
-require_once "inc/session-start.inc.php";
+require_once "inc/db-session-include.php";
 
 $sql = "SELECT hasTempPassword FROM Users WHERE id = {$_SESSION["userID"]};";
 if ($result = mysqli_query($conn, $sql)) {

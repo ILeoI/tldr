@@ -1,6 +1,5 @@
 <?php
-require_once "../inc/dbconn.inc.php";
-require_once "../inc/session-start.inc.php";
+require_once "../inc/db-session-include.php";
 
 // This script takes the license number of a student,
 // checks if they are already assigned/doesn't exists
