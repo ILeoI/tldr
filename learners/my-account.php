@@ -1,5 +1,6 @@
 <?php
 require_once "../inc/db-session-include.php";
+requireUserType($conn, "learner");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cardNumber = $_POST["cardNumber"];
