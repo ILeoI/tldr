@@ -15,10 +15,8 @@ function requireUserType(mysqli $conn, string $type)
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            print_r($row);
 
             if ($row[$type] == 0) {
-                echo "../home-page.php";
                 header("location: ../home-page.php");
                 exit();
             }
