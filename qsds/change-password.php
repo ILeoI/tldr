@@ -1,5 +1,6 @@
 <?php
 require_once "../inc/db-session-include.php";
+requireUserType($conn, "supervisor");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $currentPassword = $_POST["currentPassword"];
