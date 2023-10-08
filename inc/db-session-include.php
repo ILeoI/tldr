@@ -11,15 +11,25 @@ if (!isset($_SESSION["userID"])) {
 
 function requireUserType(mysqli $conn, string $type)
 {
-    $sql = "SELECT $type FROM Users WHERE id = '{$_SESSION["userID"]}';";
+    if (!checkUserType($conn, $type, $_SESSION["userID"])) {
+        header("location: ../home-page.php");
+        exit();
+    }
+}
+
+function checkUserType(mysqli $conn, string $type, string $id)
+{
+    if ($type == "qsd")
+        $type = "supervisor";
+    $sql = "SELECT $type FROM Users WHERE id = '$id';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-
-            if ($row[$type] == 0) {
-                header("location: ../home-page.php");
-                exit();
+            if ($row[$type] == 1) {
+                return true;
             }
         }
     }
+
+    return false;
 }

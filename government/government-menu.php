@@ -1,4 +1,4 @@
-<h1 class="page-title" id="home-page-header">
+<h1 class="title-banner" id="home-page-header">
     <div class="dropdown">
         <button class="dropbtn">
             <div class="bar"></div>
@@ -9,7 +9,8 @@
             <a href="government-home-page.php">Home</a>
             <a href="view-instructors.php">View Instructors</a>
             <a href="view-students.php">View Students</a>
+            <a href="view-qsds.php">View QSDs</a>
         </div>
     </div>
-    <label id="page-title">Home Page</label>
+    <label class="title-text" id="page-title">Home Page</label>
 </h1>

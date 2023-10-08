@@ -6,8 +6,13 @@ requireUserType($conn, "government");
 $viewingID = "0";
 if (isset($_GET["viewing"])) {
     $viewingID = $_GET["viewing"];
+    if (!checkUserType($conn, "learner", $viewingID)) {
+        header("location: view-students.php");
+        exit();
+    }
 } else {
     header("location: view-students.php");
+    exit();
 }
 
 $sql = "SELECT * FROM Users WHERE id = '$viewingID';";
@@ -24,12 +29,6 @@ if ($result = mysqli_query($conn, $sql)) {
     }
 }
 mysqli_free_result($result);
-
-class AssessmentItem
-{
-    public $name;
-    public $date;
-}
 
 $db_result = array();
 $value_result = array();
@@ -82,9 +81,16 @@ function getCompleteDate(string $name, array $array)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../scripts/menu.js" defer></script>
     <script src="../scripts/collapsible.js" defer></script>
+    <script src="../scripts/government-view-student.js" defer></script>
     <link rel="stylesheet" href="../style/menu-style.css" />
     <link rel="stylesheet" href="../style/collapsible.css" />
     <title>TLDR: Viewing A Student</title>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -345,7 +351,7 @@ function getCompleteDate(string $name, array $array)
                 $cardCVV = $user['cardCVV'] !== null ? $user['cardCVV'] : '';
 
                 echo '
-                <div class="immutable-account-info">
+                <div id="immutable-account-info">
                     <table>
                         <tr>
                             <th></th>
@@ -396,8 +402,8 @@ function getCompleteDate(string $name, array $array)
                 </div>';
 
                 echo '
-                <div class="editable-account-info">
-                    <form action="edit-account.php" method="POST">
+                <div id="editable-account-info" class="hidden">
+                    <form action="edit-account.php?id=' . $user["id"] . '" method="POST">
                         <table>
                             <tr>
                                 <th></th>
@@ -405,46 +411,43 @@ function getCompleteDate(string $name, array $array)
                             </tr>
                             <tr>
                                 <td>Email: </td>
-                                <td><input type="text" value="' . $user['email'] . '"></td>
+                                <td><input type="text" name="email" placeholder="' . $user['email'] . '"></td>
                             </tr>
                             <tr>
                                 <td>Phone Number: </td>
-                                <td><input type="text" value="' . $user['phoneNumber'] . '"></td>
+                                <td><input type="text" name="phoneNumber" placeholder="' . $user['phoneNumber'] . '"></td>
                             </tr>
                             <tr>
                                 <td>License Number: </td>
-                                <td><input type="text" value="' . $user['licenseNo'] . '"></td>
+                                <td><input type="text" name="licenseNo" placeholder="' . $user['licenseNo'] . '"/></td>
                             </tr>
                             <tr>
                                 <td>First Name: </td>
-                                <td><input type="text" value="' . $user['firstName'] . '"></td>
+                                <td><input type="text" name="firstName" placeholder="' . $user['firstName'] . '"></td>
                             </tr>
                             <tr>
                                 <td>Last Name: </td>
-                                <td><input type="text" value="' . $user['lastName'] . '"></td>
+                                <td><input type="text" name="lastName" placeholder="' . $user['lastName'] . '"></td>
                             </tr>
                             <tr>
                                 <td>Card Number: </td>
-                                <td><input type="text" value="' . $cardNumber . '"></td>
+                                <td><input type="text" name="cardNumber" placeholder="' . $cardNumber . '"></td>
                             </tr>
                             <tr>
                                 <td>Expiry Month: </td>
-                                <td><input type="text" value="' . $cardExpiryMonth . '"></td>
+                                <td><input type="text" name="cardExpiryMonth" placeholder="' . $cardExpiryMonth . '"></td>
                             </tr>
                             <tr>
                                 <td>Expiry Year: </td>
-                                <td><input type="text" value="' . $cardExpiryYear . '"></td>
+                                <td><input type="text" name="cardExpiryYear" placeholder="' . $cardExpiryYear . '"></td>
                             </tr>
                             <tr>
                                 <td>CVV: </td>
-                                <td><input type="text" value="' . $cardCVV . '"></td>
-                            </tr>
-                            <tr>
-                                <td> 
-                                    <input type="submit" id="save-account" class="save-account-button" value="Save Account">
-                                </td>
+                                <td><input type="text" name="cardCVV" placeholder="' . $cardCVV . '"></td>
                             </tr>
                         </table>
+                        <input type="submit" id="save-account" class="save-account-button" value="Save Account">
+
                     </form>
                 </div>';
             }

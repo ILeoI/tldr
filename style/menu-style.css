@@ -1,7 +1,12 @@
-.page-title {
+.title-banner {
   text-align: left;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
   background-color: #cffcff;
+}
+
+.title-text {
+  position: relative;
+  bottom: 7px
 }
 
 /* Dropdown Button */
