@@ -102,12 +102,15 @@ GRANT all privileges on tldr.Bookings to dbadmin@localhost;
 -- Students
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
 VALUES("student@tldr.com", "password", "0400000000", "Student", "Driver", "2023-06-15", 1, "LN0000");
+INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(1, 111122223333444, 10, 26, 012);
 
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
 VALUES("student2@tldr.com", "password", "0400000004", "Student2", "Driver2", "2013-09-12", 1, "LN0005");
+INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(2, 9999000011112222, 10, 26, 012);
 
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
 VALUES("student3@tldr.com", "password", "0400000005", "Student3", "Driver3", "2014-08-17", 1, "LN0006");
+INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(3, 5555666677778888, 10, 26, 012);
 
 -- Instructor
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenseNo) 
@@ -125,8 +128,7 @@ VALUES("government@tldr.com", "password", "0400000003", "Government", "Driver", 
 INSERT INTO InstructorLearners(instructorID, learnerID) VALUES(4, 1);
 INSERT INTO SupervisorLearners(supervisorID, learnerID) VALUES(5, 1);
 
-INSERT INTO PaymentDetails(userID, bsb, accountNumber) VALUES (4, 012345, 87654321);
-INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(1, 111122223333444, 10, 26, 012);
+INSERT INTO PaymentDetails(userID, bsb, accountNumber) VALUES (4, 123456, 87654321);
 
 INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(4, 1, "2023-10-01 12:40:00", "1 Name Street, Suburb");
 INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(4, 1, "2023-10-08 12:40:00", "1 Name Street, Suburb");

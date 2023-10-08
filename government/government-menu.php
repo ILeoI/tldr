@@ -7,6 +7,7 @@
         </button>
         <div class="dropdown-content">
             <a href="government-home-page.php">Home</a>
+            <a href="view-accounts.php">View All Accounts</a>
             <a href="view-instructors.php">View Instructors</a>
             <a href="view-students.php">View Students</a>
             <a href="view-qsds.php">View QSDs</a>
