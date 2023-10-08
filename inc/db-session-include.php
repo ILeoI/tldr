@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/inc/dbconn.inc.php";
+require_once "dbconn.inc.php";
 
 // starts the session
 // if a user is not logged in, send them to the login page
@@ -11,12 +11,16 @@ if (!isset($_SESSION["userID"])) {
 
 function requireUserType(mysqli $conn, string $type)
 {
-    $sql = "SELECT learner, supervisor, instructor, government FROM Users WHERE id = '{$_SESSION["userID"]}';";
+    $sql = "SELECT $type FROM Users WHERE id = '{$_SESSION["userID"]}';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            if (!isset($row[$type])) {
-                header("location: " . $_SERVER['DOCUMENT_ROOT'] . "home-page.php");
+            print_r($row);
+
+            if ($row[$type] == 0) {
+                echo "../home-page.php";
+                header("location: ../home-page.php");
+                exit();
             }
         }
     }
