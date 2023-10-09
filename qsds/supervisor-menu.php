@@ -1,4 +1,4 @@
-<h1 class="page-title" id="home-page-header">
+<h1 class="title-banner" id="home-page-header">
     <div class="dropdown">
         <button class="dropbtn">
             <div class="bar"></div>
@@ -12,5 +12,5 @@
             <a href="my-account.php">Account</a>
         </div>
     </div>
-    <label id="page-title">Home Page</label>
+    <label class="title-text" id="page-title">Home Page</label>
 </h1>
