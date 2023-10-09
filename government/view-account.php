@@ -51,12 +51,26 @@ if ($type == "learner" || $type == "instructor") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../scripts/menu.js" defer></script>
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/collapsible.js" defer></script>
+    <link rel="stylesheet" href="../style/collapsible.css" />
     <title>TLDR: Viewing <?php echo $viewingUser["firstName"] . " " . $viewingUser["lastName"] ?></title>
 </head>
 
 <body>
     <?php require_once "government-menu.php" ?>
 
+    <?php 
+    if (isset($_GET["feedback"])) {
+        $feedback = $_GET["feedback"];
+        if ($feedback == "0") {
+            echo "<p>Details changed successfully</p>";
+        } else if ($feedback == "1") {
+            echo "<p>Failed to change details</p>";
+        }
+    }
+    ?>
+
+    <button class="collapsible">View Account Details</button>
     <div class="content">
         <div id="personal-account-info">
             <table>
@@ -81,7 +95,11 @@ if ($type == "learner" || $type == "instructor") {
                 ?>
             </table>
         </div>
-        <div id="card-payment-details" <?php if ($type != "learner") echo "style=\"display: none\"" ?>>
+    </div>
+    <br>
+    <div id="card-payment-details" <?php if ($type != "learner") echo "style=\"display: none\"" ?>>
+        <button class="collapsible">View Payment Details</button>
+        <div class="content">
             <table>
                 <caption>Payment Details</caption>
                 <?php
@@ -106,7 +124,10 @@ if ($type == "learner" || $type == "instructor") {
                 ?>
             </table>
         </div>
-        <div id="card-payment-details" <?php if ($type != "instructor") echo "style=\"display: none\"" ?>>
+    </div>
+    <div id="card-payment-details" <?php if ($type != "instructor") echo "style=\"display: none\"" ?>>
+        <button class="collapsible">View Account Details</button>
+        <div class="content">
             <table>
                 <caption>Payment Details</caption>
                 <?php
@@ -128,6 +149,7 @@ if ($type == "learner" || $type == "instructor") {
                 ?>
             </table>
         </div>
+    </div>
 </body>
 
 </html>
