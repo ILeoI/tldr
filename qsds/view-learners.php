@@ -15,10 +15,10 @@ requireUserType($conn, "supervisor");
 
 <body>
     <?php
-        require_once "supervisor-menu.php"
+    require_once "supervisor-menu.php"
     ?>
     <br>
-    
+
     <form action="add-learner.php" method="post">
         <label for="learner-ln-input">Add a learner here: </label>
         <input type="text" name="learner-ln-input" id="learner-ln-input" placeholder="License Number" required>
@@ -44,16 +44,18 @@ requireUserType($conn, "supervisor");
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             echo "<ul>";
-            while ($row = mysqli_fetch_assoc($result)) {
-                $learnerID = $row["learnerID"];
-                $sql = "SELECT firstName, lastName, licenseNo FROM Users WHERE id = '$learnerID';";
-                if ($result = mysqli_query($conn, $sql)) {
-                    if (mysqli_num_rows($result) > 0) {
-                        $row = mysqli_fetch_assoc($result);
+            $row = mysqli_fetch_assoc($result);
+            $learnerID = $row["learnerID"];
+            $sql = "SELECT firstName, lastName, licenseNo FROM Users WHERE id = '$learnerID';";
+            if ($result = mysqli_query($conn, $sql)) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        print_r($row);
                         echo "<li><label>" . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenseNo"] . " </label><a href=\"cbta.php?learnerID=" . $learnerID . "\">View CBT&A</a></li>";
                     }
                 }
             }
+
             echo "</ul>";
         }
     }
