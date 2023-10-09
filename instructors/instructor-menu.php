@@ -12,6 +12,7 @@
             <a href="add-lesson.php">Add Lesson</a>
             <a href="create-account.php">Create An Account</a>
             <a href="my-account.php">Account</a>
+            <a href="../log-out.php">Logout</a>
         </div>
     </div>
     <label class="title-text" id="page-title">Home Page</label>

@@ -10,6 +10,7 @@
             <a href="add-drive.php">Add Drive</a>
             <a href="view-learners.php">Your Learners</a>
             <a href="my-account.php">Account</a>
+            <a href="../log-out.php">Logout</a>
         </div>
     </div>
     <label class="title-text" id="page-title">Home Page</label>
