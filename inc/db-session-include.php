@@ -7,6 +7,9 @@ session_start();
 if (!isset($_SESSION["userID"])) {
     header("location: " . $_SERVER['DOCUMENT_ROOT'] . "/login-page.php");
     exit();
+} else if ($_SESSION["userID"] == null) {
+    header("location: " . $_SERVER['DOCUMENT_ROOT'] . "/login-page.php");
+    exit();
 }
 
 function requireUserType(mysqli $conn, string $type)
