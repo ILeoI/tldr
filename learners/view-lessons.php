@@ -75,6 +75,36 @@ requireUserType($conn, "learner");
             ?>
         </table>
     </div>
+
+    <button id="openFormButton">Request a Lesson</button>
+
+<div id="bookingForm" style="display:none;">
+    <form action="request-lesson.php" method="post">
+        <label for="time">Time:</label>
+        <input type="datetime-local" id="time" name="time" required><br><br>
+        <label for="location">Location:</label>
+        <input type="location" id="location" name="location" required><br><br>
+        <label for="LessonType">Lesson Type:</label>
+                    <div class="lessonTypes">
+                        <input type="radio" name="LessonType" required><label>Driving Practice</label>
+                        <input type="radio" name="LessonType" required><label>CBTA Lesson</label>
+                    </div>                
+        <input type="submit" value="Submit Request">
+    </form>
+</div>
+
+
+<script>
+    document.getElementById("openFormButton").addEventListener("click", function() {
+        document.getElementById("bookingForm").style.display = "block";
+    });
+
+
+</script>
+
+
+</form>
+
 </body>
 
 </html>
