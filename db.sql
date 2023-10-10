@@ -85,7 +85,18 @@ CREATE TABLE bookings (
     instructorID int NOT NULL,
     learnerID int NOT NULL,
     time DATETIME NOT NULL,
+    lessonType varchar(25),
     location VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE bookingRequests (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    instructorID int NOT NULL,
+    learnerID int NOT NULL,
+    time DATETIME NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    lessonType VARCHAR(25) NOT NULL,
+    verified boolean DEFAULT 0
 );
 
 
@@ -98,6 +109,8 @@ GRANT all privileges on tldr.PaymentDetails to dbadmin@localhost;
 GRANT all privileges on tldr.InstructorLearners to dbadmin@localhost;
 GRANT all privileges on tldr.SupervisorLearners to dbadmin@localhost;
 GRANT all privileges on tldr.Bookings to dbadmin@localhost;
+GRANT all privileges on tldr.bookingRequests to dbadmin@localhost;
+
 
 -- Students
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
