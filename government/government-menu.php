@@ -11,6 +11,7 @@
             <a href="view-instructors.php">View Instructors</a>
             <a href="view-students.php">View Students</a>
             <a href="view-qsds.php">View QSDs</a>
+            <a href="../log-out.php">Logout</a>
         </div>
     </div>
     <label class="title-text" id="page-title">Home Page</label>
