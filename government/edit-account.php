@@ -6,10 +6,12 @@ requireUserType($conn, "government");
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["id"])) {
     $sql = array();
     $id = $_GET["id"];
+    $feedback = 0;
     foreach ($_POST as $key => $value) {
         if (!empty($value)) {
             if (str_contains($key, "card") || $key == "bsb" || $key == "accountNumber") {
                 $sql[] = "UPDATE PaymentDetails SET $key = '$value' WHERE userID = '$id';";
+                $feedback = 2;
             } else {
                 $sql[] = "UPDATE Users SET $key = '$value' WHERE id = '$id';";
             }
@@ -20,10 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["id"])) {
         try {
             mysqli_query($conn, $var);
         } catch (mysqli_sql_exception $e) {
-            header("location: view-account.php?viewing=$id&feedback=3");
+            $feedback += 1;
+            header("location: view-account.php?viewing=$id&feedback=$feedback)");
         }
     }
 
-    header("location: view-account.php?viewing=$id&feedback=2");
+    header("location: view-account.php?viewing=$id&feedback=$feedback");
     exit();
 }
