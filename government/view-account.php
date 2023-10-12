@@ -106,6 +106,12 @@ if ($type == "learner" || $type == "instructor") {
                 }
                 ?>
             </table>
+            <br>
+            <form action="change-password.php?id=<?php echo $viewingUser["id"] ?>">
+                <input type="submit" id="change-password" value="Change Password">
+            </form>
+            <br>
+
             <button id="edit-account">Edit Account</button>
         </div>
         <div id="editable-personal-account-info" class="hidden">
