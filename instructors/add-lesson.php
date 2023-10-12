@@ -51,7 +51,13 @@ requireUserType($conn, "instructor");
     <label for="location">Location:</label>
     <input type="text" id="location" name="location" required><br><br>
 
+    <label for="LessonType">Lesson Type:</label>
+                    <div class="lessonTypes">
+                        <input type="radio" name="LessonType" value="Driving Practice" required><label>Driving Practice</label>
+                        <input type="radio" name="LessonType" value="CBTA" required><label>CBTA Lesson</label>
+                    </div>   
     <input type="submit" value="Submit">
+  
   </form>
 </body>
 
@@ -63,9 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $time = $_POST["time"];
   $location = $_POST["location"];
   $instructorID = $_SESSION["userID"];
+  $lessonType = $_POST["LessonType"];
 
   // Insert into bookings table
-  $sql = "INSERT INTO bookings (instructorID, learnerID, time, location) VALUES ('$instructorID', '$studentID', '$time', '$location');";
+  $sql = "INSERT INTO bookings (instructorID, learnerID, time, location, lessonType) VALUES ('$instructorID', '$studentID', '$time', '$location', '$lessonType');";
 
   if (mysqli_query($conn, $sql)) {
     header("location: ../home-page.php"); // Redirect to instructor's homepage

@@ -10,6 +10,7 @@
             <a href="add-drive.php">Add Drive</a>
             <a href="students.php">Your Students</a>
             <a href="your-bookings.php">Lesson Bookings</a>
+            <a href="view-invoices.php">View Invoices</a>
             <a href="create-account.php">Create An Account</a>
             <a href="my-account.php">Account</a>
             <a href="../log-out.php">Logout</a>

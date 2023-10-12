@@ -14,7 +14,7 @@ requireUserType($conn, "learner");
     <script src="../scripts/menu.js" defer></script>
 </head>
 
-<?php
+<?php 
 require_once "learner-menu.php";
 
 $db_result = array();

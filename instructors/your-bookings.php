@@ -35,36 +35,41 @@ requireUserType($conn, "instructor");
 
     <div class="table-container">
         <?php
-        $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location
-                FROM bookings
-                JOIN Users ON bookings.learnerID = Users.id
-                WHERE bookings.instructorID = '$id';";
+        $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location, bookings.lessonType, bookings.amount
+        FROM bookings
+        JOIN Users ON bookings.learnerID = Users.id
+        WHERE bookings.instructorID = '$id';";
 
         echo "<table>
-                <tr>
-                    <caption>Your Bookings</caption>
-                    <th>Name</th>
-                    <th>Time</th>
-                    <th>Location</th> 
-                </tr>";
+        <tr>
+            <caption>Your Bookings</caption>
+            <th>Name</th>
+            <th>Time</th>
+            <th>Location</th> 
+            <th>Type</th>
+            <th>Amount</th>
+        </tr>";
 
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>
-                            <td>{$row['firstName']} {$row['lastName']}</td>
-                            <td>{$row['time']}</td>
-                            <td>{$row['location']}</td>
-                          </tr>";
+                    <td>{$row['firstName']} {$row['lastName']}</td>
+                    <td>{$row['time']}</td>
+                    <td>{$row['location']}</td>
+                    <td>{$row['lessonType']}</td>
+                    <td>{$row['amount']}</td>
+                  </tr>";
                 }
             } else {
-                echo "<tr><td colspan='3'>No bookings found.</td></tr>";
+                echo "<tr><td colspan='5'>No bookings found.</td></tr>";
             }
         }
 
         mysqli_free_result($result);
         echo "</table>";
         ?>
+    </div>
     </div>
 
     <div class="button-container">
@@ -74,46 +79,51 @@ requireUserType($conn, "instructor");
     </div>
 
     <div class="table-container">
-    <form action="process_verify_booking.php" method="post">
-        <?php
-        $sql = "SELECT Users.firstName, Users.lastName, bookingRequests.id, bookingRequests.time, bookingRequests.location
+        <form action="process_verify_booking.php" method="post">
+            <?php
+            $sql = "SELECT Users.firstName, Users.lastName, bookingRequests.id, bookingRequests.time, bookingRequests.location, bookingRequests.lessonType, bookingRequests.amount
                 FROM bookingRequests
                 JOIN Users ON bookingRequests.learnerID = Users.id
                 WHERE bookingRequests.instructorID = '$id' AND verified = '0';";
 
-        echo "<table>
+            echo "<table>
                 <tr>
                     <caption>Student Booking Requests</caption>
                     <th>Name</th>
                     <th>Time</th>
                     <th>Location</th> 
+                    <th>Type</th>
+                    <th>Amount</th>
                     <th>Verify</th>
+                    
                 </tr>";
 
-        if ($result = mysqli_query($conn, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>
+            if ($result = mysqli_query($conn, $sql)) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>
                             <td>{$row['firstName']} {$row['lastName']}</td>
                             <td>{$row['time']}</td>
                             <td>{$row['location']}</td>
+                            <td>{$row['lessonType']}</td>
+                            <td><input type='text' name='amount' required></td>
                             <td><input type='checkbox' name='{$row["id"]}'/></td>
                           </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='6'>No booking requests found.</td></tr>";
                 }
-            } else {
-                echo "<tr><td colspan='4'>No booking requests found.</td></tr>";
             }
-        }
 
-        mysqli_free_result($result);
-        echo "</table>";
-        ?>
+            mysqli_free_result($result);
+            echo "</table>";
+            ?>
 
-        <div class="button-container">
-            <input type="submit" class="add-lesson-button" value= verify> 
-        </div>
-    </form>
-</div>
+            <div class="button-container">
+                <input type="submit" class="add-lesson-button" value=verify>
+            </div>
+        </form>
+    </div>
 
 
 </body>
