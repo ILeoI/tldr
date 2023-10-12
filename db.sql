@@ -67,7 +67,11 @@ CREATE TABLE InvoiceDetails (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     learnerID int,
     instructorID int,
-    paymentAmount int
+    status int DEFAULT 0,
+    time DATETIME NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    lessonType VARCHAR(25) NOT NULL,
+    amount int DEFAULT 80
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE PaymentDetails (
@@ -86,7 +90,9 @@ CREATE TABLE bookings (
     learnerID int NOT NULL,
     time DATETIME NOT NULL,
     lessonType varchar(25),
-    location VARCHAR(255) NOT NULL
+    location VARCHAR(255) NOT NULL,
+    status varchar(10) NOT NULL,
+    amount int DEFAULT 80
 );
 
 CREATE TABLE bookingRequests (
@@ -143,10 +149,13 @@ INSERT INTO SupervisorLearners(supervisorID, learnerID) VALUES(5, 1);
 
 INSERT INTO PaymentDetails(userID, bsb, accountNumber) VALUES (4, 123456, 87654321);
 
-INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(4, 1, "2023-10-01 12:40:00", "1 Name Street, Suburb");
-INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(4, 1, "2023-10-08 12:40:00", "1 Name Street, Suburb");
-INSERT INTO Bookings(instructorID, learnerID, time, location) VALUES(4, 1, "2023-10-15 12:40:00", "1 Name Street, Suburb");
+INSERT INTO Bookings(instructorID, learnerID, time, location, lessonType) VALUES(4, 1, "2023-10-01 12:40:00", "1 Name Street, Suburb", "CBTA");
+INSERT INTO Bookings(instructorID, learnerID, time, location, lessonType) VALUES(4, 1, "2023-10-08 12:40:00", "1 Name Street, Suburb", "Practice Lesson");
+INSERT INTO Bookings(instructorID, learnerID, time, location, lessonType) VALUES(4, 1, "2023-10-15 12:40:00", "1 Name Street, Suburb", "CBTA");
 
+INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, amount, status) VALUES(4, 1, "2023-10-01 12:40:00", "1 Name Street, Suburb", "CBTA", 75, 0);
+INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, amount, status) VALUES(4, 1, "2023-10-08 12:40:00", "1 Name Street, Suburb", "Practice Lesson", 50, 0);
+INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, amount, status) VALUES(4, 1, "2023-10-15 12:40:00", "1 Name Street, Suburb", "CBTA", 50, 0);
 
 
 -- Insert Drives for students
