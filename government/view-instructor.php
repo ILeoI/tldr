@@ -19,7 +19,7 @@ requireUserType($conn, "government");
 <body>
     <!-- Load the government menu -->
     <?php require_once "government-menu.php"; ?>
-
+    
     <!-- Get instructors information -->
     <?php
     $viewingID = "0";
