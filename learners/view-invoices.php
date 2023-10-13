@@ -8,8 +8,6 @@ requireUserType($conn, "learner");
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Jacob">
-    <meta name="description" content="HomePage">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: View Invoices</title>
     <link rel="stylesheet" href="../style/home-page.css" />

@@ -9,8 +9,10 @@ requireUserType($conn, "government");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../scripts/menu.js" defer></script>
+    <link rel="stylesheet" href="../style/home-page.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/home.js" defer></script>
+    <script src="../scripts/menu.js" defer></script>
     <title>TLDR: Viewing An Instructor</title>
 </head>
 
