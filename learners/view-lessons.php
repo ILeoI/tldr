@@ -10,6 +10,7 @@ requireUserType($conn, "learner");
     <meta charset="UTF-8">
     <title>TLDR: View lessons</title>
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/home-page.css" />
     <script src="../scripts/menu.js" defer></script>
 </head>
 
@@ -43,7 +44,9 @@ requireUserType($conn, "learner");
             }
             mysqli_free_result($result);
             ?>
+            
         </table>
+        <button id="openFormButton">Request a Lesson</button>
     </div>
     <h1>Past Lessons</h1>
     <div class="table-container">
@@ -75,8 +78,6 @@ requireUserType($conn, "learner");
             ?>
         </table>
     </div>
-
-    <button id="openFormButton">Request a Lesson</button>
 
 <div id="bookingForm" style="display:none;">
     <form action="request-lesson.php" method="post">
