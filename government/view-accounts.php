@@ -26,13 +26,19 @@ requireUserType($conn, "government");
     <!-- Load the government menu -->
     <?php require_once "government-menu.php"; ?>
     <br>
-    <table>
+
+    <div class="table-container">
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Accounts...">
+    </div>
+    <table id=govTable>
         <tr>
-            <td>Name</td>
-            <td>License Number</td>
-            <td>User Type</td>
-            <td>View Account</td>
-            <td>View TLDR Info</td>
+            <th>Name</th>
+            <th>ID</th>
+            <th>License Number</t>
+            <th>User Type</th>
+            <th>View Account</th>
+            <th>View TLDR Info</th>
         </tr>
         <?php
         // Creates a list with all users if supervisor is 1
@@ -51,6 +57,7 @@ requireUserType($conn, "government");
                     }
                     echo "<tr>";
                     echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
+                    echo "<td>" . $row["id"] . "</td>";
                     echo "<td>" . $row["licenseNo"] . "</td> ";
                     echo "<td>" . ucfirst(($type)) ."</td>";
                     if ($type != "government") {
@@ -65,6 +72,7 @@ requireUserType($conn, "government");
         mysqli_close($conn);
         ?>
     </table>
+    </div>
 </body>
 
 </html>

@@ -42,7 +42,7 @@ requireUserType($conn, "government");
 
 
 
-        echo "<table id='invoiceTable'>
+        echo "<table id='govTable'>
             <caption>Total Invoices</caption>
             <tr>
                 <th>Invoice ID</th>
