@@ -33,6 +33,5 @@ requireUserType($conn, "government");
         mysqli_close($conn);
         ?>
     </ul>
-</body>
-
-</html>
+    </div>
+        </html>
