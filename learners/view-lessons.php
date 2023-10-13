@@ -44,9 +44,26 @@ requireUserType($conn, "learner");
             }
             mysqli_free_result($result);
             ?>
-            
         </table>
         <button id="openFormButton">Request a Lesson</button>
+
+<div id="bookingForm" style="display:none;">
+    <form action="request-lesson.php" method="post">
+        <label for="time">Time:</label>
+        <input type="datetime-local" id="time" name="time" required><br><br>
+        <label for="location">Location:</label>
+        <input type="location" id="location" name="location" required><br><br>
+        <label for="LessonType">Lesson Type:</label>
+                    <div class="lessonTypes">
+                        <input type="radio" name="LessonType" value="Driving Practice" required><label>Driving Practice</label>
+                        <input type="radio" name="LessonType" value="CBTA" required><label>CBTA Lesson</label>
+                    </div>                
+        <input type="submit" value="Submit Request">
+    </form>
+</div>
+
+
+
     </div>
     <h1>Past Lessons</h1>
     <div class="table-container">
@@ -78,21 +95,6 @@ requireUserType($conn, "learner");
             ?>
         </table>
     </div>
-
-<div id="bookingForm" style="display:none;">
-    <form action="request-lesson.php" method="post">
-        <label for="time">Time:</label>
-        <input type="datetime-local" id="time" name="time" required><br><br>
-        <label for="location">Location:</label>
-        <input type="location" id="location" name="location" required><br><br>
-        <label for="LessonType">Lesson Type:</label>
-                    <div class="lessonTypes">
-                        <input type="radio" name="LessonType" value="Driving Practice" required><label>Driving Practice</label>
-                        <input type="radio" name="LessonType" value="CBTA" required><label>CBTA Lesson</label>
-                    </div>                
-        <input type="submit" value="Submit Request">
-    </form>
-</div>
 
 
 <script>
