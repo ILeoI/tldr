@@ -8,10 +8,3 @@ function togglePassword() {
         password.type = "text";
     }
 }
-
-// init func
-function init() {
-    
-}
-
-init();

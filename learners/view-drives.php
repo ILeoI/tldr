@@ -8,7 +8,6 @@ requireUserType($conn, "learner");
 
 <head>
     <meta charset="UTF-8">
-    <meta name="Author" content="Coby Murphy">
     <link rel="stylesheet" href="../style/drives.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/menu.js" defer></script>

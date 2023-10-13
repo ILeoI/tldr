@@ -10,10 +10,16 @@ requireUserType($conn, "government");
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../scripts/menu.js" defer></script>
-    <link rel="stylesheet" href="../style/menu-style.css" />
+    <meta name="author" content="">
+    <meta name="description" content="HomePage">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: View Accounts</title>
+    <link rel="stylesheet" href="../style/home-page.css" />
+    <link rel="stylesheet" href="../style/menu-style.css" />
+    <script src="../scripts/home.js" defer></script>
+    <script src="../scripts/menu.js" defer></script>
+    <script src="../scripts/table-filter.js" defer></script>
+
 </head>
 
 <body>
