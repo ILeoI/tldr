@@ -81,7 +81,7 @@ requireUserType($conn, "instructor");
     <div class="table-container">
         <form action="process_verify_booking.php" method="post">
             <?php
-            $sql = "SELECT Users.firstName, Users.lastName, bookingRequests.id, bookingRequests.time, bookingRequests.location, bookingRequests.lessonType, bookingRequests.amount
+            $sql = "SELECT Users.firstName, Users.lastName, bookingRequests.id, bookingRequests.time, bookingRequests.location, bookingRequests.lessonType
                 FROM bookingRequests
                 JOIN Users ON bookingRequests.learnerID = Users.id
                 WHERE bookingRequests.instructorID = '$id' AND verified = '0';";
@@ -106,7 +106,7 @@ requireUserType($conn, "instructor");
                             <td>{$row['time']}</td>
                             <td>{$row['location']}</td>
                             <td>{$row['lessonType']}</td>
-                            <td><input type='text' name='amount' required></td>
+                            <td><input type='text' name='amount-{$row["id"]}' required></td>
                             <td><input type='checkbox' name='{$row["id"]}'/></td>
                           </tr>";
                     }
@@ -120,7 +120,7 @@ requireUserType($conn, "instructor");
             ?>
 
             <div class="button-container">
-                <input type="submit" class="add-lesson-button" value=verify>
+                <input type="submit" class="add-lesson-button" value="Verify">
             </div>
         </form>
     </div>
