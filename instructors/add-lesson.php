@@ -51,10 +51,13 @@ requireUserType($conn, "instructor");
     <label for="location">Location:</label>
     <input type="text" id="location" name="location" required><br><br>
 
+    <label for="price">Price: $</label>
+    <input type="number" id="price" name="price" required><br><br>
+
     <label for="LessonType">Lesson Type:</label>
                     <div class="lessonTypes">
-                        <input type="radio" name="LessonType" value="Driving Practice" required><label>Driving Practice</label>
-                        <input type="radio" name="LessonType" value="CBTA" required><label>CBTA Lesson</label>
+                        <input type="radio" name="LessonType" id="prac" value="Driving Practice" required checked><label for="prac">Driving Practice</label>
+                        <input type="radio" name="LessonType" id="cbta" value="CBTA" required><label for="cbta">CBTA Lesson</label>
                     </div>   
     <input type="submit" value="Submit">
   
@@ -69,10 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $time = $_POST["time"];
   $location = $_POST["location"];
   $instructorID = $_SESSION["userID"];
+  $price = $_POST["price"];
   $lessonType = $_POST["LessonType"];
 
   // Insert into bookings table
-  $sql = "INSERT INTO bookings (instructorID, learnerID, time, location, lessonType) VALUES ('$instructorID', '$studentID', '$time', '$location', '$lessonType');";
+  $sql = "INSERT INTO bookings (instructorID, learnerID, time, location, lessonType, amount) VALUES ('$instructorID', '$studentID', '$time', '$location', '$lessonType', '$price');";
 
   if (mysqli_query($conn, $sql)) {
     header("location: ../home-page.php"); // Redirect to instructor's homepage

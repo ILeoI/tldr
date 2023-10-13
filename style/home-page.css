@@ -84,10 +84,14 @@ tr:hover {
   text-align: center; 
 }
 
+.pay-stuff {
+  text-align: center;
+}
+
 .button-container {
   text-align: center; 
   margin-top: 20px;
-  padding-left: 430px;
+  /* padding-left: 430px; */
 }
 
 .progress-bar {

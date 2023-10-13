@@ -35,16 +35,18 @@ requireUserType($conn, "instructor");
     ?>
 
     <div class="table-container">
+
         <?php
         // Retrieve instructor's bookings
         $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location, bookings.lessonType
                 FROM bookings
                 JOIN Users ON bookings.learnerID = Users.id
-                WHERE bookings.instructorID = '$id';";
+                WHERE bookings.instructorID = '$id'
+                AND bookings.time > now();";
 
         echo "<table>
                 <tr>
-                    <caption>Your Bookings</caption>
+                    <caption>Your Upcoming Bookings</caption>
                     <th>Name</th>
                     <th>Time</th>
                     <th>Location</th> 
@@ -75,6 +77,41 @@ requireUserType($conn, "instructor");
         <a href="add-lesson.php">
             <button class="add-lesson-button">Add Lesson</button>
         </a>
+    </div>
+    <br>
+    <div class="monthly-income">
+        <h2>Monthly Income</h2>
+
+        <?php
+        if (isset($_GET["date"])) {
+            $date = strtotime($_GET["date"]);
+
+        } else {
+            $date = time();
+        }
+        $dateName = date("F, Y", $date);
+        $month = date("m", $date);
+        $year = date("Y", $date);
+        ?>
+
+        <form action="instructor-home-page.php" method="get">
+            <input type="month" name="date" value="<?php echo date("Y-m", $date) ?>">
+            <input type="submit" value="Filter">
+        </form>
+
+        <?php
+        $total = "0";
+        $sql = "SELECT sum(amount) FROM InvoiceDetails WHERE instructorID = '$id' AND status = 1 AND year(time) = $year AND month(time) = $month;";
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                $entry = mysqli_fetch_assoc($result);
+                if (isset($entry["sum(amount)"])) {
+                    $total = $entry["sum(amount)"];
+                }
+            }
+        }
+        echo "<p>Income for $dateName: $" . number_format($total, 2) . "</p>";
+        ?>
     </div>
 
 </body>
