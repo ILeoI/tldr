@@ -5,12 +5,13 @@ require_once "dbconn.inc.php";
 // if a user is not logged in, send them to the login page
 session_start();
 if (!isset($_SESSION["userID"])) {
-    header("location: " . $_SERVER['DOCUMENT_ROOT'] . "/login-page.php");
+    header("location: ../login-page.php");
     exit();
 } else if ($_SESSION["userID"] == null) {
-    header("location: " . $_SERVER['DOCUMENT_ROOT'] . "/login-page.php");
+    header("location: ../login-page.php");
     exit();
 }
+
 
 function requireUserType(mysqli $conn, string $type)
 {
@@ -19,6 +20,7 @@ function requireUserType(mysqli $conn, string $type)
         exit();
     }
 }
+
 
 function checkUserType(mysqli $conn, string $type, string $id)
 {

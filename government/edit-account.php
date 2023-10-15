@@ -3,6 +3,8 @@
 require_once "../inc/db-session-include.php";
 requireUserType($conn, "government");
 
+print_r($_POST);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["id"])) {
     $sql = array();
     $id = $_GET["id"];
@@ -29,4 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["id"])) {
 
     header("location: view-account.php?viewing=$id&feedback=$feedback");
     exit();
+} else {
+    // header("location: view-accounts.php");
+    // exit();
 }

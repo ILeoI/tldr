@@ -1,3 +1,4 @@
+<!-- Contains the base government menu -->
 <h1 class="title-banner" id="home-page-header">
     <div class="dropdown">
         <button class="dropbtn">

@@ -18,7 +18,7 @@ requireUserType($conn, "government");
     <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/home.js" defer></script>
     <script src="../scripts/menu.js" defer></script>
-    <script src="../scripts/table-filter.js" defer></script>
+    <script src="../scripts/table-filter-invoices.js" defer></script>
 
 </head>
 
@@ -28,50 +28,52 @@ requireUserType($conn, "government");
     <br>
 
     <div class="table-container">
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Accounts...">
-    </div>
-    <table id=govTable>
-        <tr>
-            <th>Name</th>
-            <th>ID</th>
-            <th>License Number</t>
-            <th>User Type</th>
-            <th>View Account</th>
-            <th>View TLDR Info</th>
-        </tr>
-        <?php
-        // Creates a list with all users if supervisor is 1
-        $sql = "SELECT * FROM Users;";
-        if ($result = mysqli_query($conn, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    if ($row["instructor"] == 1) {
-                        $type = "instructor";
-                    } else if ($row["learner"] == 1) {
-                        $type = "student";
-                    } else if ($row["supervisor"] == 1) {
-                        $type = "qsd";
-                    } else if ($row["government"] == 1) {
-                        $type = "government";
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Accounts...">
+        </div>
+        <br>
+        <table id="govTable">
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>User Type</th>
+                <th>License Number</th>
+                <th>View Account</th>
+                <th>View TLDR Info</th>
+            </tr>
+            <?php
+            // Creates a list with all users and assigns the type variable to the to their role
+            // Then displays all relevant information into the table
+            $sql = "SELECT * FROM Users;";
+            if ($result = mysqli_query($conn, $sql)) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        if ($row["instructor"] == 1) {
+                            $type = "instructor";
+                        } else if ($row["learner"] == 1) {
+                            $type = "student";
+                        } else if ($row["supervisor"] == 1) {
+                            $type = "qsd";
+                        } else if ($row["government"] == 1) {
+                            $type = "government";
+                        }
+                        echo "<tr>";
+                        echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
+                        echo "<td>" . $row["id"] . "</td>";
+                        echo "<td>" . ucfirst(($type)) . "</td>";
+                        if ($type != "government") {
+                            echo "<td>" . $row["licenseNo"] . "</td> ";
+                            echo "<td><a href=\"view-account.php?viewing=" . $row["id"] . "\">View</a></td>";
+                            echo "<td><a href=\"view-$type.php?viewing=" . $row["id"] . "\">View</a></td>";
+                        }
+                        echo "</tr>";
                     }
-                    echo "<tr>";
-                    echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
-                    echo "<td>" . $row["id"] . "</td>";
-                    echo "<td>" . $row["licenseNo"] . "</td> ";
-                    echo "<td>" . ucfirst(($type)) ."</td>";
-                    if ($type != "government") {
-                        echo "<td><a href=\"view-account.php?viewing=" . $row["id"] . "\">View</a></td>";   
-                        echo "<td><a href=\"view-$type.php?viewing=" . $row["id"] . "\">View</a></td>";
-                    }    
-                    echo "</tr>";
                 }
             }
-        }
-        mysqli_free_result($result);
-        mysqli_close($conn);
-        ?>
-    </table>
+            mysqli_free_result($result);
+            mysqli_close($conn);
+            ?>
+        </table>
     </div>
 </body>
 

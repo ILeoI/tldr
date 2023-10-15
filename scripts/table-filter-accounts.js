@@ -1,5 +1,4 @@
 function filterTable() {
-    console.log("hello0");
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("searchInput");

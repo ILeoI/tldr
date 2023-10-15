@@ -11,18 +11,17 @@ requireUserType($conn, "instructor");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: Home Page</title>
     <link rel="stylesheet" href="../style/home-page.css" />
-    <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/home.js" defer></script>
+    <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/menu.js" defer></script>
+
 </head>
 
 <body>
     <?php
     require_once "instructor-menu.php";
 
-    // Assuming $conn is the connection to your database
-
-    // Retrieve instructor's name
+    // Retrieve instructor's row containing their information
     $id = $_SESSION["userID"];
     $sql = "SELECT firstName, lastName FROM Users WHERE id = '$id';";
     if ($result = mysqli_query($conn, $sql)) {
@@ -34,58 +33,63 @@ requireUserType($conn, "instructor");
     mysqli_free_result($result);
     ?>
 
-    <div class="table-container">
+    <!-- Instructor's bookings -->
+    <div id="instructor-bookings">
+        <div class="table-container">
+            <table>
+                <tr>
+                    <caption>Your Upcoming Bookings</caption>
+                    <th>Name</th>
+                    <th>Time</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                </tr>
 
-        <?php
-        // Retrieve instructor's bookings
-        $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location, bookings.lessonType
+                <?php
+                // Retrieve instructor's bookings
+                $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location, bookings.lessonType
                 FROM bookings
                 JOIN Users ON bookings.learnerID = Users.id
                 WHERE bookings.instructorID = '$id'
                 AND bookings.time > now();";
 
-        echo "<table>
-                <tr>
-                    <caption>Your Upcoming Bookings</caption>
-                    <th>Name</th>
-                    <th>Time</th>
-                    <th>Location</th> 
-                    <th>Type</th>
-                </tr>";
-
-        if ($result = mysqli_query($conn, $sql)) {
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>
+                if ($result = mysqli_query($conn, $sql)) {
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<tr>
                             <td>{$row['firstName']} {$row['lastName']}</td>
                             <td>{$row['time']}</td>
                             <td>{$row['location']}</td>
                             <td>{$row['lessonType']}</td>
                           </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='4'>No bookings found.</td></tr>";
+                    }
                 }
-            } else {
-                echo "<tr><td colspan='4'>No bookings found.</td></tr>";
-            }
-        }
 
-        mysqli_free_result($result);
-        echo "</table>";
-        ?>
+                mysqli_free_result($result);
+                ?>
+            </table>
+        </div>
+
+        <!-- Add booking button -->
+        <div class="button-container">
+            <a href="add-lesson.php">
+                <button class="add-lesson-button">Add Lesson</button>
+            </a>
+        </div>
     </div>
 
-    <div class="button-container">
-        <a href="add-lesson.php">
-            <button class="add-lesson-button">Add Lesson</button>
-        </a>
-    </div>
     <br>
+
+    <!-- Calculates monthly income for the current month if no month is selected -->
     <div class="monthly-income">
         <h2>Monthly Income</h2>
 
         <?php
         if (isset($_GET["date"])) {
             $date = strtotime($_GET["date"]);
-
         } else {
             $date = time();
         }

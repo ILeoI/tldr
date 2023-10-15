@@ -107,7 +107,8 @@ if ($type == "learner" || $type == "instructor") {
                 ?>
             </table>
             <br>
-            <form action="change-password.php?id=<?php echo $viewingUser["id"] ?>">
+            <form action="change-password.php" method="get">
+                <input type="text" id="id" name="id" value="<?php echo $viewingID ?>" class="hidden">
                 <input type="submit" id="change-password" value="Change Password">
             </form>
             <br>
@@ -116,7 +117,7 @@ if ($type == "learner" || $type == "instructor") {
         </div>
         <div id="editable-personal-account-info" class="hidden">
             <BR>
-            <form action="edit-account.php?id=<?php echo $viewingID ?>" method="post">
+            <form id="account-form" action="edit-account.php?id=<?php echo $viewingID ?>" method="post">
                 <table>
                     <caption>Personal Details</caption>
                     <?php
@@ -131,13 +132,19 @@ if ($type == "learner" || $type == "instructor") {
                     foreach ($keys as $key => $value) {
                         echo "<tr>";
                         echo "<td>" . $key . ": </td>";
-                        echo "<td><input type=\"text\" name=\"$value\"placeholder=\"" . $viewingUser[$value] . "\"></td>";
+                        if ($value == "dob") {
+                            echo "<td><input type=\"date\" name=\"$value\" id=\"$value\" value=\"" . $viewingUser[$value] . "\"></td>";
+                        } else {
+                            echo "<td><input type=\"text\" name=\"$value\" id=\"$value\" placeholder=\"" . $viewingUser[$value] . "\"></td>";
+                        }
                         echo "</tr>";
                     }
                     ?>
                 </table>
                 <input type="submit" value="Save">
             </form>
+            <br>
+            <button id="edit-account-back">Go Back</button>
         </div>
     </div>
     <br>
@@ -198,6 +205,8 @@ if ($type == "learner" || $type == "instructor") {
                     </table>
                     <input type="submit" value="Save Details">
                 </form>
+                <br>
+                <button id="edit-learner-payment-back">Go Back</button>
             </div>
         </div>
     </div>
@@ -249,6 +258,8 @@ if ($type == "learner" || $type == "instructor") {
                     </table>
                     <input type="submit">
                 </form>
+                <br>
+                <button id="edit-instructor-payment-back">Go Back</button>
             </div>
         </div>
     </div>
