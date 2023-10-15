@@ -18,7 +18,7 @@ requireUserType($conn, "government");
     <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/home.js" defer></script>
     <script src="../scripts/menu.js" defer></script>
-    <script src="../scripts/table-filter-invoices.js" defer></script>
+    <script src="../scripts/table-filter.js" defer></script>
 
 </head>
 
@@ -32,7 +32,7 @@ requireUserType($conn, "government");
             <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Accounts...">
         </div>
         <br>
-        <table id="govTable">
+        <table id="filterableTable">
             <tr>
                 <th>Name</th>
                 <th>ID</th>
