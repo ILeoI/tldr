@@ -1,0 +1,44 @@
+/* Style the account info table */
+.account-info table {
+    width: 100%;
+    max-width: 500px; /* Adjust the max width as needed */
+    margin: 0 auto;
+    font-size: 18px; /* Increase the font size */
+}
+
+.account-info th, .account-info td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style the button container */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.add-lesson-button {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style the edit payment form */
+#edit-payment-form {
+    display: none;
+    margin-top: 20px;
+}
+
+#edit-payment-form form {
+    font-size: 16px;
+}
+
+#edit-payment-form input {
+    display: block;
+    margin: 5px 0;
+    padding: 5px;
+    width: 100%;
+}
