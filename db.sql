@@ -45,9 +45,10 @@ CREATE TABLE Drives (
     duration time GENERATED ALWAYS AS (TIMEDIFF(endTime, startTime)),
     fromLoc varchar(100),
     toLoc varchar(100),
-    conditionRoad varchar(5),
-    conditionWeather varchar(5),
-    conditionTraffic varchar(5),
+    conditionRoadType varchar(20),
+    conditionRoadCapacity varchar(20),
+    conditionWeather varchar(20),
+    conditionTraffic varchar(20),
     daytime boolean,
     learnerLicenseNo varchar(6) NOT NULL,
     verified boolean DEFAULT 0
@@ -159,13 +160,11 @@ INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, 
 
 
 -- Insert Drives for students
-INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
-VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "s br", "dry", "l", 1, "LN0000");
+INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
+VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
 
-INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
-VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "s br", "dry", "l", 1, "LN0000");
+INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
+VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
 
-INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoad, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
-VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "s br", "dry", "l", 1, "LN0000");
-
-
+INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
+VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");

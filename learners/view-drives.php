@@ -50,7 +50,8 @@ requireUserType($conn, "learner");
                     <th>Duration</th>
                     <th>Start Location</th>
                     <th>End Location</th>
-                    <th>Road Condition</th>
+                    <th>Road Type</th>
+                    <th>Road Capacity</th>
                     <th>Weather Condition</th>
                     <th>Traffic Condition</th>
                     <th>Day Time</th>
@@ -71,7 +72,8 @@ requireUserType($conn, "learner");
                             <td>{$row['duration']}</td>
                             <td>{$row['fromLoc']}</td>
                             <td>{$row['toLoc']}</td>
-                            <td>{$row['conditionRoad']}</td>
+                            <td>{$row['conditionRoadType']}</td>
+                            <td>{$row['conditionRoadCapacity']}</td>
                             <td>{$row['conditionWeather']}</td>
                             <td>{$row['conditionTraffic']}</td>
                             <td>{$row['daytime']}</td>
@@ -87,7 +89,7 @@ requireUserType($conn, "learner");
 
 
         echo "</table>";
-        echo "<input type='submit' id='submit-verify'/>";
+        echo "<input type='submit' id='submit-verify' value='Verify'/>";
         echo "</form>";
 
         ?>
@@ -108,7 +110,8 @@ requireUserType($conn, "learner");
                 <th>Duration</th>
                 <th>Start Location</th>
                 <th>End Location</th>
-                <th>Road Condition</th>
+                <th>Road Type</th>
+                <th>Road Capacity</th>
                 <th>Weather Condition</th>
                 <th>Traffic Condition</th>
                 <th>Day Time</th>
@@ -127,7 +130,8 @@ requireUserType($conn, "learner");
                         <td>{$row['duration']}</td>
                         <td>{$row['fromLoc']}</td>
                         <td>{$row['toLoc']}</td>
-                        <td>{$row['conditionRoad']}</td>
+                        <td>{$row['conditionRoadType']}</td>
+                        <td>{$row['conditionRoadCapacity']}</td>
                         <td>{$row['conditionWeather']}</td>
                         <td>{$row['conditionTraffic']}</td>
                         <td>{$row['daytime']}</td>

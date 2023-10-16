@@ -22,6 +22,7 @@ requireUserType($conn, "instructor");
         <input type="text" name="student-ln-input" id="student-ln-input" placeholder="License Number" required>
         <input type="submit" value="Add">
     </form>
+    <br>
 
     <?php
     // Displays feedback if feedback is set
