@@ -3,7 +3,7 @@ h1 {
 }
 
 body {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding-top: 25px;
     margin: 0;
     padding: 0;
@@ -14,7 +14,7 @@ body {
     display: block;
     min-width: 500px;
     width: 500px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 25px;    
     box-shadow: 0px 0px 10px #888888;
     padding: 15px;

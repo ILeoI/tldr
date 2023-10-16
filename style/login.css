@@ -19,10 +19,14 @@ body {
     border:5px solid ;
     border-color: #69626D;
     background-color: #CFFCFF;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
 .input-field{
-    padding: 10px;
+    padding: 20px;
     margin: 10px 0;
     width: 100%;
     box-sizing: border-box;
