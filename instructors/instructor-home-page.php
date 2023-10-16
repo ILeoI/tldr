@@ -113,6 +113,7 @@ requireUserType($conn, "instructor");
                     $total = $entry["sum(amount)"];
                 }
             }
+            mysqli_free_result($result);
         }
         echo "<p>Income for $dateName: $" . number_format($total, 2) . "</p>";
         ?>

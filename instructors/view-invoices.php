@@ -25,14 +25,14 @@ requireUserType($conn, "instructor");
     <div class="table-container">
         <?php
         $sql = "SELECT Users.firstName, 
-        Users.lastName, 
-        InvoiceDetails.time, 
-        InvoiceDetails.location, 
-        InvoiceDetails.lessonType, 
-        InvoiceDetails.amount, 
-        InvoiceDetails.status,
-        InvoiceDetails.id,
-        InvoiceDetails.learnerID
+                Users.lastName, 
+                InvoiceDetails.time, 
+                InvoiceDetails.location, 
+                InvoiceDetails.lessonType, 
+                InvoiceDetails.amount, 
+                InvoiceDetails.status,
+                InvoiceDetails.id,
+                InvoiceDetails.learnerID
                 FROM InvoiceDetails
                 JOIN Users ON InvoiceDetails.learnerID = Users.id
                 WHERE InvoiceDetails.instructorID = '$id';";
@@ -69,6 +69,7 @@ requireUserType($conn, "instructor");
         }
 
         mysqli_free_result($result);
+        mysqli_close($conn);
         echo "</table>";
         ?>
     </div>
