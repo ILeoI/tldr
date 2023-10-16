@@ -23,9 +23,9 @@ requireUserType($conn, "government");
     <?php require_once "government-menu.php"; ?>
     <br>
     <ul>
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for QSD's...">
-    </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for QSD's...">
+        </div>
         <?php
 
         $sql = "SELECT * FROM Users WHERE supervisor = 1;";
@@ -39,7 +39,7 @@ requireUserType($conn, "government");
 
         </tr>";
 
-            if ($result = mysqli_query($conn, $sql)) {
+        if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>
@@ -47,17 +47,17 @@ requireUserType($conn, "government");
                     <td>{$row['firstName']} {$row['lastName']}</td>
                     <td><a href='view-qsd.php?viewing={$row["id"]}'>View</a></td>
                 </tr>";
-        }
                 }
-                else {
-                    echo "<tr><td colspan='3'>No QSD's found.</td></tr>";
-                }
+            } else {
+                echo "<tr><td colspan='3'>No QSD's found.</td></tr>";
             }
-        
-        mysqli_free_result($result);
+            mysqli_free_result($result);
+        }
+
         mysqli_close($conn);
         ?>
     </ul>
     </div>
-        </body>
-</html>        
+</body>
+
+</html>

@@ -35,8 +35,8 @@ requireUserType($conn, "government");
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            mysqli_free_result($result);
         }
+        mysqli_free_result($result);
     }
 
     echo "<h2>Viewing {$row['firstName']} {$row['lastName']}</h2>";
@@ -58,6 +58,7 @@ requireUserType($conn, "government");
                         echo "<li>{$row['firstName']} {$row['lastName']}, " . $row["licenseNo"] . " <a href=\"view-student.php?viewing=" . $row["id"] . "\">View</a></li>";
                     }
                 }
+                mysqli_free_result($result);
             }
             ?>
         </ul>
@@ -95,9 +96,9 @@ requireUserType($conn, "government");
                 } else {
                     echo "<tr><td colspan='3'>No bookings found.</td></tr>";
                 }
+                mysqli_free_result($result);
             }
 
-            mysqli_free_result($result);
             echo "</table>";
             ?>
         </div>
@@ -135,9 +136,9 @@ requireUserType($conn, "government");
                 } else {
                     echo "<tr><td colspan='3'>No bookings found.</td></tr>";
                 }
+                mysqli_free_result($result);
             }
 
-            mysqli_free_result($result);
             echo "</table>";
             ?>
         </div>
@@ -145,3 +146,6 @@ requireUserType($conn, "government");
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);

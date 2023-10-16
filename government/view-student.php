@@ -20,11 +20,11 @@ if ($result = mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $viewingUser = mysqli_fetch_assoc($result);
     }
+    mysqli_free_result($result);
 }
 
 $hasInstructor = false;
 
-mysqli_free_result($result);
 
 $sql = "SELECT * FROM InstructorLearners INNER JOIN Users WHERE instructorID = Users.id AND learnerID = '$viewingID';";
 if ($result = mysqli_query($conn, $sql)) {
@@ -32,8 +32,8 @@ if ($result = mysqli_query($conn, $sql)) {
         $instructorUser = mysqli_fetch_assoc($result);
         $hasInstructor = true;
     }
+    mysqli_free_result($result);
 }
-mysqli_free_result($result);
 
 $db_result = array();
 $value_result = array();
@@ -47,8 +47,8 @@ if ($result = mysqli_query($conn, $sql)) {
             $db_result[$row["assessmentItemName"]] = $row["completeDate"];
         }
     }
+    mysqli_free_result($result);
 }
-mysqli_free_result($result);
 
 function isSelectedOption($value_result, $name, $i)
 {
@@ -106,7 +106,8 @@ function getCompleteDate(string $name, array $array)
     <h1>Viewing Student: <?php echo $viewingUser["firstName"] . " " . $viewingUser["lastName"]; ?></h1>
     <!-- Show who their instructor is -->
     <h2>Instructor:</h2>
-    <label><?php if($hasInstructor) echo $instructorUser["firstName"] . " " . $instructorUser["lastName"] . ", <a href=\"view-instructor.php?viewing=" . $instructorUser["id"] . "\">View</a>"; else echo "No Instructor" ?></label><br><br>
+    <label><?php if ($hasInstructor) echo $instructorUser["firstName"] . " " . $instructorUser["lastName"] . ", <a href=\"view-instructor.php?viewing=" . $instructorUser["id"] . "\">View</a>";
+            else echo "No Instructor" ?></label><br><br>
     <!-- Show their drives -->
     <button class="collapsible">View Drives</button>
     <div class="content">
@@ -339,3 +340,6 @@ function getCompleteDate(string $name, array $array)
 </body>
 
 </html>
+
+<?php
+mysqli_close($conn);

@@ -38,7 +38,9 @@ if ($result = mysqli_query($conn, $sql)) {
         $row = mysqli_fetch_assoc($result);
         $name = $row["firstName"] . " " . $row["lastName"];
     }
+    mysqli_free_result($result);
 }
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>

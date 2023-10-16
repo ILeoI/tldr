@@ -50,7 +50,9 @@
                     echo "<li>{$row['firstName']} {$row['lastName']}, " . $row["licenseNo"] . " <a href=\"view-student.php?viewing=" . $row["id"] . "\">View</a></li>";
                 }
             }
+            mysqli_free_result($result);
         }
+        mysqli_close($conn);
         ?>
 </body>
 </html>

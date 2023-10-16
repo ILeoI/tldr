@@ -30,6 +30,7 @@ if ($result = mysqli_query($conn, $sql)) {
         header("location: view-accounts.php");
         exit();
     }
+    mysqli_free_result($result);
 }
 
 // Join Payment Details onto $viewingUser for Instructor and Learner only
@@ -39,6 +40,7 @@ if ($type == "learner" || $type == "instructor") {
         if (mysqli_num_rows($result) > 0) {
             $viewingUser = mysqli_fetch_assoc($result);
         }
+        mysqli_free_result($result);
     }
 }
 

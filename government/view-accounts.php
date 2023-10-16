@@ -69,8 +69,8 @@ requireUserType($conn, "government");
                         echo "</tr>";
                     }
                 }
+                mysqli_free_result($result);
             }
-            mysqli_free_result($result);
             mysqli_close($conn);
             ?>
         </table>

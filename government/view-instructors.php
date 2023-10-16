@@ -51,9 +51,9 @@ requireUserType($conn, "government");
                 } else {
                     echo "<tr><td colspan='3'>No ins found.</td></tr>";
                 }
+                mysqli_free_result($result);
             }
 
-            mysqli_free_result($result);
             mysqli_close($conn);
             ?>
         </ul>
