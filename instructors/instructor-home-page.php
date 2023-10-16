@@ -84,7 +84,7 @@ requireUserType($conn, "instructor");
     <br>
 
     <!-- Calculates monthly income for the current month if no month is selected -->
-    <div class="monthly-income">
+    <div class="monthly-income" style="text-align: center;">
         <h2>Monthly Income</h2>
 
         <?php
