@@ -11,6 +11,5 @@ foreach (array_keys($_POST) as $id) {
     }
 }
 
+mysqli_close($conn);
 header("location: view-drives.php");
-
-?>

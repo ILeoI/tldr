@@ -52,7 +52,7 @@ requireUserType($conn, "learner");
                 if ($result = mysqli_query($conn, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
-                            echo 
+                            echo
                             "<tr>
                                 <td>{$row['id']}</td>
                                 <td>{$row['firstName']} {$row['lastName']}</td>
@@ -61,7 +61,7 @@ requireUserType($conn, "learner");
                                 <td>{$row['lessonType']}</td>
                                 <td>{$row['amount']}</td>
                                 <td><input type='checkbox' name='{$row['id']}'></td>
-                            </tr>"; 
+                            </tr>";
                         }
                     } else {
                         echo "<tr><td colspan='7'>No invoices found.</td></tr>";
@@ -72,7 +72,7 @@ requireUserType($conn, "learner");
                 ?>
             </table>
             <div class="button-container">
-                <input type="submit" class="add-lesson-button" value="Pay Invoice"> 
+                <input type="submit" class="add-lesson-button" value="Pay Invoice">
             </div>
         </form>
     </div>
@@ -120,6 +120,7 @@ requireUserType($conn, "learner");
             }
 
             mysqli_free_result($result);
+            mysqli_close($conn);
             ?>
         </table>
     </div>

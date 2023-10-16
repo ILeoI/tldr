@@ -50,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "</ul>";
             echo "Total: $" . $totalAmount;
         }
+        mysqli_free_result($result);
     }
     ?>
 
@@ -79,6 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Paying with card ending with " . $cardNumber;
             }
         }
+        mysqli_free_result($result);
+        mysqli_close($conn);
         ?>
     </div>
     <form action="submit-payment.php" method="POST">
