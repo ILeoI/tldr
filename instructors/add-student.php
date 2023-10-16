@@ -10,12 +10,12 @@ requireUserType($conn, "instructor");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $licenseNumber = $_POST["student-ln-input"];
     $instructorID = $_SESSION["userID"];
-    $sql = "SELECT id, supervisor, instructor, government FROM Users WHERE licenseNo = '$licenseNumber';";
+    $sql = "SELECT id, learner FROM Users WHERE licenseNo = '$licenseNumber';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
             $learnerID = $row["id"];
-            if (isset($row["supervisor"]) || isset($row["instructor"]) || isset($row["government"])) {
+            if ($row["learner"] == 0) { 
                 header("location: students.php?feedback=4");
                 exit();
             }
