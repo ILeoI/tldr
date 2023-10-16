@@ -1,40 +1,34 @@
-html{
+html {
   border: solid 50px;
-  border-color: #CFFCFF ;
+  border-color: #cffcff;
   border-right: none;
   border-left: none;
-  background-image:url(../Images/gov-sa-logo.png), url(../Images/sa-logo.png),url(../Images/carNB.png), url(../Images/CityScapeBackground.png);
+  background-image: url(../Images/gov-sa-logo.png), url(../Images/sa-logo.png),
+    url(../Images/carNB.png), url(../Images/CityScapeBackground.png);
   background-size: 190px, 145px, 600px, 2000px;
   background-repeat: no-repeat;
-  background-position:top 0px right 10px, top 0px right 205px, left 0px bottom 0px, left 0px bottom 0px;
+  background-position: top 0px right 10px, top 0px right 205px,
+    left 0px bottom 0px, left 0px bottom 0px;
 }
 
-
 body {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border:5px solid ;
-    border-color: #69626D;
-    background-color: #CFFCFF;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid;
+  border-color: #69626d;
+  background-color: #cffcff;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 
-.input-field{
-    padding: 20px;
-    margin: 10px 0;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-
-
-
-
-
-
+.input-field {
+  padding: 20px;
+  margin: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
