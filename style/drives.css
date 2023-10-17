@@ -1,5 +1,13 @@
 body {
     background-color: #ffffff;
+    margin: 20px;
+}
+
+caption {
+    background-color: #20B14B;
+    padding: 10px 0;
+    width: 100%;
+    margin: 0;
 }
 
 #add-drive-form {
@@ -18,8 +26,8 @@ body {
 }
 
 #container.center {
-    margin-left: 50px;
-    margin-top: 50px;
+    top: 50%;
+    left: 50%;
 }
 
 #verify-drive-container {
@@ -28,7 +36,7 @@ body {
 
 .center {
     margin: auto;
-    width: 50%;
+    width: 70%;
 }
 
 #container {
@@ -59,6 +67,16 @@ label {
     margin-bottom: 10px;
 }
 
+input#submit-verify {
+    position: relative;
+    right: 15%;
+    background-color: #20B14B;
+    color: white;
+    border: white 1px solid;
+    padding: 6px 9px; 
+    border-radius: 5px;
+}
+
 .text {
     width: 100%;
     border: solid;
@@ -77,20 +95,14 @@ label {
     margin-right: 10px;
 }
 
-table, th, td {
-    border: 1px solid #048727;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-}
-
-
 table {
     text-decoration: solid;
     font-size: 14px;
     width: 1000px;
+    table-layout: fixed; 
+    width: 705px;
+    border-color: #A9A9A9;
+    empty-cells: hide;
 }
 
 
@@ -101,4 +113,53 @@ table {
 #submit-verify {
     float: right;
     cursor: pointer;
+}
+
+/* added on for new drives */
+
+
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+    
+}
+
+.tg td {
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+  border: white 3px solid; 
+  text-align: center;
+  empty-cells: hide;
+}
+
+.tg th {
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    font-weight:normal;
+    overflow:hidden;
+    padding:10px 5px;
+    word-break:normal;
+}
+
+.tg .cells {
+    background-color:#ddedda;
+    border-color:#ffffff;
+    text-align:center;
+    vertical-align:top;
+}
+
+td {
+    background-color:#ddedda;
+    border-color:#ffffff;
+    text-align:left;
+    vertical-align:top;
 }
