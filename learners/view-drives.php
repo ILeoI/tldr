@@ -82,7 +82,6 @@ requireUserType($conn, "learner");
         </tr>
         </thead>';
 
-        // $sql = "SELECT * FROM Drives WHERE verified=0 AND learnerLicenseNo = '$licenseNo';";
         $sql = "SELECT * FROM Drives JOIN Users ON Drives.supervisorLicenseNumber = Users.licenseNo WHERE Drives.verified=0 AND Drives.learnerLicenseNo = '$licenseNo';";
 
         if ($result = mysqli_query($conn, $sql)) {
@@ -122,7 +121,7 @@ requireUserType($conn, "learner");
                     <td style='background-color: white'></td>
                     <td style='background-color: white'></td>
                     <td><input type='submit' id='submit-verify' value='Verify'/></td>
-                </tr>;";
+                </tr>";
             } else {
                 echo "<tr><td colspan='13'>All drives Verified</td></tr>";
             }
@@ -204,7 +203,6 @@ requireUserType($conn, "learner");
                         <td>Verified</td>
                       </tr>";
                 }
-
             } else {
                 echo "<tr><td colspan='14'>No Drives Completed</td></tr>";
             }
