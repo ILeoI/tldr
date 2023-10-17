@@ -2,6 +2,11 @@ var focus = 0;
 
 const autoFillInputs = document.getElementsByClassName("autofill");
 
+// For all inputs,
+// Create a div to contain a list of the autofill elements
+// Set up call backs for the input input and focus
+// Set up call backs for the list, click on an element it autofills 
+// the input element with the specified
 for (let i = 0; i < autoFillInputs.length; i++) {
     let a = document.createElement("div");
     a.setAttribute("id", "autofill-div-" + i);
