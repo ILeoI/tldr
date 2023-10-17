@@ -47,7 +47,10 @@ padding-bottom: 50px;
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
-  
+}
+
+#signup-link{
+position: static; 
 }
 
 .Rbanner {
@@ -63,7 +66,9 @@ padding-bottom: 50px;
 
 .container {
     display: flex;
-    justify-content: space-between; /* Adjust as needed for spacing between columns */
+    justify-content: space-between;
+    
+    ;/* Adjust as needed for spacing between columns */
 }
 
 .column {

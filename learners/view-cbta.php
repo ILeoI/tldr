@@ -8,7 +8,7 @@ requireUserType($conn, "learner");
 
 <head>
     <meta charset="UTF-8">
-    <title>TLDR: View CBT&A</title>
+    <title id="head">TLDR: View CBT&A</title>
     <link rel="stylesheet" href="../style/view-cbta.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/menu.js" defer></script>
@@ -52,9 +52,6 @@ mysqli_free_result($result);
 
     ?>
 
-    <div class="whitebox">
-        <h1></h1>
-    </div>
 
     <div class="task1">
         <h4>Task 1</h4>
