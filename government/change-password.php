@@ -52,6 +52,7 @@ mysqli_close($conn);
     <title>TLDR: Change Password for <?php echo $name ?></title>
     <script src="../scripts/menu.js" defer></script>
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/changepassword.css" />
 </head>
 
 <body>

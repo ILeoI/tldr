@@ -92,7 +92,7 @@ CREATE TABLE bookings (
     time DATETIME NOT NULL,
     lessonType varchar(25),
     location VARCHAR(255) NOT NULL,
-    status varchar(10) NOT NULL,
+    status varchar(10),
     amount int DEFAULT 80
 );
 
