@@ -82,11 +82,18 @@ requireUserType($conn, "learner");
         </tr>
         </thead>';
 
-        $sql = "SELECT * FROM Drives JOIN Users ON Drives.supervisorLicenseNumber = Users.licenseNo WHERE Drives.verified=0 AND Drives.learnerLicenseNo = '$licenseNo';";
+        $sql = "SELECT Drives.driveDate, Drives.startTime, Drives.endTime,
+                       Drives.duration, Drives.fromLoc, Drives.toLoc,
+                       Drives.conditionRoadType, Drives.conditionRoadCapacity, Drives.conditionWeather,
+                       Drives.conditionTraffic, Drives.supervisorLicenseNumber, Drives.id,
+                       Drives.daytime, Users.firstName, Users.lastName 
+                       FROM Drives JOIN Users ON Drives.supervisorLicenseNumber = Users.licenseNo WHERE Drives.verified=0 AND Drives.learnerLicenseNo = '$licenseNo';";
 
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
+                    print_r($row);
+                    echo "<br>";
                     $day = $row['daytime'] ? "Day" : "Night";
                     $name = $row["firstName"] . " " . $row["lastName"];
                     echo "<tr>
@@ -130,7 +137,7 @@ requireUserType($conn, "learner");
 
 
         echo "</table>";
-        echo "</form>";
+        echo "</form><br>";
 
         ?>
 
@@ -186,6 +193,7 @@ requireUserType($conn, "learner");
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     $day = $row['daytime'] ? "Day" : "Night";
+                    $name = $row["firstName"] . " " . $row["lastName"];
 
                     echo "<tr>
                         <td>{$row['driveDate']}</td>
@@ -201,6 +209,7 @@ requireUserType($conn, "learner");
                         <td>{$row['supervisorLicenseNumber']}</td>
                         <td>$day</td>
                         <td>Verified</td>
+                        <td></td>
                       </tr>";
                 }
             } else {
