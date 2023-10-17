@@ -11,6 +11,7 @@
             <a href="view-lessons.php">View Lessons</a>
             <a href="view-invoices.php">View Invoices</a>
             <a href="view-cbta.php">CBTA</a>
+            <a href="find-instructor.php">Find An Instructor</a>
             <a href="my-account.php">My Account</a>
             <a href="../log-out.php">Logout</a>
         </div>

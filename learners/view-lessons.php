@@ -40,11 +40,14 @@ requireUserType($conn, "learner");
                         echo "<td>{$row['location']}</td>";
                         echo "</tr>";
                     }
+                } else {
+                    echo "<tr><td colspan='3'>No Bookings Found</td></tr>";
                 }
             }
             mysqli_free_result($result);
             ?>
         </table>
+        <br>
         <button id="openFormButton">Request a Lesson</button>
 
 <div id="bookingForm" style="display:none;">
@@ -89,6 +92,8 @@ requireUserType($conn, "learner");
                         echo "<td>{$row['location']}</td>";
                         echo "</tr>";
                     }
+                } else {
+                    echo "<tr><td colspan='3'>No Bookings Found</td></tr>";
                 }
             }
             mysqli_free_result($result);

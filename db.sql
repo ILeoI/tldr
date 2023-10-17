@@ -106,6 +106,9 @@ CREATE TABLE bookingRequests (
     verified boolean DEFAULT 0
 );
 
+CREATE TABLE InstructorInfo (
+    instructorID INT PRIMARY KEY
+);
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges on tldr.Users to dbadmin@localhost;
@@ -117,6 +120,7 @@ GRANT all privileges on tldr.InstructorLearners to dbadmin@localhost;
 GRANT all privileges on tldr.SupervisorLearners to dbadmin@localhost;
 GRANT all privileges on tldr.Bookings to dbadmin@localhost;
 GRANT all privileges on tldr.bookingRequests to dbadmin@localhost;
+GRANT all privileges on tldr.InstructorInfo to dbadmin@localhost;
 
 
 -- Students
