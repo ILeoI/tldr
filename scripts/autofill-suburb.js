@@ -62,7 +62,7 @@ function autoComplete(target) {
 // Adds the new element to the ul
 function addItem(value) {
     const ulField = document.getElementById("autofill-l-" + focus);
-    ulField.innerHTML += `<li>${value}</li>`;
+    ulField.innerHTML += `<li class="autofill-list-element">${value}</li>`;
 }
 
 // Handles the click fill

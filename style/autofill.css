@@ -5,12 +5,22 @@
 .autocomplete-item-div {
   position: absolute;
   z-index: 999;
-  background-color: #f0f0f0;
-  padding-right: 10px;
+  background-color: white;
+  border: 1px solid black;
+  margin: 0px;
+  margin-top: 10px;
+  padding: 0px;
 }
 
 .autofill-l {
   list-style: none;
-  padding: 0px;
-  padding-left: 10px;
+}
+
+.autofill-list-element {
+  padding: 10px;
+  margin: 0px
+}
+
+.autofill-list-element:hover {
+  background-color: rgb(169, 169, 169);
 }
