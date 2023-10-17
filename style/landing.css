@@ -44,6 +44,7 @@
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
+  
 }
 
 .Rbanner {
@@ -55,8 +56,8 @@
 }
 
 .container {
-  display: flex;
-  justify-content: space-between; /* Adjust as needed for spacing between columns */
+    display: flex;
+    justify-content: space-between; /* Adjust as needed for spacing between columns */
 }
 
 .column {

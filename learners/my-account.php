@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="description" content="My Account Page">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TLDR: My Account</title>
-    <link rel="stylesheet" href="style/my-account.css" />
+    <link rel="stylesheet" href="../style/my-account.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/menu.js" defer></script>
 </head>
