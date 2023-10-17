@@ -48,7 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="Author" content="Coby Murphy">
     <link rel="stylesheet" href="../style/drives.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/autofill.css" />
     <script src="../scripts/menu.js" defer></script>
+    <script src="../scripts/suburbs.js" defer></script>
+    <script src="../scripts/suburbs-optimised.js" defer></script>
+    <script src="../scripts/autofill-suburb.js" defer></script>
     <title>TLDR: Add Drives</title>
 </head>
 
@@ -97,11 +101,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="time">
                         <div class="left">
                             <label for="start-time">Start Time</label><br>
-                            <input type="time" name="start-time" required>
+                            <input type="time" name="start-time" class="autofill" required>
                         </div>
                         <div>
                             <label for="end-time">End Time</label><br>
-                            <input type="time" name="end-time" required>
+                            <input type="time" name="end-time" class="autofill" required>
                         </div>
                     </div>
 
@@ -111,11 +115,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="time">
                         <div class="left">
                             <label for="start-location">Start Location</label><br>
-                            <input type="text" name="start-location" class="text" placeholder="Suburb" required>
+                            <input type="text" name="start-location" class="text autofill" placeholder="Suburb" required>
                         </div>
                         <div>
                             <label for="furthest-location">Furthest Location</label><br>
-                            <input type="text" name="furthest-location" class="text" placeholder="Suburb" required>
+                            <input type="text" name="furthest-location" class="text autofill" placeholder="Suburb" required>
                         </div>
                     </div>
 

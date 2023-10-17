@@ -1,0 +1,16 @@
+.hidden {
+  display: none;
+}
+
+.autocomplete-item-div {
+  position: absolute;
+  z-index: 999;
+  background-color: #f0f0f0;
+  padding-right: 10px;
+}
+
+.autofill-l {
+  list-style: none;
+  padding: 0px;
+  padding-left: 10px;
+}
