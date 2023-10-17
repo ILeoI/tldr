@@ -81,6 +81,15 @@ requireUserType($conn, "learner");
             <!-- Logbook Drives Total Progress -->
             <div class="progress-container">
                 <div class="progress-label">Total Progress</div>
+                <!-- This div contains the circular progress bar -->
+                <!-- radial-gradient() describes a progressive transition between two or more colours
+                     in this instance it is describing a gradient that is white till 79%, then transparent from 80% to 100% 
+                     this provides the circle mask for the conic gradient -->
+                <!-- conic-gradient() makes colour transitions around a central point (hence conic). 
+                     The way it is structured the conic gradient is rendered first, then the radial gradient is centred on top of that. 
+                     Combined with the radius defined in the stylesheet, this produces an overall look of a circle, but is three different layers -->
+                <!-- The styling was put in here so it could be manipulated by PHP at request. We simply set the percent to the calculated percentage. 
+                     This is the same for the other three circles, obviously with different colours -->
                 <div class="progress-bar" style="
                 background: 
                     radial-gradient(closest-side, white 79%, transparent 80% 100%),
