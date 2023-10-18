@@ -1,0 +1,64 @@
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.special1 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+#learner-ln-input {
+    width: 20%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+input[type="submit"] {
+    width: 10%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #838383;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #383839;
+}
+
+
+table {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+tr {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+
+a {
+    color: #00d0ff;
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+
+a:hover {
+    color: #005aad;
+}
