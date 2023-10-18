@@ -15,18 +15,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = mysqli_fetch_assoc($result);
             $learnerID = $row["id"];
             if ($row["supervisor"] == 1 || $row["instructor"] == 1 || $row["government"] == 1) {
-                header("location: view-learners.php?feedback=4");
+                header("location: supervisor-home-page.php?feedback=2");
                 exit();
             }
             $sql = "INSERT INTO SupervisorLearners(supervisorID, learnerID) VALUES('$supervisorID', '$learnerID');";
             try {
                 mysqli_query($conn, $sql);
-                header("location: view-learners.php?feedback=3");
+                header("location: supervisor-home-page.php?feedback=3");
             } catch (mysqli_sql_exception) {
-                header("location: view-learners.php?feedback=0");
+                header("location: supervisor-home-page.php?feedback=0");
             }
         } else {
-            header("location: view-learners.php?feedback=2");
+            header("location: supervisor-home-page.php?feedback=2");
         }
     }
 }

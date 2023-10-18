@@ -4,9 +4,12 @@ body {
 
 caption {
   background-color: #20b14b;
-  padding: 10px 0;
+  padding: 10px 10px;
   width: 100%;
   margin: 0;
+  color: white;
+  text-align: left;
+  font-weight: bold;
 }
 
 #add-drive-form {
@@ -39,7 +42,7 @@ caption {
 }
 
 #container {
-  padding: 40px;
+  padding: 10px 40px 40px 40px;
   max-width: 100%;
 }
 
