@@ -31,9 +31,7 @@ requireUserType($conn, "supervisor");
     mysqli_free_result($result);
     ?>
 
-    <div>
-
-
+    <div class="center">
 
         <form action="add-learner.php" method="post">
             <?php
@@ -47,6 +45,8 @@ requireUserType($conn, "supervisor");
                     echo "<p style='color: red'>Invalid Licence number</p>";
                 } else if ($feedback == "3") {
                     echo "<p style='color: green'>Student added successfully</p>";
+                } else if ($feedback == "5") {
+                    echo "<p style='color: green'>Student removed successfully</p>";
                 }
             }
             ?>
@@ -68,8 +68,9 @@ requireUserType($conn, "supervisor");
                 echo "<table>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>
-                            <td><label>" . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenceNo"] . " </label></td>
-                            <td><a href=\"view-drive-log.php?learnerID=" . $row["id"] . "\">View View Drive Log</a></td>
+                            <td><label>" . $row["firstName"] . " " . $row["lastName"] . " - " . $row["licenceNo"] . " </label></td>
+                            <td><a href=\"view-drive-log.php?learnerID=" . $row["id"] . "\">View Drive Log</a></td>
+                            <td><a href=\"release-learner.php?learnerID=" . $row["id"] . "\">Release Learner</a></td>
                         </tr>";
                     }
                 echo "</table>";

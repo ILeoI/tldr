@@ -170,11 +170,11 @@ INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, 
 
 -- Insert Drives for students
 INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
-VALUES("LN0003",  "2023-09-21", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
+VALUES("LN0003",  "2023-09-21", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "Light", 1, "LN0000");
 
 INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
-VALUES("LN0003",  "2023-09-22", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
+VALUES("LN0003",  "2023-09-22", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "Light", 1, "LN0000");
 
 INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
-VALUES("LN0003",  "2023-09-23", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
+VALUES("LN0003",  "2023-09-23", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "Light", 1, "LN0000");
     
