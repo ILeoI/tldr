@@ -17,40 +17,30 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 5px solid;
-  border-color: #69626d;
+  border: 5px solid #69626d;
+  border-radius: 5px;
   background-color: #cffcff;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 10px 30px 0px 30px;
+  text-align: center;
 }
 
-.input-field {
-  padding: 20px;
-  margin: 10px 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Apply styles to text inputs */
-input[type="text"],
-input[type="password"] {
+.sign-up-input {
   width: 100%;
   padding: 10px;
-  margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
+  margin: 5px 0px;
 }
 
-/* Style the checkbox and its label */
-#password-toggle {
-  margin-right: 5px;
+.radio-input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  height: 36px;
 }
 
-/* Apply styles to the submit button */
-input[type="submit"] {
+.sign-up-submit {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -61,7 +51,6 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-/* Change button color on hover */
-input[type="submit"]:hover {
+.sign-up-submit:hover {
   background-color: #454545;
 }
