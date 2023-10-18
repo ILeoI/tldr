@@ -39,13 +39,13 @@ input[type="submit"]:hover {
 }
 
 
-ul {
+table {
     list-style: none;
     padding: 0;
     text-align: center;
 }
 
-li {
+tr {
     margin: 10px 0;
     font-size: 16px;
 }

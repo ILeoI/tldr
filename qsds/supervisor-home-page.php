@@ -9,6 +9,7 @@ requireUserType($conn, "supervisor");
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/your-learner.css" />
     <script src="../scripts/menu.js" defer></script>
     <title>TLDR: QSD Home Page</title>
 
@@ -29,6 +30,54 @@ requireUserType($conn, "supervisor");
     }
     mysqli_free_result($result);
     ?>
+
+    <div>
+
+
+
+        <form action="add-learner.php" method="post">
+            <?php
+            if (isset($_GET["feedback"])) {
+                $feedback = $_GET["feedback"];
+                if ($feedback == "0") {
+                    echo "<p style='color: red'>Something went wrong</p>";
+                } else if ($feedback == "1") {
+                    echo "<p style='color: red'>Student already assigned instructor</p>";
+                } else if ($feedback == "2") {
+                    echo "<p style='color: red'>Invalid License number</p>";
+                } else if ($feedback == "3") {
+                    echo "<p style='color: green'>Student added successfully</p>";
+                }
+            }
+            ?>
+            <label class="special1" for="learner-ln-input">Add a learner here: </label>
+            <input type="text" name="learner-ln-input" id="learner-ln-input" placeholder="License Number" required>
+            <input type="submit" value="Add">
+        </form>
+
+        <?php
+
+        // generates a list of the instructors students with a link to view their CBT&A.
+        $supervisorID = $_SESSION["userID"];
+        $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenseNo 
+                FROM Users 
+                JOIN SupervisorLearners ON Users.id = SupervisorLearners.learnerID 
+                WHERE SupervisorLearners.supervisorID = '$supervisorID';";
+        if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+                echo "<table>";
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>
+                            <td><label>" . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenseNo"] . " </label></td>
+                            <td><a href=\"view-drive-log.php?learnerID=" . $row["id"] . "\">View View Drive Log</a></td>
+                        </tr>";
+                    }
+                echo "</table>";
+            }
+        }
+        mysqli_free_result($result);
+        ?>
+    </div>
 
 </body>
 

@@ -8,7 +8,6 @@
         <div class="dropdown-content">
             <a href="supervisor-home-page.php" >Home</a>
             <a href="add-drive.php">Add Drive</a>
-            <a href="view-learners.php">Your Learners</a>
             <a href="my-account.php">Account</a>
             <a href="../log-out.php">Logout</a>
         </div>
