@@ -84,7 +84,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </tr>
                         <tr>
                         <td> 
+
                         <button id="edit-payment-button" class="add-lesson-button">Edit Payment</button> </td>
+                        <td>
+                        <a href="change-password.php">
+                        <button id ="change-password" class ="add-lesson-button"> Change Password</button> </td>
                         
                         </tr>
                     </table>
@@ -96,11 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_free_result($result);
     ?>
 
-    <div class="button-container">
-        <a href="change-password.php">
-            <button class="add-lesson-button">Change Password</button>
-        </a>
-    </div>
 
 
     <div id="edit-payment-form" style="display: none;">
