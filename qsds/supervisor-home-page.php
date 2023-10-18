@@ -17,10 +17,19 @@ requireUserType($conn, "supervisor");
 <body>
     <?php
     require_once "supervisor-menu.php";
+
+    // Retrieve instructor's row containing their information
+    $id = $_SESSION["userID"];
+    $sql = "SELECT firstName, lastName FROM Users WHERE id = '$id';";
+    if ($result = mysqli_query($conn, $sql)) {
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            echo "<p>Welcome, <b>" . $row["firstName"] . " " . $row["lastName"] . "</b>, to the TLDR System.</p>";
+        }
+    }
+    mysqli_free_result($result);
     ?>
+
 </body>
-
-
-    
 
 </html>

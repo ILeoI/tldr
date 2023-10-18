@@ -9,7 +9,7 @@ requireUserType($conn, "instructor");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TLDR: Home Page</title>
+    <title>TLDR: Lesson Bookings</title>
     <link rel="stylesheet" href="../style/home-page.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
     <script src="../scripts/home.js" defer></script>
@@ -17,22 +17,14 @@ requireUserType($conn, "instructor");
 </head>
 
 <body>
-    <?php
-    require_once "instructor-menu.php";
+    <?php require_once "instructor-menu.php"; ?>
 
-    $id = $_SESSION["userID"];
-    $sql = "SELECT firstName, lastName FROM Users WHERE id = '$id';";
-    if ($result = mysqli_query($conn, $sql)) {
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            echo "<p>Welcome " . $row["firstName"] . " " . $row["lastName"] . ".</p>";
-        }
-    }
-    mysqli_free_result($result);
-    ?>
+    <br>
 
     <div class="table-container">
         <?php
+        $id = $_SESSION["userID"];
+
         $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location, bookings.lessonType, bookings.amount
         FROM bookings
         JOIN Users ON bookings.learnerID = Users.id
@@ -75,7 +67,7 @@ requireUserType($conn, "instructor");
             <button class="add-lesson-button">Add Lesson</button>
         </a>
     </div>
-
+    <br>
     <div class="table-container">
         <form action="process_verify_booking.php" method="post">
             <?php
@@ -122,7 +114,7 @@ requireUserType($conn, "instructor");
             </div>
         </form>
     </div>
-
+    <br>
 
 </body>
 

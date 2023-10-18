@@ -38,7 +38,7 @@ requireUserType($conn, "instructor");
         <div class="table-container">
             <table>
                 <tr>
-                    <caption>Your Upcoming Bookings</caption>
+                    <caption>Your Bookings For This Week</caption>
                     <th>Name</th>
                     <th>Time</th>
                     <th>Location</th>
@@ -51,7 +51,8 @@ requireUserType($conn, "instructor");
                 FROM bookings
                 JOIN Users ON bookings.learnerID = Users.id
                 WHERE bookings.instructorID = '$id'
-                AND bookings.time > now();";
+                AND bookings.time > now() 
+                AND bookings.time < DATE_ADD(now(), INTERVAL 1 WEEK);";
 
                 if ($result = mysqli_query($conn, $sql)) {
                     if (mysqli_num_rows($result) > 0) {

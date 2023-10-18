@@ -92,7 +92,7 @@ CREATE TABLE bookings (
     time DATETIME NOT NULL,
     lessonType varchar(25),
     location VARCHAR(255) NOT NULL,
-    status varchar(10) NOT NULL,
+    status varchar(10),
     amount int DEFAULT 80
 );
 
@@ -106,6 +106,11 @@ CREATE TABLE bookingRequests (
     verified boolean DEFAULT 0
 );
 
+CREATE TABLE InstructorInfo (
+    instructorID INT PRIMARY KEY,
+    serviceableArea varchar(40),
+    aboutMe varchar(512)
+);
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
 GRANT all privileges on tldr.Users to dbadmin@localhost;
@@ -117,6 +122,7 @@ GRANT all privileges on tldr.InstructorLearners to dbadmin@localhost;
 GRANT all privileges on tldr.SupervisorLearners to dbadmin@localhost;
 GRANT all privileges on tldr.Bookings to dbadmin@localhost;
 GRANT all privileges on tldr.bookingRequests to dbadmin@localhost;
+GRANT all privileges on tldr.InstructorInfo to dbadmin@localhost;
 
 
 -- Students
@@ -161,10 +167,11 @@ INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, 
 
 -- Insert Drives for students
 INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
-VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
+VALUES("LN0003",  "2023-09-21", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
 
 INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
-VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
+VALUES("LN0003",  "2023-09-22", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
 
 INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
-VALUES("LN0003",  "2023-09-20", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
+VALUES("LN0003",  "2023-09-23", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
+    

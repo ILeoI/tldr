@@ -1,0 +1,160 @@
+body {
+  background-color: #ffffff;
+}
+
+caption {
+  background-color: #20b14b;
+  padding: 10px 0;
+  width: 100%;
+  margin: 0;
+}
+
+#add-drive-form {
+  text-align: left;
+  display: block;
+  min-width: 500px;
+  width: 500px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px #888888;
+  padding: 15px;
+}
+
+#add-drive {
+  margin: 10px;
+}
+
+#container.center {
+  top: 50%;
+  left: 50%;
+}
+
+#verify-drive-container {
+  border-bottom: 20px;
+}
+
+.center {
+  margin: auto;
+  width: 70%;
+}
+
+#container {
+  padding: 40px;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: block;
+}
+
+li {
+  margin: 20px 0;
+}
+
+.submit {
+  font-weight: bold;
+  font-display: uppercase;
+  color: #fff;
+  border: none;
+  background-color: #1565c0;
+  padding: 10px 25px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input#submit-verify {
+  position: relative;
+  right: 15%;
+  background-color: #20b14b;
+  color: white;
+  border: white 1px solid;
+  padding: 6px 9px;
+  border-radius: 5px;
+}
+
+.text {
+  width: 100%;
+  border: solid;
+  border-width: 1px;
+  border-color: #d4dadc;
+  display: block;
+  padding: 5px;
+}
+
+.time {
+  display: flex;
+}
+
+.left {
+  margin-right: 10px;
+}
+
+table {
+  text-decoration: solid;
+  font-size: 14px;
+  width: 1000px;
+  table-layout: fixed;
+  width: 705px;
+  border-color: #a9a9a9;
+  empty-cells: hide;
+}
+
+#h1-history {
+  margin-top: 20px;
+}
+
+#submit-verify {
+  float: right;
+  cursor: pointer;
+}
+
+/* added on for new drives */
+
+.tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: center;
+}
+
+.tg td {
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+  border: white 3px solid;
+  text-align: center;
+  empty-cells: hide;
+}
+
+.tg th {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg .cells {
+  background-color: #ddedda;
+  border-color: #ffffff;
+  text-align: center;
+  vertical-align: top;
+}
+
+td {
+  background-color: #ddedda;
+  border-color: #ffffff;
+  text-align: left;
+  vertical-align: top;
+}

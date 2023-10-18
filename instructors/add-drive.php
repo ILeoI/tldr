@@ -15,7 +15,6 @@ if ($result = mysqli_query($conn, $sql)) {
 mysqli_free_result($result);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $driveDate = $_POST["date"];
     $startTime = $_POST["start-time"];
     $endTime = $_POST["end-time"];
@@ -47,10 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="Author" content="Coby Murphy">
-    <link rel="stylesheet" href="../style/drives.css" />
+    <link rel="stylesheet" href="../style/drive-table.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/autofill.css" />
     <script src="../scripts/menu.js" defer></script>
     <script src="../scripts/add-drive.js" defer></script>
+    <script src="../scripts/suburbs.js" defer></script>
+    <script src="../scripts/suburbs-optimised.js" defer></script>
+    <script src="../scripts/autofill-suburb.js" defer></script>
     <title>TLDR: Add Drives</title>
 </head>
 
@@ -92,18 +95,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
                 <li>
                     <label for="date">Date</label><br>
-                    <input type="date" name="date" required>
+                    <input type="date" name="date" id="date" required>
                 </li>
 
                 <li>
                     <div class="time">
                         <div class="left">
                             <label for="start-time">Start Time</label><br>
-                            <input type="time" name="start-time" required>
+                            <input type="time" name="start-time" id="start-time" required>
                         </div>
                         <div>
                             <label for="end-time">End Time</label><br>
-                            <input type="time" name="end-time" required>
+                            <input type="time" name="end-time" id="end-time" required>
                         </div>
                     </div>
 
@@ -113,11 +116,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="time">
                         <div class="left">
                             <label for="start-location">Start Location</label><br>
-                            <input type="text" name="start-location" class="text" placeholder="Suburb" required>
+                            <input type="text" name="start-location" id="start-location" class="autofill" placeholder="Suburb" required>
                         </div>
                         <div>
                             <label for="furthest-location">Furthest Location</label><br>
-                            <input type="text" name="furthest-location" class="text" placeholder="Suburb" required>
+                            <input type="text" name="furthest-location" id="furthest-location" class="autofill" placeholder="Suburb" required>
                         </div>
                     </div>
 
@@ -154,11 +157,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
 
             </ul>
+            <input type="checkbox" id="swear" required>
+            <label for="swear" style="font-size: 14px">By completing this form I acknowledge all information to be correct</label>
+            <br>
+            <br>
             <input type="submit" class="submit" value="Submit">
 
         </form>
     </div>
-
+    <br>
 </body>
 
 </html>
