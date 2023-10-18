@@ -12,8 +12,11 @@ requireUserType($conn, "instructor");
     <title>TLDR: View Invoices</title>
     <link rel="stylesheet" href="../style/home-page.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/collapsible.css" />
     <script src="../scripts/home.js" defer></script>
     <script src="../scripts/menu.js" defer></script>
+    <script src="../scripts/collapsible.js" defer></script>    
+    <script src="../scripts/table-filter.js" defer></script>
 </head>
 
 <body>
@@ -38,7 +41,7 @@ requireUserType($conn, "instructor");
                 WHERE InvoiceDetails.instructorID = '$id';";
 
         echo "<table>
-            <caption>Your Invoices</caption>
+            <caption>Your Unpaid Invoices</caption>
             <tr>
                 <th>Invoice ID</th>
                 <th>Student Name</th>
@@ -53,6 +56,7 @@ requireUserType($conn, "instructor");
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
+                    $status = $row["status"] ? "Paid" : "Unpaid";
                     echo "<tr>
                             <td>{$row['id']}</td>
                             <td>{$row['firstName']} {$row['lastName']}</td>
@@ -60,7 +64,7 @@ requireUserType($conn, "instructor");
                             <td>{$row['location']}</td>
                             <td>{$row['lessonType']}</td>
                             <td>{$row['amount']}</td>
-                            <td>{$row['status']}</td>
+                            <td>$status</td>
                         </tr>";
                 }
             } else {
@@ -69,9 +73,67 @@ requireUserType($conn, "instructor");
         }
 
         mysqli_free_result($result);
-        mysqli_close($conn);
         echo "</table>";
         ?>
+    </div>
+    <br>
+    <button class="collapsible">Paid Invoices</button>
+    <div class="content">
+        <br>
+        <div class="table-container">
+            <div class="search-container">
+                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for invoices...">
+            </div>
+            <br>
+            <?php
+            $sql = "SELECT Users.firstName, 
+                Users.lastName, 
+                InvoiceDetails.time, 
+                InvoiceDetails.location, 
+                InvoiceDetails.lessonType, 
+                InvoiceDetails.amount, 
+                InvoiceDetails.status,
+                InvoiceDetails.id,
+                InvoiceDetails.learnerID
+                FROM InvoiceDetails
+                JOIN Users ON InvoiceDetails.learnerID = Users.id
+                WHERE InvoiceDetails.instructorID = '$id' AND status = 1;";
+
+            echo "<table id='filterableTable'>
+            <caption>Your Paid Invoices</caption>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Student Name</th>
+                <th>Time</th>
+                <th>Location</th> 
+                <th>Type</th>
+                <th>Amount</th>
+            </tr>";
+
+            if ($result = mysqli_query($conn, $sql)) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $status = $row["status"] ? "Paid" : "Unpaid";
+                        echo "<tr>
+                            <td>{$row['id']}</td>
+                            <td>{$row['firstName']} {$row['lastName']}</td>
+                            <td>{$row['time']}</td>
+                            <td>{$row['location']}</td>
+                            <td>{$row['lessonType']}</td>
+                            <td>{$row['amount']}</td>
+                        </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='8'>No invoices found.</td></tr>";
+                }
+            }
+
+            mysqli_free_result($result);
+            mysqli_close($conn);
+            echo "</table>";
+            ?>
+        </div>
+        <br>
     </div>
 </body>
 
