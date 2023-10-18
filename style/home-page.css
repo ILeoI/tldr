@@ -90,6 +90,8 @@ tr:hover {
   /* padding-left: 430px; */
 }
 
+
+
 .progress-bar {
   display: flex;
   float: left;
@@ -120,6 +122,21 @@ ul {
   font-size: 18px;
   margin-bottom: 5px;
 }
+
+#filterableTable{  
+    position: absolute;
+    top: 120px;
+    left: 300px;
+    font-size: 18px;
+  }
+
+#filter_bar.search-containerR{
+padding-left: 300px;
+padding-top: 200px;
+}
+
+
+
 
 .about-me {
   position: relative;

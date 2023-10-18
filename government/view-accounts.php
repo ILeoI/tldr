@@ -27,10 +27,12 @@ requireUserType($conn, "government");
     <?php require_once "government-menu.php"; ?>
     <br>
 
-    <div class="table-container">
-        <div class="search-container">
+    <div class="search-container">
             <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Accounts...">
         </div>
+
+    <div class = "table-container">
+        
         <br>
         <table id="filterableTable">
             <tr>
@@ -70,10 +72,13 @@ requireUserType($conn, "government");
                     }
                 }
                 mysqli_free_result($result);
+                echo "</table>";
+                
             }
             mysqli_close($conn);
             ?>
         </table>
+        
     </div>
 </body>
 
