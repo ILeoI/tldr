@@ -47,10 +47,10 @@ requireUserType($conn, "learner");
                         InvoiceDetails.status,
                         InvoiceDetails.id,
                         InvoiceDetails.learnerID
-                    FROM InvoiceDetails
-                    JOIN Users ON InvoiceDetails.instructorID = Users.id
-                    WHERE InvoiceDetails.learnerID = '$id'
-                    AND InvoiceDetails.status = 0;";
+                        FROM InvoiceDetails
+                        JOIN Users ON InvoiceDetails.instructorID = Users.id
+                        WHERE InvoiceDetails.learnerID = '$id'
+                        AND InvoiceDetails.status = 0;";
                 if ($result = mysqli_query($conn, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {

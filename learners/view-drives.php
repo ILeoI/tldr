@@ -108,7 +108,7 @@ requireUserType($conn, "learner");
                             <td>$name</td>
                             <td>{$row['supervisorLicenceNumber']}</td>
                             <td>$day</td>
-                            <td><input type='checkbox' name='{$row["id"]}'/></td>
+                            <td><input type='checkbox' name='{$row["id"]}'/><br><a class='reject' href='remove-invalid-drive.php?driveID={$row["id"]}'>Reject</a></td>
                           </tr>";
                 }
 
@@ -129,7 +129,7 @@ requireUserType($conn, "learner");
                     <td><input type='submit' id='submit-verify' value='Verify'/></td>
                 </tr>";
             } else {
-                echo "<tr><td colspan='13'>All drives Verified</td></tr>";
+                echo "<tr><td colspan='13'>No Drives To Verify</td></tr>";
             }
         }
         mysqli_free_result($result);
