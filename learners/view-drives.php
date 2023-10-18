@@ -92,7 +92,6 @@ requireUserType($conn, "learner");
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    print_r($row);
                     echo "<br>";
                     $day = $row['daytime'] ? "Day" : "Night";
                     $name = $row["firstName"] . " " . $row["lastName"];
@@ -143,8 +142,6 @@ requireUserType($conn, "learner");
 
         <?php
 
-        $sql = "SELECT * FROM Drives JOIN Users ON Drives.supervisorLicenseNumber = Users.licenseNo WHERE Drives.verified=1 AND Drives.learnerLicenseNo = '$licenseNo';";
-
         echo '<table class="tg">
         <caption>Drive History</caption>
         <colgroup>
@@ -187,6 +184,7 @@ requireUserType($conn, "learner");
         </tr>
         </thead>';
 
+        $sql = "SELECT * FROM Drives JOIN Users ON Drives.supervisorLicenseNumber = Users.licenseNo WHERE Drives.verified=1 AND Drives.learnerLicenseNo = '$licenseNo';";
 
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {

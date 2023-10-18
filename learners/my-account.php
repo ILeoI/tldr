@@ -95,9 +95,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td>CVV: </td>
                             <td>' . $cardCVV . '</td>
                         </tr>
-                        <tr>
                         <td> 
-                        <button id="edit-payment-button" class="add-lesson-button">Edit Payment</button> </td>
+                        <button id="edit-payment-button" class="add-lesson-button">Edit Payment</button>
+                    </td>
+                
+                <td> 
+                    <a href="change-password.php">
+                        <button id ="change-password" class ="add-lesson-button"> Change Password</button> 
+                    </a>
+                </td>
                         </tr>
                     </table>
                 </div>';
@@ -109,18 +115,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     ?>
 
-    <div class="button-container">
-        <a href="change-password.php">
-            <button class="add-lesson-button">Change Password</button>
-        </a>
-    </div>
+
 
     <div id="edit-payment-form" style="display: none;">
         <form method="post">
             Card Number: <input type="text" name="cardNumber" value="<?php echo $cardNumber; ?>"><br>
-            Expiry Month: <input type="text" name="cardExpiryMonth" value="<?php echo $cardExpiryMonth; ?>"><br>
+            Expiry Month:<input type="text" name="cardExpiryMonth" value="<?php echo $cardExpiryMonth; ?>"><br>
             Expiry Year: <input type="text" name="cardExpiryYear" value="<?php echo $cardExpiryYear; ?>"><br>
-            CVV: <input type="text" name="cardCVV" value="<?php echo $cardCVV; ?>"><br>
+            CVV:<input type="text" name="cardCVV" value="<?php echo $cardCVV; ?>"><br>
             <input type="submit" value="Save">
         </form>
     </div>
