@@ -61,7 +61,7 @@ requireUserType($conn, "learner");
                                 <td>{$row['time']}</td>
                                 <td>{$row['location']}</td>
                                 <td>{$row['lessonType']}</td>
-                                <td>{$row['amount']}</td>
+                                <td>$". number_format($row['amount'], 2) ."</td>
                                 <td><input type='checkbox' name='{$row['id']}'></td>
                             </tr>";
                         }
