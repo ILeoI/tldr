@@ -21,12 +21,12 @@ requireUserType($conn, "learner");
     require_once "learner-menu.php";
 
     $id = $_SESSION["userID"];
-    $licenseNo = "";
-    $sql = "SELECT firstName, lastName, licenseNo FROM Users WHERE id = '$id';";
+    $licenceNo = "";
+    $sql = "SELECT firstName, lastName, licenceNo FROM Users WHERE id = '$id';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            $licenseNo = $row["licenseNo"];
+            $licenceNo = $row["licenceNo"];
             echo "<p>Welcome " . $row["firstName"] . " " . $row["lastName"] . ".</p>";
         }
     }
@@ -35,7 +35,7 @@ requireUserType($conn, "learner");
     $all_minutes = array();
 
     // Daytime
-    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenseNo = '$licenseNo' AND daytime = '1' AND verified = 1;";
+    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenceNo = '$licenceNo' AND daytime = '1' AND verified = 1;";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -49,7 +49,7 @@ requireUserType($conn, "learner");
     mysqli_free_result($result);
 
     // Nighttime
-    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenseNo = '$licenseNo' AND daytime = '0' AND verified = 1;";
+    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenceNo = '$licenceNo' AND daytime = '0' AND verified = 1;";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {

@@ -19,7 +19,7 @@ requireUserType($conn, "instructor");
     <br>
     <form action="add-student.php" method="post">
         <label for="student-ln-input">Add a student here: </label>
-        <input type="text" name="student-ln-input" id="student-ln-input" placeholder="License Number" required>
+        <input type="text" name="student-ln-input" id="student-ln-input" placeholder="Licence Number" required>
         <input type="submit" value="Add">
     </form>
     <br>
@@ -33,11 +33,11 @@ requireUserType($conn, "instructor");
         } else if ($feedback == "1") {
             echo "<p>Student already assigned instructor</p>";
         } else if ($feedback == "2") {
-            echo "<p>Invalid license number</p>";
+            echo "<p>Invalid licence number</p>";
         } else if ($feedback == "3") {
             echo "<p>Student added successfully</p>";
         } else if ($feedback == "4") {
-            echo "<p>Entered License Number is not a student</p>";
+            echo "<p>Entered Licence Number is not a student</p>";
         } else if ($feedback == "5") {
             echo "<p>Student removed successfully</p>";
         }
@@ -48,14 +48,14 @@ requireUserType($conn, "instructor");
     <table>
         <tr>
             <th>Student Name</th>
-            <th>License Number</th>
+            <th>Licence Number</th>
             <th>Edit CBT&A</th>
             <th>Release Student</th>
         </tr>
         <?php
         // generates a list of the instructors students with a link to view their CBT&A.
         $instructorID = $_SESSION["userID"];
-        $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenseNo 
+        $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenceNo 
             FROM Users 
             JOIN InstructorLearners ON Users.id = InstructorLearners.learnerID 
             WHERE InstructorLearners.instructorID = '$instructorID';";
@@ -64,7 +64,7 @@ requireUserType($conn, "instructor");
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
                     echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
-                    echo "<td>" . $row["licenseNo"] . "</td>";
+                    echo "<td>" . $row["licenceNo"] . "</td>";
                     echo "<td><a href=\"cbta.php?learnerID=" . $row["id"] . "\">View CBT&A</a></td>";
                     echo "<td><a href=\"release-student.php?learnerID=" . $row["id"] . "\">Release</a></td>";
                     echo "</tr>";

@@ -17,7 +17,7 @@ CREATE TABLE Users (
     instructor boolean DEFAULT 0,
     supervisor boolean DEFAULT 0,
     government boolean DEFAULT 0,
-    licenseNo varchar(6),
+    licenceNo varchar(6),
     hasTempPassword boolean DEFAULT 0
 ) AUTO_INCREMENT = 1;
 
@@ -38,7 +38,7 @@ CREATE TABLE SupervisorLearners (
 
 CREATE TABLE Drives (
     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    supervisorLicenseNumber varchar(6) NOT NULL,
+    supervisorLicenceNumber varchar(6) NOT NULL,
     driveDate date,
     startTime time,
     endTime time,
@@ -50,7 +50,7 @@ CREATE TABLE Drives (
     conditionWeather varchar(20),
     conditionTraffic varchar(20),
     daytime boolean,
-    learnerLicenseNo varchar(6) NOT NULL,
+    learnerLicenceNo varchar(6) NOT NULL,
     verified boolean DEFAULT 0
 ) AUTO_INCREMENT = 1;
 
@@ -126,31 +126,31 @@ GRANT all privileges on tldr.InstructorInfo to dbadmin@localhost;
 
 
 -- Students
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenceNo) 
 VALUES("student@tldr.com", "password", "0400000000", "Student", "Driver", "2023-06-15", 1, "LN0000");
 INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(1, 1111222233334444, 10, 26, 012);
 
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenceNo) 
 VALUES("student2@tldr.com", "password", "0400000004", "Student2", "Driver2", "2013-09-12", 1, "LN0005");
 INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(2, 9999000011112222, 10, 26, 012);
 
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenceNo) 
 VALUES("student3@tldr.com", "password", "0400000005", "Student3", "Driver3", "2014-08-17", 1, "LN0006");
 INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(3, 5555666677778888, 10, 26, 012);
 
 -- Instructor
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenseNo) 
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenceNo) 
 VALUES("instructor@tldr.com", "password", "0400000001", "Instructor", "Driver", "1999-05-12", 1, "LN0001");
 
 INSERT INTO InstructorInfo(instructorID, serviceableArea, aboutMe)
 VALUES (4, "Mitcham and Marion", "I'm passionate about teaching safe and confident driving skills to new drivers. With years of experience, I'm dedicated to helping learners master the road. Let's embark on a journey towards responsible and skilled driving together!");
 
 -- QSD
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, supervisor, licenseNo) 
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, supervisor, licenceNo) 
 VALUES("qsd@tldr.com", "password", "0400000002", "Supervisor", "Driver", "1969-05-12", 1, "LN0003");
 
 -- Government
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, government, licenseNo) 
+INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, government, licenceNo) 
 VALUES("government@tldr.com", "password", "0400000003", "Government", "Driver", "1969-05-12", 1, "LN0004");
 
 
@@ -169,12 +169,12 @@ INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, 
 
 
 -- Insert Drives for students
-INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
+INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
 VALUES("LN0003",  "2023-09-21", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
 
-INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
+INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
 VALUES("LN0003",  "2023-09-22", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
 
-INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo)
+INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
 VALUES("LN0003",  "2023-09-23", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "l", 1, "LN0000");
     

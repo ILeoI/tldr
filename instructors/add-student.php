@@ -2,15 +2,15 @@
 require_once "../inc/db-session-include.php";
 requireUserType($conn, "instructor");
 
-// This script takes the license number of a student,
+// This script takes the licence number of a student,
 // checks if they are already assigned/doesn't exists
 // then adds the relation in the database.
 // Provides appropriate feed back via GET to students.php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $licenseNumber = $_POST["student-ln-input"];
+    $licenceNumber = $_POST["student-ln-input"];
     $instructorID = $_SESSION["userID"];
-    $sql = "SELECT id, learner FROM Users WHERE licenseNo = '$licenseNumber';";
+    $sql = "SELECT id, learner FROM Users WHERE licenceNo = '$licenceNumber';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);

@@ -39,7 +39,7 @@
     <?php require_once "government-menu.php" ?>
     <h2>Learners</h2>
     <?php
-        $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenseNo 
+        $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenceNo 
                 FROM Users 
                 JOIN SupervisorLearners ON Users.id = SupervisorLearners.learnerID 
                 WHERE SupervisorLearners.supervisorID = '$viewingID';";
@@ -47,7 +47,7 @@
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<li>{$row['firstName']} {$row['lastName']}, " . $row["licenseNo"] . " <a href=\"view-student.php?viewing=" . $row["id"] . "\">View</a></li>";
+                    echo "<li>{$row['firstName']} {$row['lastName']}, " . $row["licenceNo"] . " <a href=\"view-student.php?viewing=" . $row["id"] . "\">View</a></li>";
                 }
             }
             mysqli_free_result($result);

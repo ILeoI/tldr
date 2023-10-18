@@ -59,8 +59,8 @@ require_once "inc/dbconn.inc.php";
 
                     </td>
                     <td>
-                        <label for="license-number">License Number</label> <br>
-                        <input type="text" class="sign-up-input" id="license-number" name="license-number" required placeholder="License Number"> <br>
+                        <label for="licence-number">Licence Number</label> <br>
+                        <input type="text" class="sign-up-input" id="licence-number" name="licence-number" required placeholder="Licence Number"> <br>
                     </td>
                 </tr>
                 <tr>
@@ -100,13 +100,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastName = filter_input(INPUT_POST, "last-name", FILTER_SANITIZE_SPECIAL_CHARS);
     $dob = $_POST["dob"];
     $phoneNumber = filter_input(INPUT_POST, "phone-number", FILTER_SANITIZE_SPECIAL_CHARS);
-    $licenseNumber = filter_input(INPUT_POST, "license-number", FILTER_SANITIZE_SPECIAL_CHARS);
+    $licenceNumber = filter_input(INPUT_POST, "licence-number", FILTER_SANITIZE_SPECIAL_CHARS);
     $userType = $_POST["user-type"];
 
     $hash_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, $userType, licenseNo) 
-            VALUES('$email', '$hash_password', '$phoneNumber', '$firstName', '$lastName', '$dob', 1, '$licenseNumber');";
+    $sql = "INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, $userType, licenceNo) 
+            VALUES('$email', '$hash_password', '$phoneNumber', '$firstName', '$lastName', '$dob', 1, '$licenceNumber');";
 
     try {
         mysqli_query($conn, $sql);

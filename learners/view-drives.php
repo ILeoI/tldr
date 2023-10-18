@@ -26,14 +26,14 @@ requireUserType($conn, "learner");
 
         <?php
 
-        $licenseNo = "";
+        $licenceNo = "";
 
-        $sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
+        $sql = "SELECT licenceNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
 
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
-                $licenseNo = $row["licenseNo"];
+                $licenceNo = $row["licenceNo"];
             }
         }
         mysqli_free_result($result);
@@ -78,16 +78,16 @@ requireUserType($conn, "learner");
             <td class="cells">Weather</td>
             <td class="cells">Traffic</td>
             <td class="cells">Name</td>
-            <td class="cells">License No.</td>
+            <td class="cells">Licence No.</td>
         </tr>
         </thead>';
 
         $sql = "SELECT Drives.driveDate, Drives.startTime, Drives.endTime,
                        Drives.duration, Drives.fromLoc, Drives.toLoc,
                        Drives.conditionRoadType, Drives.conditionRoadCapacity, Drives.conditionWeather,
-                       Drives.conditionTraffic, Drives.supervisorLicenseNumber, Drives.id,
+                       Drives.conditionTraffic, Drives.supervisorLicenceNumber, Drives.id,
                        Drives.daytime, Users.firstName, Users.lastName 
-                       FROM Drives JOIN Users ON Drives.supervisorLicenseNumber = Users.licenseNo WHERE Drives.verified=0 AND Drives.learnerLicenseNo = '$licenseNo';";
+                       FROM Drives JOIN Users ON Drives.supervisorLicenceNumber = Users.licenceNo WHERE Drives.verified=0 AND Drives.learnerLicenceNo = '$licenceNo';";
 
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
@@ -106,7 +106,7 @@ requireUserType($conn, "learner");
                             <td>{$row['conditionWeather']}</td>
                             <td>{$row['conditionTraffic']}</td>
                             <td>$name</td>
-                            <td>{$row['supervisorLicenseNumber']}</td>
+                            <td>{$row['supervisorLicenceNumber']}</td>
                             <td>$day</td>
                             <td><input type='checkbox' name='{$row["id"]}'/></td>
                           </tr>";
@@ -180,11 +180,11 @@ requireUserType($conn, "learner");
             <td class="cells">Weather</td>
             <td class="cells">Traffic</td>
             <td class="cells">Name</td>
-            <td class="cells">License No.</td>
+            <td class="cells">Licence No.</td>
         </tr>
         </thead>';
 
-        $sql = "SELECT * FROM Drives JOIN Users ON Drives.supervisorLicenseNumber = Users.licenseNo WHERE Drives.verified=1 AND Drives.learnerLicenseNo = '$licenseNo';";
+        $sql = "SELECT * FROM Drives JOIN Users ON Drives.supervisorLicenceNumber = Users.licenceNo WHERE Drives.verified=1 AND Drives.learnerLicenceNo = '$licenceNo';";
 
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
@@ -204,7 +204,7 @@ requireUserType($conn, "learner");
                         <td>{$row['conditionWeather']}</td>
                         <td>{$row['conditionTraffic']}</td>
                         <td>$name</td>
-                        <td>{$row['supervisorLicenseNumber']}</td>
+                        <td>{$row['supervisorLicenceNumber']}</td>
                         <td>$day</td>
                         <td>Verified</td>
                         <td></td>

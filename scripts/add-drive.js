@@ -1,9 +1,9 @@
 const submitButton = document.getElementById("add-drive");
 
 const option = document.getElementById("permit-number");
-option.addEventListener("input", checkForLicense);
+option.addEventListener("input", checkForLicence);
 
-function checkForLicense(e) {
+function checkForLicence(e) {
     if (option.value == "none") {
         option.setCustomValidity("Please select a learner driver");
         e.preventDefault();
@@ -12,7 +12,7 @@ function checkForLicense(e) {
     }
 }
 
-submitButton.addEventListener("submit", checkForLicense);
+submitButton.addEventListener("submit", checkForLicence);
 
 const startTime = document.getElementById("start-time");
 const endTime = document.getElementById("end-time");

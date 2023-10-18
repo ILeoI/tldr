@@ -29,7 +29,7 @@ requireUserType($conn, "instructor");
         if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
-                echo "<h1>Editing CBT&A for " . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenseNo"] . "</h1>";
+                echo "<h1>Editing CBT&A for " . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenceNo"] . "</h1>";
                 $_SESSION["learnerID"] = $_GET["learnerID"];
             }
         }

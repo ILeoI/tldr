@@ -44,14 +44,14 @@ requireUserType($conn, "supervisor");
                 } else if ($feedback == "1") {
                     echo "<p style='color: red'>Student already assigned instructor</p>";
                 } else if ($feedback == "2") {
-                    echo "<p style='color: red'>Invalid License number</p>";
+                    echo "<p style='color: red'>Invalid Licence number</p>";
                 } else if ($feedback == "3") {
                     echo "<p style='color: green'>Student added successfully</p>";
                 }
             }
             ?>
             <label class="special1" for="learner-ln-input">Add a learner here: </label>
-            <input type="text" name="learner-ln-input" id="learner-ln-input" placeholder="License Number" required>
+            <input type="text" name="learner-ln-input" id="learner-ln-input" placeholder="Licence Number" required>
             <input type="submit" value="Add">
         </form>
 
@@ -59,7 +59,7 @@ requireUserType($conn, "supervisor");
 
         // generates a list of the instructors students with a link to view their CBT&A.
         $supervisorID = $_SESSION["userID"];
-        $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenseNo 
+        $sql = "SELECT Users.id, Users.firstName, Users.lastName, Users.licenceNo 
                 FROM Users 
                 JOIN SupervisorLearners ON Users.id = SupervisorLearners.learnerID 
                 WHERE SupervisorLearners.supervisorID = '$supervisorID';";
@@ -68,7 +68,7 @@ requireUserType($conn, "supervisor");
                 echo "<table>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>
-                            <td><label>" . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenseNo"] . " </label></td>
+                            <td><label>" . $row["firstName"] . " " . $row["lastName"] . ", " . $row["licenceNo"] . " </label></td>
                             <td><a href=\"view-drive-log.php?learnerID=" . $row["id"] . "\">View View Drive Log</a></td>
                         </tr>";
                     }
