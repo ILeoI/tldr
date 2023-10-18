@@ -107,7 +107,9 @@ CREATE TABLE bookingRequests (
 );
 
 CREATE TABLE InstructorInfo (
-    instructorID INT PRIMARY KEY
+    instructorID INT PRIMARY KEY,
+    serviceableArea varchar(40),
+    aboutMe varchar(512)
 );
 
 CREATE user IF NOT EXISTS dbadmin@localhost;
