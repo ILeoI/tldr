@@ -128,7 +128,7 @@ GRANT all privileges on tldr.InstructorInfo to dbadmin@localhost;
 -- Students
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
 VALUES("student@tldr.com", "password", "0400000000", "Student", "Driver", "2023-06-15", 1, "LN0000");
-INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(1, 111122223333444, 10, 26, 012);
+INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(1, 1111222233334444, 10, 26, 012);
 
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenseNo) 
 VALUES("student2@tldr.com", "password", "0400000004", "Student2", "Driver2", "2013-09-12", 1, "LN0005");

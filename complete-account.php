@@ -29,7 +29,7 @@ if ($result = mysqli_query($conn, $sql)) {
 <body>
     <h1 class="page-title" id="signup-page-header">Complete Account</h1>
     <form action="complete-account.php" method="POST">
-    <div class="input-fields">
+        <div class="input-fields">
             <table>
                 <tr>
                     <td>

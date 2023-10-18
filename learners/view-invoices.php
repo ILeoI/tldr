@@ -12,8 +12,10 @@ requireUserType($conn, "learner");
     <title>TLDR: View Invoices</title>
     <link rel="stylesheet" href="../style/home-page.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/collapsible.css" />
     <script src="../scripts/home.js" defer></script>
     <script src="../scripts/menu.js" defer></script>
+    <script src="../scripts/collapsible.js" defer></script>
 </head>
 
 <body>
@@ -24,8 +26,8 @@ requireUserType($conn, "learner");
 
     <div class="outstanding-invoives">
         <form action="pay-invoice.php" method="POST">
+            <h1 style="text-align: center">Outstanding Invoices</h1>
             <table>
-                <caption>Outstanding Invoices</caption>
                 <tr>
                     <th>Invoice ID</th>
                     <th>Instuctor Name</th>
@@ -76,10 +78,12 @@ requireUserType($conn, "learner");
             </div>
         </form>
     </div>
-
-    <div class="paid-invoives">
+    <br>
+    <button class="collapsible">View Paid Invoices</button>
+    <div class="paid-invoives content">
+        <br>
+        <h1 style="text-align: center">Paid Invoices</h1>
         <table>
-            <caption>Paid Invoices</caption>
             <tr>
                 <th>Invoice ID</th>
                 <th>Instuctor Name</th>
