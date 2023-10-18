@@ -13,6 +13,11 @@ table {
   text-align: center;
 }
 
+input#searchInput {
+  padding: 8px;
+  margin-left: 55px;
+}
+
 td,
 th {
   border: 1px solid #dddddd;
@@ -26,12 +31,6 @@ tr:nth-child(even) {
 
 th {
   background-color: #dddddd;
-}
-
-caption {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-bottom: 10px;
 }
 
 .add-lesson-button {
@@ -63,6 +62,14 @@ table {
   border-collapse: collapse;
 }
 
+caption {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  caption-side: bottom;
+  margin-top: 10px;
+}
+
 th,
 td {
   padding: 8px;
@@ -81,7 +88,7 @@ tr:hover {
 .table-container {
   width: 60%;
   margin: 0 auto;
-  text-align: center;
+  display: block;
 }
 
 .pay-stuff {
@@ -125,9 +132,16 @@ ul {
   margin-bottom: 5px;
 }
 
-#filter_bar.search-containerR {
-  padding-left: 300px;
-  padding-top: 200px;
+#filterableTable{  
+    position: absolute;
+    top: 120px;
+    left: 300px;
+    font-size: 18px;
+  }
+
+#filter_bar.search-container{
+padding-left: 300px;
+padding-top: 200px;
 }
 
 .about-me {
@@ -174,6 +188,8 @@ ul {
   text-align: right;
   font-size: 12px;
 }
+
+
 
 #bookingForm {
   display: none;

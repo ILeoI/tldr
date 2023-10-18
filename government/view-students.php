@@ -28,7 +28,9 @@ requireUserType($conn, "government");
         <?php
         $sql = "SELECT * FROM Users WHERE learner = 1;";
         echo "<table id='filterableTable'>
-        <caption>Students:</caption>
+        <caption>
+            <input type=\"text\" id=\"searchInput\" onkeyup=\"filterTable()\" placeholder=\"Search for Accounts...\">
+        </caption>  
         <tr>
             <th>Student ID</th>
             <th>Student Name</th>
@@ -53,9 +55,6 @@ requireUserType($conn, "government");
         mysqli_free_result($result);
         mysqli_close($conn);
         ?>
-        <div class="search-container" id="filter_bar">
-            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Students...">
-        </div>
     </div>
 
 </body>
