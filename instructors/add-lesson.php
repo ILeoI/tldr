@@ -52,7 +52,7 @@ requireUserType($conn, "instructor");
 		<input type="text" id="location" name="location" required><br><br>
 
 		<label for="price">Price: $</label>
-		<input type="number" id="price" name="price" required><br><br>
+		<input type="number" id="price" name="price" step="0.01" required><br><br>
 
 		<label for="LessonType">Lesson Type:</label>
 		<div class="lessonTypes">

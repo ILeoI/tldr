@@ -75,7 +75,7 @@ requireUserType($conn, "instructor");
             <button class="add-lesson-button">Add Lesson</button>
         </a>
     </div>
-
+    <br>
     <div class="table-container">
         <form action="process_verify_booking.php" method="post">
             <?php

@@ -57,7 +57,6 @@ requireUserType($conn, "instructor");
                 if ($result = mysqli_query($conn, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
-                            print_r($row);
                             echo "<tr>
                             <td>{$row['firstName']} {$row['lastName']}</td>
                             <td>{$row['time']}</td>

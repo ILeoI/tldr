@@ -63,7 +63,7 @@ requireUserType($conn, "instructor");
                             <td>{$row['time']}</td>
                             <td>{$row['location']}</td>
                             <td>{$row['lessonType']}</td>
-                            <td>{$row['amount']}</td>
+                            <td>$" . number_format($row["amount"], 2) . "</td>
                             <td>$status</td>
                         </tr>";
                 }
@@ -120,7 +120,7 @@ requireUserType($conn, "instructor");
                             <td>{$row['time']}</td>
                             <td>{$row['location']}</td>
                             <td>{$row['lessonType']}</td>
-                            <td>{$row['amount']}</td>
+                            <td>$" . number_format($row["amount"], 2) . "</td>c
                         </tr>";
                     }
                 } else {
