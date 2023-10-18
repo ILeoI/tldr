@@ -1,0 +1,65 @@
+/* Center the form container and adjust its size */
+form {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 300px; /* Set a fixed width */
+    margin: 0 auto; /* Center horizontally */
+    text-align: center; /* Center text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Center the form labels */
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center; /* Center text */
+}
+
+/* Style the input fields */
+form input[type="datetime-local"],
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center; /* Center text */
+}
+
+/* Style the input fields on focus */
+form input[type="datetime-local"]:focus,
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+    border-color: #00d0ff;
+}
+
+/* Center the radio button labels */
+form .lessonTypes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the submit button */
+form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6b6b6b;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555555;
+}

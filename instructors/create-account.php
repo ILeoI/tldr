@@ -11,6 +11,8 @@ requireUserType($conn, "instructor");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/menu-style.css" />
     <link rel="stylesheet" href="../style/home-page.css" />
+    <link rel="stylesheet" href="../style/MainForm.css" />
+    
     <script src="../scripts/menu.js" defer></script>
     <title>TLDR: Create An Account For Someone</title>
 </head>

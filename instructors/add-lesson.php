@@ -10,6 +10,7 @@ requireUserType($conn, "instructor");
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../style/menu-style.css" />
+	<link rel="stylesheet" href="../style/MainForm.css" />
 	<script src="../scripts/menu.js" defer></script>
 	<title>TLDR: Add A Lesson</title>
 </head>
