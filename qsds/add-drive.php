@@ -50,6 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../style/menu-style.css" />
     <link rel="stylesheet" href="../style/autofill.css" />
     <script src="../scripts/menu.js" defer></script>
+    <script src="../scripts/add-drive.js" defer></script>
     <script src="../scripts/suburbs.js" defer></script>
     <script src="../scripts/suburbs-optimised.js" defer></script>
     <script src="../scripts/autofill-suburb.js" defer></script>
@@ -94,18 +95,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
                 <li>
                     <label for="date">Date</label><br>
-                    <input type="date" name="date" required>
+                    <input type="date" name="date" id="date" required>
                 </li>
 
                 <li>
                     <div class="time">
                         <div class="left">
                             <label for="start-time">Start Time</label><br>
-                            <input type="time" name="start-time" class="autofill" required>
+                            <input type="time" name="start-time" id="start-time" required>
                         </div>
                         <div>
                             <label for="end-time">End Time</label><br>
-                            <input type="time" name="end-time" class="autofill" required>
+                            <input type="time" name="end-time" id="end-time" required>
                         </div>
                     </div>
 
@@ -115,11 +116,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="time">
                         <div class="left">
                             <label for="start-location">Start Location</label><br>
-                            <input type="text" name="start-location" class="text autofill" placeholder="Suburb" required>
+                            <input type="text" name="start-location" id="start-location" class="autofill" placeholder="Suburb" required>
                         </div>
                         <div>
                             <label for="furthest-location">Furthest Location</label><br>
-                            <input type="text" name="furthest-location" class="text autofill" placeholder="Suburb" required>
+                            <input type="text" name="furthest-location" id="furthest-location" class="autofill" placeholder="Suburb" required>
                         </div>
                     </div>
 

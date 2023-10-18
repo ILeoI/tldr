@@ -17,22 +17,14 @@ requireUserType($conn, "instructor");
 </head>
 
 <body>
-    <?php
-    require_once "instructor-menu.php";
+    <?php require_once "instructor-menu.php"; ?>
 
-    $id = $_SESSION["userID"];
-    $sql = "SELECT firstName, lastName FROM Users WHERE id = '$id';";
-    if ($result = mysqli_query($conn, $sql)) {
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            echo "<p>Welcome " . $row["firstName"] . " " . $row["lastName"] . ".</p>";
-        }
-    }
-    mysqli_free_result($result);
-    ?>
+    <br>
 
     <div class="table-container">
         <?php
+        $id = $_SESSION["userID"];
+
         $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location, bookings.lessonType, bookings.amount
         FROM bookings
         JOIN Users ON bookings.learnerID = Users.id
@@ -122,7 +114,7 @@ requireUserType($conn, "instructor");
             </div>
         </form>
     </div>
-
+    <br>
 
 </body>
 
