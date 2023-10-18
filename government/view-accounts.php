@@ -27,56 +27,58 @@ requireUserType($conn, "government");
     <?php require_once "government-menu.php"; ?>
     <br>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Accounts...">
-    </div>
+    <div class="center-container">
 
-    <div class="table-container">
+        <div class="table-container">
 
-        <br>
-        <table id="filterableTable">
-            <tr>
-                <th>Name</th>
-                <th>ID</th>
-                <th>User Type</th>
-                <th>License Number</th>
-                <th>View Account</th>
-                <th>View TLDR Info</th>
-            </tr>
-            <?php
-            // Creates a list with all users and assigns the type variable to the to their role
-            // Then displays all relevant information into the table
-            $sql = "SELECT * FROM Users;";
-            if ($result = mysqli_query($conn, $sql)) {
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        if ($row["instructor"] == 1) {
-                            $type = "instructor";
-                        } else if ($row["learner"] == 1) {
-                            $type = "student";
-                        } else if ($row["supervisor"] == 1) {
-                            $type = "qsd";
-                        } else if ($row["government"] == 1) {
-                            $type = "government";
+            <br>
+            <table id="filterableTable">
+                <caption>
+                    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Accounts...">
+                </caption>
+                <tr>
+                    <th>Name</th>
+                    <th>ID</th>
+                    <th>User Type</th>
+                    <th>License Number</th>
+                    <th>View Account</th>
+                    <th>View TLDR Info</th>
+                </tr>
+                <?php
+                // Creates a list with all users and assigns the type variable to the to their role
+                // Then displays all relevant information into the table
+                $sql = "SELECT * FROM Users WHERE government = 0;";
+                if ($result = mysqli_query($conn, $sql)) {
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            if ($row["instructor"] == 1) {
+                                $type = "instructor";
+                            } else if ($row["learner"] == 1) {
+                                $type = "student";
+                            } else if ($row["supervisor"] == 1) {
+                                $type = "qsd";
+                            } else if ($row["government"] == 1) {
+                                $type = "government";
+                            }
+                            echo "<tr><br>";
+                            echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
+                            echo "<td>" . $row["id"] . "</td>";
+                            echo "<td>" . ucfirst(($type)) . "</td>";
+                            if ($type != "government") {
+                                echo "<td>" . $row["licenseNo"] . "</td> ";
+                                echo "<td><a href=\"view-account.php?viewing=" . $row["id"] . "\">View</a></td>";
+                                echo "<td><a href=\"view-$type.php?viewing=" . $row["id"] . "\">View</a></td>";
+                            }
+                            echo "</tr><br>";
                         }
-                        echo "<tr>";
-                        echo "<td>" . $row["firstName"] . " " . $row["lastName"] . "</td>";
-                        echo "<td>" . $row["id"] . "</td>";
-                        echo "<td>" . ucfirst(($type)) . "</td>";
-                        if ($type != "government") {
-                            echo "<td>" . $row["licenseNo"] . "</td> ";
-                            echo "<td><a href=\"view-account.php?viewing=" . $row["id"] . "\">View</a></td>";
-                            echo "<td><a href=\"view-$type.php?viewing=" . $row["id"] . "\">View</a></td>";
-                        }
-                        echo "</tr>";
                     }
+                    mysqli_free_result($result);
                 }
-                mysqli_free_result($result);
-                echo "</table>";
-            }
-            mysqli_close($conn);
-            ?>
-        </table>
+                mysqli_close($conn);
+                ?>
+            </table>
+
+        </div>
 
     </div>
 </body>

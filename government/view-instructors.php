@@ -22,16 +22,15 @@ requireUserType($conn, "government");
 
     <?php require_once "government-menu.php"; ?>
 
-    <div class="search-container">
-                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Instructors...">
-            </div>
     <div class="table-container">
         <br>
             <?php
             $sql = "SELECT * FROM Users WHERE instructor = '1';";
 
             echo "<table id='filterableTable'> 
-                    <caption>Instructors:</caption>
+            <caption>
+                <input type=\"text\" id=\"searchInput\" onkeyup=\"filterTable()\" placeholder=\"Search for Accounts...\">
+            </caption>                    
                     <tr>
                         <th>Instructor ID</th>
                         <th>Instructor Name</th>

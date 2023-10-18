@@ -27,7 +27,9 @@ requireUserType($conn, "government");
 
         $sql = "SELECT * FROM Users WHERE supervisor = 1;";
         echo "<table id='filterableTable'>
-        <caption>QSD's:</caption>
+        <caption>
+            <input type=\"text\" id=\"searchInput\" onkeyup=\"filterTable()\" placeholder=\"Search for Accounts...\">
+        </caption>  
         <tr>
             <th>QSD ID</th>
             <th>QSD Name</th>
@@ -53,9 +55,7 @@ requireUserType($conn, "government");
 
         mysqli_close($conn);
         ?>
-        <div class="search-container" id="filter_bar">
-            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for QSD's...">
-        </div>
+
     </div>
 </body>
 
