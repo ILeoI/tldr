@@ -68,7 +68,7 @@ if ($result = mysqli_query($conn, $sql)) {
     <br>
     <div class="about-me hidden" id="edit">
         <br>
-        <form action="about-me.php" method="post">
+        <form action="about-me.php" method="post" id="about-me-form">
             <h2>Your Profile</h2>
             <p>Name: <b><?php echo $name ?></b>, Age: <b><?php echo $age ?></b></p>
             <p>Serviceable Area: <input type="text" name="serviceableArea" placeholder="<?php echo htmlspecialchars($serviceableArea) ?>"></p>
@@ -77,6 +77,7 @@ if ($result = mysqli_query($conn, $sql)) {
             <br>
             <label class="" id="count"></label>
             <br>
+            <!-- <button id="about-me-submit-button" class="about-me-button">Save</button> -->
             <input type="submit" id="about-me-submit-button" class="about-me-button" value="Save">
         </form>
         <br>
