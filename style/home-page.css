@@ -9,6 +9,10 @@ table {
   width: 100%;
 }
 
+.centre {
+  text-align: center;
+}
+
 td,
 th {
   border: 1px solid #dddddd;

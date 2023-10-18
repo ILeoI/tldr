@@ -19,7 +19,23 @@ requireUserType($conn, "learner");
 <body>
     <?php require_once "learner-menu.php"; ?>
 
-    <div>
+    <?php
+    $id = $_SESSION["userID"];
+    $sql = "SELECT * FROM InstructorLearners WHERE learnerID = '$id';";
+    if ($result = mysqli_query($conn, $sql)) {
+        if (mysqli_num_rows($result) > 0) {
+            $entry = mysqli_fetch_assoc($result);
+        }
+    }
+    ?>
+
+    <div <?php echo isset($entry) ? "" : "style='display: none'" ?> class="centre">
+        <?php
+        echo "<p>You already have an instructor.<br>If you wish to have another instructor, please ask them to release you or contact support.</p>";
+        ?>
+    </div>
+
+    <div <?php echo isset($entry) ? "style='display: none'" : "" ?>>
         <div class="search-container">
             <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Instructors...">
         </div>
@@ -27,6 +43,7 @@ requireUserType($conn, "learner");
             <tr>
                 <th>Instructor Name</th>
                 <th>Serviceable Area</th>
+                <th>View About Me</th>
             </tr>
             <?php
             $sql = "SELECT * FROM InstructorInfo JOIN Users ON Users.id = InstructorInfo.instructorID;";
@@ -38,9 +55,11 @@ requireUserType($conn, "learner");
                         echo "<tr>";
                         echo "<td>$name</td>";
                         echo "<td>$serviceableArea</td>";
+                        echo "<td><a href='view-instructor.php?viewing={$row["id"]}'>View</a></td>";
                         echo "</tr>";
                     }
                 }
+                mysqli_free_result($result);
             }
             ?>
         </table>
@@ -48,3 +67,5 @@ requireUserType($conn, "learner");
 </body>
 
 </html>
+
+<?php mysqli_close($conn) ?>
