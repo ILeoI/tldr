@@ -130,8 +130,9 @@ ul {
     font-size: 18px;
   }
 
-#searchInput{
-left: 500px;
+#filter_bar.search-containerR{
+padding-left: 300px;
+padding-top: 200px;
 }
 
 

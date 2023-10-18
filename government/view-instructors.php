@@ -22,16 +22,16 @@ requireUserType($conn, "government");
 <body>
 
     <?php require_once "government-menu.php"; ?>
-    <div class="table-container">
-        <br>
-        <ul>
-            <div class="search-container">
+
+    <div class="search-container">
                 <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Instructors...">
             </div>
+    <div class="table-container">
+        <br>
             <?php
             $sql = "SELECT * FROM Users WHERE instructor = '1';";
 
-            echo "<table id='filterableTable'>
+            echo "<table id='filterableTable'> 
                     <caption>Instructors:</caption>
                     <tr>
                         <th>Instructor ID</th>
@@ -51,13 +51,17 @@ requireUserType($conn, "government");
                 } else {
                     echo "<tr><td colspan='3'>No ins found.</td></tr>";
                 }
+
                 mysqli_free_result($result);
+                echo "</table>";
+                
             }
+            
 
             mysqli_close($conn);
             ?>
-        </ul>
     </div>
+
 </body>
 
 </html>

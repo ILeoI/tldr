@@ -22,14 +22,11 @@ requireUserType($conn, "government");
     <!-- Load the government menu -->
     <?php require_once "government-menu.php"; ?>
     <br>
-    <ul>
-        <div class="search-container">
-            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for QSD's...">
-        </div>
+    <div>
         <?php
 
         $sql = "SELECT * FROM Users WHERE supervisor = 1;";
-        echo "<table id='govTable'>
+        echo "<table id='filterableTable'>
         <caption>QSD's:</caption>
         <tr>
             <th>QSD ID</th>
@@ -56,7 +53,9 @@ requireUserType($conn, "government");
 
         mysqli_close($conn);
         ?>
-    </ul>
+        <div class="search-container" id="filter_bar">
+            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for QSD's...">
+        </div>
     </div>
 </body>
 
