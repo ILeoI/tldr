@@ -57,11 +57,11 @@
 
 .container {
     display: flex;
-    justify-content: space-between; /* Adjust as needed for spacing between columns */
+    justify-content: space-between; 
 }
 
 .column {
-  flex: 1; /* Each column takes up an equal amount of space */
+  flex: 1; 
   padding: 10px;
   border: 5px solid #ccc;
   border-style: inset;
