@@ -15,7 +15,6 @@ requireUserType($conn, "government");
     <script src="../scripts/menu.js" defer></script>
     <script src="../scripts/table-filter.js" defer></script>
 
-
     <title>TLDR: View Instructors</title>
 </head>
 

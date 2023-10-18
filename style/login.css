@@ -1,34 +1,72 @@
-html {
+html{
   border: solid 50px;
-  border-color: #cffcff;
+  border-color: #CFFCFF ;
   border-right: none;
   border-left: none;
-  background-image: url(../Images/gov-sa-logo.png), url(../Images/sa-logo.png),
-    url(../Images/carNB.png), url(../Images/CityScapeBackground.png);
+  background-image:url(../Images/gov-sa-logo.png), url(../Images/sa-logo.png),url(../Images/carNB.png), url(../Images/CityScapeBackground.png);
   background-size: 190px, 145px, 600px, 2000px;
   background-repeat: no-repeat;
-  background-position: top 0px right 10px, top 0px right 205px,
-    left 0px bottom 0px, left 0px bottom 0px;
+  background-position:top 0px right 10px, top 0px right 205px, left 0px bottom 0px, left 0px bottom 0px;
 }
+
 
 body {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 5px solid;
-  border-color: #69626d;
-  background-color: #cffcff;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border:5px solid ;
+    border-color: #69626D;
+    background-color: #CFFCFF;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .input-field{
+    padding: 20px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+/* Apply styles to text inputs */
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
-.input-field {
-  padding: 20px;
-  margin: 10px 0;
-  width: 100%;
-  box-sizing: border-box;
+/* Style the checkbox and its label */
+#password-toggle {
+  margin-right: 5px;
 }
+
+/* Apply styles to the submit button */
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #8b8b8c;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Change button color on hover */
+input[type="submit"]:hover {
+  background-color: #454545;
+}
+
+
+
+
+
+

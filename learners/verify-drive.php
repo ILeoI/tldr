@@ -7,7 +7,6 @@ foreach (array_keys($_POST) as $id) {
     try {
         mysqli_query($conn, $sql);
     } catch (mysqli_sql_exception) {
-        echo "no";
     }
 }
 
