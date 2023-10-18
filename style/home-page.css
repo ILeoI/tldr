@@ -167,7 +167,7 @@ padding-top: 200px;
   width: 10%;
   border: none;
   border-radius: 5px;
-  background-color: #3498db;
+  background-color: #333333;
   color: white;
   padding: 5px 0px;
   box-shadow: 4px 4px 5px 0px #888888;
@@ -181,4 +181,70 @@ padding-top: 200px;
   position: relative;
   text-align: right;
   font-size: 12px;
+}
+
+#bookingForm {
+  display: none;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Style the form labels */
+#bookingForm label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Style the input fields */
+#bookingForm input[type="datetime-local"],
+#bookingForm input[type="location"] {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style the radio buttons and labels */
+#bookingForm .lessonTypes {
+  margin-bottom: 10px;
+}
+
+#bookingForm .lessonTypes input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Style the submit button */
+#bookingForm input[type="submit"] {
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6a6a6a;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#bookingForm input[type="submit"]:hover {
+  background-color: #272727;
+}
+
+#openFormButton {
+  background-color: #00d0ff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#openFormButton:hover {
+  background-color: #005aad;
 }
