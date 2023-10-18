@@ -25,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } catch (mysqli_sql_exception) {
                 header("location: view-learners.php?feedback=0");
             }
+        } else {
+            header("location: view-learners.php?feedback=2");
         }
     }
 }

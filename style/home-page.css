@@ -120,3 +120,48 @@ ul {
   font-size: 18px;
   margin-bottom: 5px;
 }
+
+.about-me {
+  position: relative;
+  box-shadow: 0px 0px 10px #888888;
+  text-align: center;
+  border-radius: 5px;
+  width: 50%;
+  left: 25%;
+}
+
+#about-me-paragraph {
+  position: relative;
+  width: 80%;
+  left: 10%;
+}
+
+#about-me-textarea {
+  position: relative;
+  max-width: 375px;
+  width: 375px;
+  height: 160px;
+}
+
+.about-me-button {
+  position: relative;
+  text-align: center;
+  left: 40%;
+  width: 10%;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  padding: 5px 0px;
+  box-shadow: 4px 4px 5px 0px #888888;
+}
+
+.count-bad {
+  color: red;
+}
+
+#count {
+  position: relative;
+  text-align: right;
+  font-size: 12px;
+}
