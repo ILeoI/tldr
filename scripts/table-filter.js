@@ -1,12 +1,15 @@
 function filterTable() {
+	console.log("h");
 	// The Filter Input
-	let input = document.getElementById("searchInput");
 	// The Filter String
 	let filter = input.value.toUpperCase();
 	// The table to filter through
-	let table = document.getElementById("filterableTable");
+	table.appendChild(noResultsFound);
 	// All the rows of the table
 	let tr = table.getElementsByTagName("tr");
+
+	// variable to see if a result was found
+	let foundResult = false;
 
 	// Loop through all table rows
 	for (let i = 0; i < tr.length; i++) {
@@ -22,6 +25,7 @@ function filterTable() {
 				// If the indexOf is -1 it means not found 
 				if (txtValue.toUpperCase().indexOf(filter) > -1) {
 					tr[i].style.display = "";
+					foundResult = true;
 					break; // Break if a match is found
 				} else {
 					// Add "display: none"
@@ -31,7 +35,13 @@ function filterTable() {
 			}
 		}
 	}
+
+	noResultsFound.style.display = foundResult ? "none" : "";
 }
 
 const input = document.getElementById("searchInput");
 input.addEventListener("input", filterTable);
+
+const table = document.getElementById("filterableTable");
+const noResultsFound = document.createElement("tr");
+noResultsFound.innerHTML = "<td colspan='9999'>No Results Found</td>"
