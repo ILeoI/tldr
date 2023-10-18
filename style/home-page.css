@@ -256,3 +256,8 @@ padding-top: 200px;
 #openFormButton:hover {
   background-color: #005aad;
 }
+
+.percentage {
+  font-size: 40px;
+  font-weight: bold;
+}
