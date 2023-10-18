@@ -18,16 +18,16 @@ requireUserType($conn, "government");
 </head>
 
 <body>
+
     <!-- Load the government menu -->
     <?php require_once "government-menu.php"; ?>
     <br>
-    <ul>
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Students...">
-    </div>
+
+
+    <div>
         <?php
         $sql = "SELECT * FROM Users WHERE learner = 1;";
-        echo "<table id='govTable'>
+        echo "<table id='filterableTable'>
         <caption>Students:</caption>
         <tr>
             <th>Student ID</th>
@@ -44,18 +44,20 @@ requireUserType($conn, "government");
                     <td>{$row['firstName']} {$row['lastName']}</td>
                     <td><a href='view-student.php?viewing={$row["id"]}'>View</a></td>
                 </tr>";
-            }
-                    }
-                    else {
-                        echo "<tr><td colspan='3'>No Students found.</td></tr>";
-                    }
                 }
-            
-            mysqli_free_result($result);
-            mysqli_close($conn);
-            ?>
-        </ul>
+            } else {
+                echo "<tr><td colspan='3'>No Students found.</td></tr>";
+            }
+        }
+
+        mysqli_free_result($result);
+        mysqli_close($conn);
+        ?>
+        <div class="search-container" id="filter_bar">
+            <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Students...">
         </div>
-            </body>
+    </div>
+
+</body>
 
 </html>

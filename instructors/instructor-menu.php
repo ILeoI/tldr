@@ -12,6 +12,7 @@
             <a href="your-bookings.php">Lesson Bookings</a>
             <a href="view-invoices.php">View Invoices</a>
             <a href="create-account.php">Create An Account</a>
+            <a href="about-me.php">About Me</a>
             <a href="my-account.php">Account</a>
             <a href="../log-out.php">Logout</a>
         </div>

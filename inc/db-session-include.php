@@ -38,3 +38,7 @@ function checkUserType(mysqli $conn, string $type, string $id)
 
     return false;
 }
+
+function getID() {
+    return $_SESSION["userID"];
+}

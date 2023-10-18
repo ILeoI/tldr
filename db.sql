@@ -142,6 +142,9 @@ INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, 
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenseNo) 
 VALUES("instructor@tldr.com", "password", "0400000001", "Instructor", "Driver", "1999-05-12", 1, "LN0001");
 
+INSERT INTO InstructorInfo(instructorID, serviceableArea, aboutMe)
+VALUES (4, "Mitcham and Marion", "I'm passionate about teaching safe and confident driving skills to new drivers. With years of experience, I'm dedicated to helping learners master the road. Let's embark on a journey towards responsible and skilled driving together!");
+
 -- QSD
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, supervisor, licenseNo) 
 VALUES("qsd@tldr.com", "password", "0400000002", "Supervisor", "Driver", "1969-05-12", 1, "LN0003");

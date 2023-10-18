@@ -1,18 +1,16 @@
-
-html{
+html {
   z-index: 1;
-    border: solid 50px;
-    border-color:  #F7B32B;
-    border-right: none;
-    border-left: none;
+  border: solid 50px;
+  border-color: #f7b32b;
+  border-right: none;
+  border-left: none;
+}
 
-  }
+body {
+  z-index: 0;
+}
 
-  body{
-    z-index: 0;
-  }
-
-  h4{
-    z-index: 3;
-    background-color: #F7B32B;
-  }
+h4 {
+  z-index: 3;
+  background-color: #f7b32b;
+}
