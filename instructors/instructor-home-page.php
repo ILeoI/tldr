@@ -34,15 +34,6 @@ requireUserType($conn, "instructor");
     mysqli_free_result($result);
     ?>
 
-<<<<<<< HEAD
-    <div class="table-container">
-        <?php
-        // Retrieve instructor's bookings
-        $sql = "SELECT Users.firstName, Users.lastName, bookings.time, bookings.location, bookings.lessonType
-                FROM bookings
-                JOIN Users ON bookings.learnerID = Users.id
-                WHERE bookings.instructorID = '$id';";
-=======
     <!-- Instructor's bookings -->
     <div id="instructor-bookings">
         <div class="table-container">
@@ -63,7 +54,6 @@ requireUserType($conn, "instructor");
                 WHERE bookings.instructorID = '$id'
                 AND bookings.time > now() 
                 AND bookings.time < DATE_ADD(now(), INTERVAL 1 WEEK);";
->>>>>>> 154358643156dc8d1a5f2a6e9c42fc728e173e99
 
         echo "<table>
                 <tr>
