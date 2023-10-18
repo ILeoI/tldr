@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </tr>
                         <tr>
                             <td>Card Number: </td>
-                            <td>' . $cardNumber . '</td>
+                            <td>' . chunk_split($cardNumber, 4, " ") . '</td>
                         </tr>
                         <tr>
                             <td>Expiry Month: </td>
