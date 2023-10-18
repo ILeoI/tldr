@@ -15,7 +15,7 @@ requireUserType($conn, "instructor");
     <link rel="stylesheet" href="../style/collapsible.css" />
     <script src="../scripts/home.js" defer></script>
     <script src="../scripts/menu.js" defer></script>
-    <script src="../scripts/collapsible.js" defer></script>    
+    <script src="../scripts/collapsible.js" defer></script>
     <script src="../scripts/table-filter.js" defer></script>
 </head>
 
@@ -77,6 +77,7 @@ requireUserType($conn, "instructor");
         ?>
     </div>
     <br>
+    
     <button class="collapsible">Paid Invoices</button>
     <div class="content">
         <br>

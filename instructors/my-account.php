@@ -83,12 +83,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td>' . $accountNumber . ' </td>
                         </tr>
                         <tr>
+                            <td> 
+                                <button id="edit-payment-button" class="add-lesson-button">Edit Payment</button>
+                            </td>
+                        
                         <td> 
-
-                        <button id="edit-payment-button" class="add-lesson-button">Edit Payment</button> </td>
-                        <td>
-                        <a href="change-password.php">
-                        <button id ="change-password" class ="add-lesson-button"> Change Password</button> </td>
+                            <a href="change-password.php">
+                                <button id ="change-password" class ="add-lesson-button"> Change Password</button> 
+                            </a>
+                        </td>
                         
                         </tr>
                     </table>
