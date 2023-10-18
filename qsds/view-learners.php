@@ -10,6 +10,7 @@ requireUserType($conn, "supervisor");
     <meta charset="UTF-8">
     <title>TLDR: Your Learners</title>
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/your-learner.css" />
     <script src="../scripts/menu.js" defer></script>
 </head>
 
@@ -20,7 +21,7 @@ requireUserType($conn, "supervisor");
     <br>
 
     <form action="add-learner.php" method="post">
-        <label for="learner-ln-input">Add a learner here: </label>
+        <label class="special1" for="learner-ln-input">Add a learner here: </label>
         <input type="text" name="learner-ln-input" id="learner-ln-input" placeholder="License Number" required>
         <input type="submit" value="Add">
     </form>
