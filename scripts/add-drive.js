@@ -5,7 +5,7 @@ option.addEventListener("input", checkForLicense);
 
 function checkForLicense(e) {
     if (option.value == "none") {
-        option.setCustomValidity("Please select a license number");
+        option.setCustomValidity("Please select a learner driver");
         e.preventDefault();
     } else {
         option.setCustomValidity("");

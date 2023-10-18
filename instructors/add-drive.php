@@ -15,7 +15,6 @@ if ($result = mysqli_query($conn, $sql)) {
 mysqli_free_result($result);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $driveDate = $_POST["date"];
     $startTime = $_POST["start-time"];
     $endTime = $_POST["end-time"];
@@ -158,6 +157,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
 
             </ul>
+            <input type="checkbox" id="swear" required>
+            <label for="swear" style="font-size: 14px">By completing this form I acknowledge all information to be correct</label>
+            <br>
+            <br>
             <input type="submit" class="submit" value="Submit">
 
         </form>

@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="Author" content="Coby Murphy">
-    <link rel="stylesheet" href="../style/drives.css" />
+    <link rel="stylesheet" href="../style/drive-table.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
     <link rel="stylesheet" href="../style/autofill.css" />
     <script src="../scripts/menu.js" defer></script>
@@ -157,15 +157,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
 
             </ul>
+            <input type="checkbox" id="swear" required>
+            <label for="swear" style="font-size: 14px">By completing this form I acknowledge all information to be correct</label>
+            <br>
+            <br>
             <input type="submit" class="submit" value="Submit">
 
         </form>
     </div>
-
+    <br>
 </body>
 
 </html>
 
 <?php
 mysqli_close($conn);
-?>
