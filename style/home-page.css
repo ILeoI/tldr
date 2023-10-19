@@ -132,16 +132,9 @@ ul {
   margin-bottom: 5px;
 }
 
-#filterableTable{  
-    position: absolute;
-    top: 120px;
-    left: 300px;
-    font-size: 18px;
-  }
-
-#filter_bar.search-container{
-padding-left: 300px;
-padding-top: 200px;
+#filter_bar.search-container {
+  padding-left: 300px;
+  padding-top: 200px;
 }
 
 .about-me {
@@ -188,8 +181,6 @@ padding-top: 200px;
   text-align: right;
   font-size: 12px;
 }
-
-
 
 #bookingForm {
   display: none;
