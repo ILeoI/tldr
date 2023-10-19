@@ -9,6 +9,10 @@ table {
   width: 100%;
 }
 
+.centre {
+  text-align: center;
+}
+
 input#searchInput {
   padding: 8px;
   margin-left: 55px;
@@ -251,4 +255,9 @@ padding-top: 200px;
 
 #openFormButton:hover {
   background-color: #005aad;
+}
+
+.percentage {
+  font-size: 40px;
+  font-weight: bold;
 }

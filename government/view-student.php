@@ -113,7 +113,7 @@ function getCompleteDate(string $name, array $array)
     <div class="content">
         <?php
 
-        $sql = "SELECT * FROM Drives WHERE learnerLicenseNo = '{$viewingUser["licenseNo"]}';";
+        $sql = "SELECT * FROM Drives WHERE learnerLicenceNo = '{$viewingUser["licenceNo"]}';";
 
         echo "<table>
         <tr>
@@ -137,7 +137,7 @@ function getCompleteDate(string $name, array $array)
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>
-                    <td>{$row['supervisorLicenseNumber']}</td>
+                    <td>{$row['supervisorLicenceNumber']}</td>
                     <td>{$row['driveDate']}</td>
                     <td>{$row['startTime']}</td>
                     <td>{$row['endTime']}</td>
@@ -149,7 +149,7 @@ function getCompleteDate(string $name, array $array)
                     <td>{$row['conditionWeather']}</td>
                     <td>{$row['conditionTraffic']}</td>
                     <td>{$row['daytime']}</td>
-                    <td>{$row['learnerLicenseNo']}</td>
+                    <td>{$row['learnerLicenceNo']}</td>
                     <td>{$row['verified']}</td>
                 </tr>";
                 }

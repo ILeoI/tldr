@@ -21,12 +21,12 @@ requireUserType($conn, "learner");
     require_once "learner-menu.php";
 
     $id = $_SESSION["userID"];
-    $licenseNo = "";
-    $sql = "SELECT firstName, lastName, licenseNo FROM Users WHERE id = '$id';";
+    $licenceNo = "";
+    $sql = "SELECT firstName, lastName, licenceNo FROM Users WHERE id = '$id';";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
-            $licenseNo = $row["licenseNo"];
+            $licenceNo = $row["licenceNo"];
             echo "<p>Welcome " . $row["firstName"] . " " . $row["lastName"] . ".</p>";
         }
     }
@@ -35,7 +35,7 @@ requireUserType($conn, "learner");
     $all_minutes = array();
 
     // Daytime
-    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenseNo = '$licenseNo' AND daytime = '1';";
+    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenceNo = '$licenceNo' AND daytime = '1' AND verified = 1;";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -49,7 +49,7 @@ requireUserType($conn, "learner");
     mysqli_free_result($result);
 
     // Nighttime
-    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenseNo = '$licenseNo' AND daytime = '0';";
+    $sql = "SELECT sum(hour(duration)), sum(minute(duration)) FROM Drives WHERE learnerLicenceNo = '$licenceNo' AND daytime = '0' AND verified = 1;";
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -76,7 +76,7 @@ requireUserType($conn, "learner");
     mysqli_free_result($result);
 
     ?>
-    <ul style="list-style: none; padding-left: 0px">
+    <ul style="list-style: none; padding-left: 0px; max-height: 350px;">
         <li>
             <!-- Logbook Drives Total Progress -->
             <div class="progress-container">
@@ -94,7 +94,7 @@ requireUserType($conn, "learner");
                 background: 
                     radial-gradient(closest-side, white 79%, transparent 80% 100%),
                     conic-gradient(green <?php echo round(($all_minutes["total"] / 4500) * 100, 2); ?>%, #d1fff1 0);">
-                    <p><?php echo round(($all_minutes["total"] / 4500) * 100, 2); ?>%</p>
+                    <p class="percentage"><?php echo round(($all_minutes["total"] / 4500) * 100, 2); ?>%</p>
                 </div>
             </div>
         </li>
@@ -106,7 +106,7 @@ requireUserType($conn, "learner");
                 background: 
                     radial-gradient(closest-side, white 79%, transparent 80% 100%),
                     conic-gradient(#383836 <?php echo round(($all_minutes["night"] / 900) * 100, 2); ?>%, #d1fff1 0);">
-                    <p><?php echo round(($all_minutes["night"] / 900) * 100, 2); ?>%</p>
+                    <p class="percentage"><?php echo round(($all_minutes["night"] / 900) * 100, 2); ?>%</p>
                 </div>
             </div>
         </li>
@@ -118,7 +118,7 @@ requireUserType($conn, "learner");
                 background: 
                     radial-gradient(closest-side, white 79%, transparent 80% 100%),
                     conic-gradient(#e6d150 <?php echo round(($cbta / 48) * 100, 2); ?>%, #d1fff1 0);">
-                    <p><?php echo round(($cbta / 48) * 100, 2); ?>%</p>
+                    <p class="percentage"><b><?php echo round(($cbta / 48) * 100, 2); ?>%</b></p>
                 </div>
             </div>
         </li>

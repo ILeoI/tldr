@@ -31,9 +31,9 @@ requireUserType($conn, "government");
             <input type=\"text\" id=\"searchInput\" onkeyup=\"filterTable()\" placeholder=\"Search for Accounts...\">
         </caption>  
         <tr>
-            <th>QSD ID</th>
+            <th>User ID</th>
             <th>QSD Name</th>
-            <th></th>
+            <th>View</th>
           
 
         </tr>";

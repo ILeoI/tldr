@@ -40,7 +40,7 @@ requireUserType($conn, "government");
                     <th>Name</th>
                     <th>ID</th>
                     <th>User Type</th>
-                    <th>License Number</th>
+                    <th>Licence Number</th>
                     <th>View Account</th>
                     <th>View TLDR Info</th>
                 </tr>
@@ -65,7 +65,7 @@ requireUserType($conn, "government");
                             echo "<td>" . $row["id"] . "</td>";
                             echo "<td>" . ucfirst(($type)) . "</td>";
                             if ($type != "government") {
-                                echo "<td>" . $row["licenseNo"] . "</td> ";
+                                echo "<td>" . $row["licenceNo"] . "</td> ";
                                 echo "<td><a href=\"view-account.php?viewing=" . $row["id"] . "\">View</a></td>";
                                 echo "<td><a href=\"view-$type.php?viewing=" . $row["id"] . "\">View</a></td>";
                             }

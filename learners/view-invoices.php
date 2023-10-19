@@ -12,8 +12,10 @@ requireUserType($conn, "learner");
     <title>TLDR: View Invoices</title>
     <link rel="stylesheet" href="../style/home-page.css" />
     <link rel="stylesheet" href="../style/menu-style.css" />
+    <link rel="stylesheet" href="../style/collapsible.css" />
     <script src="../scripts/home.js" defer></script>
     <script src="../scripts/menu.js" defer></script>
+    <script src="../scripts/collapsible.js" defer></script>
 </head>
 
 <body>
@@ -24,8 +26,8 @@ requireUserType($conn, "learner");
 
     <div class="outstanding-invoives">
         <form action="pay-invoice.php" method="POST">
+            <h1 style="text-align: center">Outstanding Invoices</h1>
             <table>
-                <caption>Outstanding Invoices</caption>
                 <tr>
                     <th>Invoice ID</th>
                     <th>Instuctor Name</th>
@@ -45,10 +47,10 @@ requireUserType($conn, "learner");
                         InvoiceDetails.status,
                         InvoiceDetails.id,
                         InvoiceDetails.learnerID
-                    FROM InvoiceDetails
-                    JOIN Users ON InvoiceDetails.instructorID = Users.id
-                    WHERE InvoiceDetails.learnerID = '$id'
-                    AND InvoiceDetails.status = 0;";
+                        FROM InvoiceDetails
+                        JOIN Users ON InvoiceDetails.instructorID = Users.id
+                        WHERE InvoiceDetails.learnerID = '$id'
+                        AND InvoiceDetails.status = 0;";
                 if ($result = mysqli_query($conn, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -59,7 +61,7 @@ requireUserType($conn, "learner");
                                 <td>{$row['time']}</td>
                                 <td>{$row['location']}</td>
                                 <td>{$row['lessonType']}</td>
-                                <td>{$row['amount']}</td>
+                                <td>$". number_format($row['amount'], 2) ."</td>
                                 <td><input type='checkbox' name='{$row['id']}'></td>
                             </tr>";
                         }
@@ -76,10 +78,12 @@ requireUserType($conn, "learner");
             </div>
         </form>
     </div>
-
-    <div class="paid-invoives">
+    <br>
+    <button class="collapsible">View Paid Invoices</button>
+    <div class="paid-invoives content">
+        <br>
+        <h1 style="text-align: center">Paid Invoices</h1>
         <table>
-            <caption>Paid Invoices</caption>
             <tr>
                 <th>Invoice ID</th>
                 <th>Instuctor Name</th>

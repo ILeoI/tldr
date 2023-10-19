@@ -13,54 +13,64 @@ if ($result = mysqli_query($conn, $sql)) {
 }
 ?>
 
+<div></div>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/signup.css" />
+    <script src="scripts/sign-up.js" defer></script>
     <title>TLDR: Complete Account</title>
 </head>
 
 <body>
-    <h1>Complete Account</h1>
+    <h1 class="page-title" id="signup-page-header">Complete Account</h1>
     <form action="complete-account.php" method="POST">
-        <div class="input-field">
-            <label for="password">Password</label> <br>
-            <input type="password" placeholder="Password" id="password" name="password" minlength="8" required> <br>
-        </div>
-        <div class="input-field">
-            <label for="confirm-password">Confirm Password</label> <br>
-            <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8" required> <br>
-        </div>
-        <div class="input-field">
-            <label for="first-name">First Name</label>
-            <br>
-            <input type="text" id="first-name" name="first-name" required placeholder="First Name">
-        </div>
-        <div class="input-field">
-            <label for="last-name">Last Name</label>
-            <br>
-            <input type="text" id="last-name" name="last-name" required placeholder="Last Name">
-        </div>
-        <div class="input-field">
-            <label for="dob">Date of birth</label>
-            <br>
-            <input type="date" id="dob" name="dob" required>
-        </div>
-        <div class="input-field">
-            <label for="phone-number">Phone Number</label>
-            <br>
-            <input type="text" id="phone-number" name="phone-number" minlength="10" required placeholder="Phone Number">
-        </div>
+        <div class="input-fields">
+            <table>
+                <tr>
+                    <td>
+                        <label for="password">Password</label> <br>
+                        <input type="password" class="sign-up-input" placeholder="Password" id="password" name="password" minlength="8" required> <br>
+                    </td>
+                    <td>
+                        <label for="confirm-password">Confirm Password</label> <br>
+                        <input type="password" class="sign-up-input" placeholder="Confirm Password" id="confirm-password" name="confirm-password" minlength="8" required> <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="first-name">First Name</label> <br>
+                        <input type="text" class="sign-up-input" id="first-name" name="first-name" required placeholder="First Name"> <br>
+                    </td>
+                    <td>
+                        <label for="last-name">Last Name</label> <br>
+                        <input type="text" class="sign-up-input" id="last-name" name="last-name" required placeholder="Last Name"> <br>
 
-        <div class="input-field">
-            <label for="license-number">License Number</label>
-            <br>
-            <input type="text" id="license-number" name="license-number" required placeholder="License Number">
-        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="dob">Date of birth</label> <br>
+                        <input type="date" class="sign-up-input" id="dob" name="dob" required> <br>
 
-        <input type="submit">
+                    </td>
+                    <td>
+                        <label for="licence-number">Licence Number</label> <br>
+                        <input type="text" class="sign-up-input" id="licence-number" name="licence-number" required placeholder="Licence Number"> <br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="submit-div">
+            <input type="checkbox" onclick="togglePassword()" id="password-toggle" name="password-toggle">
+            <label for="password-toggle">Show Password</label>
+
+            <input type="submit" class="sign-up-submit" value="Sign Up">
+        </div>
     </form>
 </body>
 
@@ -75,14 +85,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastName = filter_input(INPUT_POST, "last-name", FILTER_SANITIZE_SPECIAL_CHARS);
     $dob = $_POST["dob"];
     $phoneNumber = filter_input(INPUT_POST, "phone-number", FILTER_SANITIZE_SPECIAL_CHARS);
-    $licenseNumber = filter_input(INPUT_POST, "license-number", FILTER_SANITIZE_SPECIAL_CHARS);
+    $licenceNumber = filter_input(INPUT_POST, "licence-number", FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $sql = "UPDATE User SET password = '$hashedPassword', firstName ='$firstName', lastName = '$lastName', dob = '$dob', phoneNumber = '$phoneNumber', licenseNo = '$licenseNumber', hasTempPassword='0' WHERE id = {$_SESSION["userID"]}";
+    $sql = "UPDATE Users 
+            SET password = '$hashedPassword', 
+            firstName ='$firstName', 
+            lastName = '$lastName', 
+            dob = '$dob', 
+            phoneNumber = '$phoneNumber', 
+            licenceNo = '$licenceNumber', 
+            hasTempPassword='0' 
+            WHERE id = {$_SESSION["userID"]}";
+
+    echo $sql;
 
     try {
         mysqli_query($conn, $sql);
         header("location: home-page.php");
-    } catch (mysqli_sql_exception) {
+    } catch (mysqli_sql_exception $e) {
+        header("location: home-page.php");
     }
 }
 

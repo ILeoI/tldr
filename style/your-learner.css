@@ -43,6 +43,8 @@ table {
     list-style: none;
     padding: 0;
     text-align: center;
+    position: relative;
+    left: 35%
 }
 
 tr {

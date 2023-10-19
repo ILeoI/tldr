@@ -63,8 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td>' . $user['phoneNumber'] . '</td>
                         </tr>
                         <tr>
-                            <td>License Number: </td>
-                            <td>' . $user['licenseNo'] . '</td>
+                            <td>Licence Number: </td>
+                            <td>' . $user['licenceNo'] . '</td>
                         </tr>
                         <tr>
                             <td>First Name: </td>

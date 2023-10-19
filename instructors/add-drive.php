@@ -4,11 +4,11 @@ requireUserType($conn, "instructor");
 
 $supervisingDriverID = "";
 
-$sql = "SELECT licenseNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
+$sql = "SELECT licenceNo FROM Users WHERE id = '" . $_SESSION["userID"] . "';";
 if ($result = mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        $supervisorLicenseNo = $row["licenseNo"];
+        $supervisorLicenceNo = $row["licenceNo"];
     }
 }
 
@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conditionWeather = $_POST["weather"];
     $conditionTraffic = $_POST["traffic-density"];
     $daytime = $_POST["time"];
-    $learnerLicenseNo = $_POST["permit-number"];;
+    $learnerLicenceNo = $_POST["permit-number"];;
     $verified = 0;
 
-    $sql = "INSERT INTO Drives(supervisorLicenseNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenseNo) 
-            VALUES('$supervisorLicenseNo', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$roadType', '$roadCapacity', '$conditionWeather', '$conditionTraffic', '$daytime', '$learnerLicenseNo');";
+    $sql = "INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo) 
+            VALUES('$supervisorLicenceNo', '$driveDate', '$startTime', '$endTime', '$fromLoc', '$toLoc', '$roadType', '$roadCapacity', '$conditionWeather', '$conditionTraffic', '$daytime', '$learnerLicenceNo');";
 
     try {
         mysqli_query($conn, $sql);
@@ -78,13 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li>
                     <label for="permit-number">Learner Permit</label><br>
                     <?php
-                    $sql = "SELECT Users.licenseNo, Users.firstName, Users.lastName FROM Users JOIN InstructorLearners ON Users.id = InstructorLearners.learnerID;";
+                    $sql = "SELECT Users.licenceNo, Users.firstName, Users.lastName FROM Users JOIN InstructorLearners ON Users.id = InstructorLearners.learnerID;";
                     if ($result = mysqli_query($conn, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
                             echo "<select name='permit-number' id='permit-number' required>";
                             echo "<option value='none' disabled selected>...</option>";
                             while ($row = mysqli_fetch_assoc($result)) {
-                                echo "<option value='{$row["licenseNo"]}'>{$row["firstName"]} {$row["lastName"]} - {$row["licenseNo"]}</option>";
+                                echo "<option value='{$row["licenceNo"]}'>{$row["firstName"]} {$row["lastName"]} - {$row["licenceNo"]}</option>";
                             }
                             echo "</select>";
                         } else {

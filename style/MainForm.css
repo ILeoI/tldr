@@ -48,6 +48,22 @@ form .lessonTypes {
     align-items: center;
 }
 
+form .inline-label {
+    margin: 5px
+}
+
+form .radio-option {
+    position: relative;
+    height: 20%;
+    right: 10%;
+    width: 120%;
+    display: flex;
+    background-color: white;
+    border: 1px solid #6b6b6b;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 /* Style the submit button */
 form input[type="submit"] {
     width: 100%;

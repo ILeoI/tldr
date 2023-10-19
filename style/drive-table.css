@@ -161,3 +161,18 @@ td {
   text-align: left;
   vertical-align: top;
 }
+
+.reject {
+  position: relative;
+  top: 10px;
+  color: white;
+  background-color: #20b14b;
+  text-decoration: none;
+  padding: 6px 9px;
+  border-radius: 5px;
+}
+
+.reject:visited {
+  color: #8cff00;
+}
+

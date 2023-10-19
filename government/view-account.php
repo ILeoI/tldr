@@ -94,7 +94,7 @@ if ($type == "learner" || $type == "instructor") {
                     "Name" => 'name',
                     "Date Of Birth" => 'dob',
                     "Phone Number" => 'phoneNumber',
-                    "License Number" => 'licenseNo'
+                    "Licence Number" => 'licenceNo'
                 ];
 
                 foreach ($keys as $key => $value) {
@@ -128,7 +128,7 @@ if ($type == "learner" || $type == "instructor") {
                         "Last Name" => 'lastName',
                         "Date Of Birth" => 'dob',
                         "Phone Number" => 'phoneNumber',
-                        "License Number" => 'licenseNo'
+                        "Licence Number" => 'licenceNo'
                     ];
 
                     foreach ($keys as $key => $value) {
