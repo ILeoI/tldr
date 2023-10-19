@@ -127,54 +127,56 @@ GRANT all privileges on tldr.InstructorInfo to dbadmin@localhost;
 
 -- Students
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenceNo) 
-VALUES("student@tldr.com", "password", "0400000000", "Student", "Driver", "2023-06-15", 1, "LN0000");
+VALUES("jonathon.stanley@tldr.com", "password", "0400000000", "Jonathon", "Stanley", "2023-06-15", 1, "LN0000");
 INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(1, 1111222233334444, 10, 26, 012);
 
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenceNo) 
-VALUES("student2@tldr.com", "password", "0400000004", "Student2", "Driver2", "2013-09-12", 1, "LN0005");
+VALUES("mark.wood@tldr.com", "password", "0400000004", "Mark", "Wood", "2013-09-12", 1, "LN0001");
 INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(2, 9999000011112222, 10, 26, 012);
-
-INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenceNo) 
-VALUES("student3@tldr.com", "password", "0400000005", "Student3", "Driver3", "2014-08-17", 1, "LN0006");
-INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(3, 5555666677778888, 10, 26, 012);
 
 -- Instructor
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenceNo) 
-VALUES("instructor@tldr.com", "password", "0400000001", "Instructor", "Driver", "1999-05-12", 1, "LN0001");
+VALUES("betty.petrikov@tldr.com", "password", "0400000001", "Betty", "Petrikov", "1999-05-12", 1, "LN0003");
 
 INSERT INTO InstructorInfo(instructorID, serviceableArea, aboutMe)
 VALUES (4, "Mitcham and Marion", "I'm passionate about teaching safe and confident driving skills to new drivers. With years of experience, I'm dedicated to helping learners master the road. Let's embark on a journey towards responsible and skilled driving together!");
 
+INSERT INTO PaymentDetails(userID, bsb, accountNumber) VALUES (4, 123456, 87654321);
+
 -- QSD
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, supervisor, licenceNo) 
-VALUES("qsd@tldr.com", "password", "0400000002", "Supervisor", "Driver", "1969-05-12", 1, "LN0003");
+VALUES("marhsall.lee@tldr.com", "password", "0400000002", "Marshall", "Lee", "1969-05-12", 1, "LN0004");
 
 -- Government
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, government, licenceNo) 
-VALUES("government@tldr.com", "password", "0400000003", "Government", "Driver", "1969-05-12", 1, "LN0004");
+VALUES("government@tldr.com", "password", "0400000003", "Government", "Driver", "1969-05-12", 1, "LN0005");
 
 
 INSERT INTO InstructorLearners(instructorID, learnerID) VALUES(4, 1);
 INSERT INTO SupervisorLearners(supervisorID, learnerID) VALUES(5, 1);
 
-INSERT INTO PaymentDetails(userID, bsb, accountNumber) VALUES (4, 123456, 87654321);
 
-INSERT INTO Bookings(instructorID, learnerID, time, location, lessonType) VALUES(4, 1, "2023-10-01 12:40:00", "1 Name Street, Suburb", "CBTA");
-INSERT INTO Bookings(instructorID, learnerID, time, location, lessonType) VALUES(4, 1, "2023-10-08 12:40:00", "1 Name Street, Suburb", "Practice Lesson");
-INSERT INTO Bookings(instructorID, learnerID, time, location, lessonType) VALUES(4, 1, "2023-10-15 12:40:00", "1 Name Street, Suburb", "CBTA");
+INSERT INTO Bookings(instructorID, learnerID, time, location, lessonType) VALUES(4, 1, "2023-10-01 12:40:00", "1 Flinders Lane, Bedford Park", "CBTA");
+INSERT INTO Bookings(instructorID, learnerID, time, location, lessonType) VALUES(4, 1, "2023-10-08 12:40:00", "1 Flinders Lane, Bedford Park", "Practice Lesson");
+INSERT INTO Bookings(instructorID, learnerID, time, location, lessonType) VALUES(4, 1, "2023-10-15 12:40:00", "1 Flinders Lane, Bedford Park", "CBTA");
 
-INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, amount, status) VALUES(4, 1, "2023-10-01 12:40:00", "1 Name Street, Suburb", "CBTA", 75, 0);
-INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, amount, status) VALUES(4, 1, "2023-10-08 12:40:00", "1 Name Street, Suburb", "Practice Lesson", 50, 0);
-INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, amount, status) VALUES(4, 1, "2023-10-15 12:40:00", "1 Name Street, Suburb", "CBTA", 50, 0);
+INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, amount, status) VALUES(4, 1, "2023-10-01 12:40:00", "1 Flinders Lane, Bedford Park", "CBTA", 75, 0);
+INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, amount, status) VALUES(4, 1, "2023-10-08 12:40:00", "1 Flinders Lane, Bedford Park", "Practice Lesson", 50, 0);
+INSERT INTO InvoiceDetails(instructorID, learnerID, time, location, lessonType, amount, status) VALUES(4, 1, "2023-10-15 12:40:00", "1 Flinders Lane, Bedford Park", "CBTA", 50, 0);
 
 
 -- Insert Drives for students
 INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
-VALUES("LN0003",  "2023-09-21", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "Light", 1, "LN0000");
+VALUES("LN0003",  "2023-09-21", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "Heavy", 1, "LN0000");
 
 INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
-VALUES("LN0003",  "2023-09-22", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "Light", 1, "LN0000");
+VALUES("LN0003",  "2023-09-21", "14:40", "16:40", "Tonsley", "Port Noarlunga", "Sealed", "Busy Road", "Dry", "Light", 1, "LN0000");
 
 INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
-VALUES("LN0003",  "2023-09-23", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "Light", 1, "LN0000");
-    
+VALUES("LN0003",  "2023-09-28", "12:30", "14:30", "Port Noarlunga", "Tonsley", "Sealed", "Busy Road", "Dry", "Medium", 1, "LN0000");
+
+INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
+VALUES("LN0003",  "2023-09-28", "14:40", "16:40", "Tonsley", "Port Noarlunga", "Sealed", "Busy Road", "Dry", "Light", 1, "LN0000");
+
+INSERT INTO Drives(supervisorLicenceNumber, driveDate, startTime, endTime, fromLoc, toLoc, conditionRoadType, conditionRoadCapacity, conditionWeather, conditionTraffic, daytime, learnerLicenceNo)
+VALUES("LN0003",  "2023-10-30", "12:30", "14:30", "Port Noarlunga", "Victor Harbor", "Sealed", "Busy Road", "Wet", "Medium", 1, "LN0000");

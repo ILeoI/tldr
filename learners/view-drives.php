@@ -22,8 +22,6 @@ requireUserType($conn, "learner");
 
 
     <div class="center" id="container">
-
-
         <?php
 
         $licenceNo = "";
