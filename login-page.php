@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($row["hasTempPassword"] == "1") {
             $_SESSION["userID"] = $row["id"];
             header("location: complete-account.php");
-        } else if (password_verify($password, $row["password"]) || 1) {
+        } else if (password_verify($password, $row["password"])) {
             $_SESSION["userID"] = $row["id"];
             header("location: home-page.php");
         } else {
