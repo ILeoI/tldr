@@ -59,13 +59,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="change-password-form">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label for="currentPassword">Current Password:</label>
-            <input type="password" id="currentPassword" name="currentPassword" required><br><br>
+            <input type="text" id="currentPassword" name="currentPassword" required><br><br>
 
             <label for="newPassword">New Password:</label>
-            <input type="password" id="newPassword" name="newPassword" required><br><br>
+            <input type="text" id="newPassword" name="newPassword" required><br><br>
 
             <label for="confirmPassword">Confirm New Password:</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+            <input type="text" id="confirmPassword" name="confirmPassword" required><br><br>
 
             <input type="submit" value="Change Password">
         </form>

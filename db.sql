@@ -127,16 +127,16 @@ GRANT all privileges on tldr.InstructorInfo to dbadmin@localhost;
 
 -- Students
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenceNo) 
-VALUES("jonathon.stanley@tldr.com", "password", "0400000000", "Jonathon", "Stanley", "2023-06-15", 1, "LN0000");
+VALUES("jonathon.stanley@tldr.com", "$2y$10$PfnNmLTta6Gj6YmjamiLqOnIKUYMFedta73W1/xXg/Wk2K2t05Sny", "0400000000", "Jonathon", "Stanley", "2023-06-15", 1, "LN0000");
 INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(1, 1111222233334444, 10, 26, 012);
 
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, learner, licenceNo) 
-VALUES("mark.wood@tldr.com", "password", "0400000004", "Mark", "Wood", "2013-09-12", 1, "LN0001");
+VALUES("mark.wood@tldr.com", "$2y$10$2Go/wO0yzCIvCwP3FPM2r.vkVpkn6BE9B0JbnVRYlQ4iHtX.AE4rq", "0400000004", "Mark", "Wood", "2013-09-12", 1, "LN0001");
 INSERT INTO PaymentDetails(userID, cardNumber, cardExpiryMonth, cardExpiryYear, cardCVV) VALUES(2, 9999000011112222, 10, 26, 012);
 
 -- Instructor
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, instructor, licenceNo) 
-VALUES("betty.petrikov@tldr.com", "password", "0400000001", "Betty", "Petrikov", "1999-05-12", 1, "LN0003");
+VALUES("betty.petrikov@tldr.com", "$2y$10$vC6dAP.AA1RkD2bODx9.Iuz94Ir6jZO2xbaoJ.mQTUnmaP3dyqiXi", "0400000001", "Betty", "Petrikov", "1999-05-12", 1, "LN0003");
 
 INSERT INTO InstructorInfo(instructorID, serviceableArea, aboutMe)
 VALUES (4, "Mitcham and Marion", "I'm passionate about teaching safe and confident driving skills to new drivers. With years of experience, I'm dedicated to helping learners master the road. Let's embark on a journey towards responsible and skilled driving together!");
@@ -145,11 +145,11 @@ INSERT INTO PaymentDetails(userID, bsb, accountNumber) VALUES (4, 123456, 876543
 
 -- QSD
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, supervisor, licenceNo) 
-VALUES("marhsall.lee@tldr.com", "password", "0400000002", "Marshall", "Lee", "1969-05-12", 1, "LN0004");
+VALUES("marhsall.lee@tldr.com", "$2y$10$R6SsEv9QBv5IeBZ77aRtEOFiITtEpg2GXt1xlx5Ta6TqgznE4lFQu", "0400000002", "Marshall", "Lee", "1969-05-12", 1, "LN0004");
 
 -- Government
 INSERT INTO Users(email, password, phoneNumber, firstName, lastName, dob, government, licenceNo) 
-VALUES("government@tldr.com", "password", "0400000003", "Government", "Driver", "1969-05-12", 1, "LN0005");
+VALUES("government@tldr.com", "$2y$10$fCA0vMnnwCKt8.wmZQAQ8e1c0mZ8sadLk/QWa4KAcjcr/WS8gB5Iy", "0400000003", "Government", "Driver", "1969-05-12", 1, "LN0005");
 
 
 INSERT INTO InstructorLearners(instructorID, learnerID) VALUES(4, 1);
