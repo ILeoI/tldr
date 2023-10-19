@@ -24,11 +24,6 @@ requireUserType($conn, "government");
     $id = $_SESSION["userID"];
     ?>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for invoices...">
-    </div>
-
-
     <div class="table-container">
         <?php
         $sql = "SELECT invoicedetails.*, 
@@ -43,7 +38,9 @@ requireUserType($conn, "government");
 
 
         echo "<table id='filterableTable'>
-            <caption>Total Invoices</caption>
+            <caption>
+              <input type=\"text\" id=\"searchInput\" onkeyup=\"filterTable()\" placeholder=\"Search for Accounts...\">
+            </caption> 
             <tr>
                 <th>Invoice ID</th>
                 <th>Instructor Name</th>
